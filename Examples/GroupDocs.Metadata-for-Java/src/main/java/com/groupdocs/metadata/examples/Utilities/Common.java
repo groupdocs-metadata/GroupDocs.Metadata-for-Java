@@ -16,7 +16,7 @@ public class Common {
     public static String publicKey = "Public key for your account";
     public static String privateKey = "Private key for your account";
 
-    // Applies product license
+    // applies product license
     public static void applyLicenseFromFile() {
         try {
             // Setup license
@@ -27,7 +27,7 @@ public class Common {
             exp.printStackTrace();
         }
     }
-    //Returns project base directory
+    // returns project base directory
     public static Path getProjectBaseDir() {
         Properties props = new Properties();
         try {
@@ -38,7 +38,7 @@ public class Common {
         }
         return FileSystems.getDefault().getPath(props.getProperty("project.basedir"));
     }
-    //Returns source file path
+    // returns source file path
     public static String mapSourceFilePath(String inputFileName) {
         try {
             return storagePath + inputFileName;
@@ -47,7 +47,7 @@ public class Common {
             return  e.getMessage();
         }
     }
-    //Returns output file path
+    // returns output file path
     public static String mapDestinationFilePath(String outputFileName) {
         try {
             return outputPath + outputFileName;
@@ -83,7 +83,7 @@ public class Common {
             e.printStackTrace();
         }
     }
-    // Gets directory name and recognizes format of files in that directory
+    // gets directory name and recognizes format of files in that directory
     public static void getFileFormats(String directorPath) {
         try
         {
