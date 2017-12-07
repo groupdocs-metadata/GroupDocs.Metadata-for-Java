@@ -14,7 +14,7 @@ public class Common {
     public static final Path outputPath = getProjectBaseDir().resolve("Data/Destination");
     public static String licensePath = "D:\\GroupDocs.Metadata.for.Java.lic";
     public static String publicKey = "Public key for your account";
-    public static String privateKey = "private key for your account";
+    public static String privateKey = "Private key for your account";
 
     // Applies product license
     public static void applyLicenseFromFile() {
@@ -27,7 +27,7 @@ public class Common {
             exp.printStackTrace();
         }
     }
-    //Returns project Base Directory
+    //Returns project base directory
     public static Path getProjectBaseDir() {
         Properties props = new Properties();
         try {
@@ -38,7 +38,7 @@ public class Common {
         }
         return FileSystems.getDefault().getPath(props.getProperty("project.basedir"));
     }
-    //Returns source File Path
+    //Returns source file path
     public static String mapSourceFilePath(String inputFileName) {
         try {
             return storagePath + inputFileName;
@@ -47,7 +47,7 @@ public class Common {
             return  e.getMessage();
         }
     }
-    //Returns Output File Path
+    //Returns output file path
     public static String mapDestinationFilePath(String outputFileName) {
         try {
             return outputPath + outputFileName;
@@ -70,7 +70,7 @@ public class Common {
 
         // do some work:
 
-        // Open Word document
+        // open Word document
         DocFormat docFormat = new DocFormat(mapSourceFilePath("Documents/Doc/sample.doc"));
 
         // remove hidden metadata
