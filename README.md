@@ -3,7 +3,7 @@
 
 This package contains [Examples](https://github.com/groupdocs-metadata/GroupDocs.Metadata-for-Java/tree/master/Examples) for [GroupDocs.Metadata for Java](https://products.groupdocs.com/metadata/java) that will help you in understanding the API's working and writing your own applications.
 
-GroupDocs.Metadata for Java provides easy ways to manage metadata in various formats. It enables user to read, write, update and remove the metadata of a wide range of file formats including documents, images, emails, archives and many more. It also provides the fucntionality to search and compare metadata in document files.
+GroupDocs.Metadata for Java provides easy ways to manage metadata in various formats. It enables you to read, write, update and remove the metadata of a wide range of file formats including documents, images, emails, archives and many more. It also provides the fucntionality to search and compare metadata in document files.
 
 <p align="center">
 
