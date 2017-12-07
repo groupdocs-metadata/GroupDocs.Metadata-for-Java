@@ -25,6 +25,6 @@ You may find following resources helpful:
 
 Follow below steps if you have product license
 
-1. Open CommonUtilities.java.
-2. Set "licensePath" variable to your license path.
-3. Call applyLicense method from MainClass
+1. Open CommonUtilities.java
+2. Set "licensePath" variable to your license path
+3. Call applyLicense method from MainClass.java
