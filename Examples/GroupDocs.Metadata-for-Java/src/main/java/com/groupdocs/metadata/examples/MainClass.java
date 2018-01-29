@@ -494,5 +494,14 @@ public class MainClass {
 		// Read Header information in AVI format
 		// VideoFormats.Avi.readAviMainHeader();
 
+		//Detects EPUB file format
+		//Documents.EPUB.detectEPUBFormat();
+
+		//Read EPUB file format metadata
+		//Documents.EPUB.readEPUBFormatMetadata();
+
+		//Read Dublin Core Metadata
+		//Documents.EPUB.readDublinCoreMetadata();
+
 	}
 }

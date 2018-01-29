@@ -3,7 +3,7 @@ package com.groupdocs.metadata.examples;
 import com.groupdocs.metadata.*;
 import com.groupdocs.metadata.examples.Utilities.Common;
 import org.apache.commons.io.FileUtils;
-import sun.misc.IOUtils;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -933,24 +933,67 @@ public class Documents {
 		}
 	}
 
-	public static class ODS {
-		private static String path = "\\Documents\\ods\\sample.ods";
 
-		public static void readOdsMetadata() {
-			// initialize XlsFormat
-			XlsFormat xlsFormat = new XlsFormat(Common.mapSourceFilePath(path));
+	public static class EPUB {
+		private static String path = "\\Documents\\Epub\\sample.epub";
+		public static void detectEPUBFormat() {
+			// init FileFormatChecker
+			FileFormatChecker formatChecker = new FileFormatChecker(Common.mapSourceFilePath(path));
 
-			// get document properties
-			XlsMetadata properties = xlsFormat.getDocumentProperties();
+			// validate format
+			boolean isEpub = formatChecker.verifyFormat(DocumentType.Epub);
 
-			// get author
-			System.out.printf("Author: %s", properties.getAuthor());
+			// and print appropriate message if success
+			if(isEpub)
+			{
+				System.out.println("Is EPUB");
+			}
 
-			// get company
-			System.out.printf("company: %s", properties.getCompany());
+		}
+		public static void readEPUBFormatMetadata() {
 
-			// get created date of the document
-			System.out.printf("Created Time: %s", properties.getCreatedTime());
+			// open EPUB file
+			EpubFormat epub = new EpubFormat(Common.mapSourceFilePath(path));
+
+			// read EPUB metadata
+			EpubMetadata metadata = epub.getEpubMetadata();
+
+			// get keys
+			String[] keys = metadata.getKeys();
+
+			for(String key: keys)
+			{
+				// get next metadata property
+				MetadataProperty property = metadata.readByStringKey(key);
+
+				// and print it
+				System.out.println(property);
+			}
+		}
+		public static void readDublinCoreMetadata() {
+			// open EPUB file
+			EpubFormat epub = new EpubFormat(Common.mapSourceFilePath(path));
+
+			// read DublinCore metadata
+			DublinCoreMetadata dublinCore = epub.getDublinCore();
+
+			// get dc title
+			System.out.printf("Title = %s\n", dublinCore.getTitle());
+
+			// get creator
+			System.out.printf("Creator = %s\n", dublinCore.getCreator());
+
+			// get dc publisher
+			System.out.printf("Publisher = %s\n", dublinCore.getPublisher());
+
+			// get dc description
+			System.out.printf("Description = %s\n", dublinCore.getDescription());
+
+			// get language
+			System.out.printf("Language = %s\n", dublinCore.getLanguage());
+
+			// get format
+			System.out.printf("Format = %s\n", dublinCore.getFormat());
 		}
 	}
 }

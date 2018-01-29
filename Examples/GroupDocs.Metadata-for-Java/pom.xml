@@ -43,7 +43,7 @@
 	  <dependency>
             <groupId>com.groupdocs</groupId>
             <artifactId>groupdocs-metadata</artifactId>
-            <version>17.12</version>
+            <version>18.1</version>
        </dependency>
     </dependencies>
     <build>
