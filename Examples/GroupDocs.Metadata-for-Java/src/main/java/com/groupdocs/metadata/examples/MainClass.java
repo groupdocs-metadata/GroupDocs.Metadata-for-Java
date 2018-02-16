@@ -6,7 +6,7 @@ public class MainClass {
 	public static void main(String[] args) throws Throwable {
 		
 		// Uncomment following code if you have license file
-		// Common.applyLicenseFromFile();
+        //Common.applyLicenseFromFile();
 
 		// Using metered license
 		// Common.useDynabicMeteredAccount();
@@ -289,8 +289,12 @@ public class MainClass {
 		// Read Image Resource Blocks
 		// Images.Jpeg.readImageResourceBlocks();
 
+
 		// Read Sony maker notes
 		// Images.Jpeg.readSonyMakerNotes();
+
+        //The method loads and save EXIF metadata with better speed
+        //Images.Jpeg.getEXIFMetadataWithBetterSpeed();
 
 		// Working with Png
 		// Get XMP properties of Png image
@@ -483,6 +487,24 @@ public class MainClass {
 		// Read APEV2 tag in MP3 files
 		// AudioFormats.Mp3.readApev2Tag();
 
+        //Validate ID3 input metadata before saviing
+        //AudioFormats.Mp3.validateID3Metadata();
+
+        //Read additional properties from ID3v2 tag
+        //AudioFormats.Mp3.readAdditionalID3v2Properties();
+
+        //Update ID3v2 tag using properties
+        //AudioFormats.Mp3.updateID3v2TagUsingProperties();
+
+        //Update ID3v1 tag using properties
+        //AudioFormats.Mp3.updateID3v1TagUsingProperties();
+
+        //Ability to read Image cover from ID3 audio tag
+        //AudioFormats.Mp3.readImageCoverID3();
+
+        //Update or Remove image cover from ID3 audio tag
+        //AudioFormats.Mp3.updateOrRemoveImageCoverID3();
+
 		// Working with WAV Files
 		// Detect WAV format
 		// AudioFormats.Wav.detectWavFormat();
@@ -502,6 +524,12 @@ public class MainClass {
 
 		//Read Dublin Core Metadata
 		//Documents.EPUB.readDublinCoreMetadata();
+
+		//Read Image covr from EPUB Format
+		//Documents.EPUB.readImageCover();
+
+		//Read version of EPUB Package
+		//Documents.EPUB.readEPUBPackageVersion();
 
 	}
 }

@@ -860,7 +860,45 @@ public class Images {
 			// and commit changes
 			jpegFormat.save(Common.mapDestinationFilePath(outputPath));
 		}
-	}
+
+        public static void getEXIFMetadataWithBetterSpeed() {
+			try{
+				// initialize JpegFormat
+				JpegFormat jpegFormat = new JpegFormat(Common.mapSourceFilePath(path));
+
+				// get EXIF data
+				JpegExifInfo exif = (JpegExifInfo)jpegFormat.getExifInfo();
+
+				if (exif == null)
+				{
+					// initialize EXIF data if null
+					exif = new JpegExifInfo();
+				}
+
+				// set artist
+				exif.setArtist("test artist");
+
+				// set the name of the camera's owner
+				exif.setCameraOwnerName("camera owner's name");
+
+				// set description
+				exif.setImageDescription("test description");
+
+				// update EXIF data
+				jpegFormat.setExifInfo(exif);
+
+				// commit changes
+				jpegFormat.save(Common.mapDestinationFilePath(outputPath));
+
+				// and close the file
+				jpegFormat.dispose();
+
+
+			}catch (Exception ex){
+				System.out.println(ex.getMessage());
+			}
+        }
+    }
 
 	public static class Png {
 		private static String path = "\\Images\\Png\\sample.png";

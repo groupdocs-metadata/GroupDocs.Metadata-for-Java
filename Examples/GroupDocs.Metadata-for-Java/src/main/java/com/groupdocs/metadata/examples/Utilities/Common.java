@@ -12,7 +12,7 @@ public class Common {
 
     public static final Path storagePath = getProjectBaseDir().resolve("Data/Source");
     public static final Path outputPath = getProjectBaseDir().resolve("Data/Destination");
-    public static String licensePath = "D:\\GroupDocs.Metadata.for.Java.lic";
+    public static String licensePath = "D:\\GroupDocs.Total.Java.lic";
     public static String publicKey = "Public key for your account";
     public static String privateKey = "Private key for your account";
 

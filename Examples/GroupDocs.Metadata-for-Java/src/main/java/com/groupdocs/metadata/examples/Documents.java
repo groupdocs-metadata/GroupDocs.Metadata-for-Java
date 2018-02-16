@@ -16,7 +16,7 @@ public class Documents {
 
 		public static void getDocumentProperties() {
 			// initialize DocFormat
-			DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path));
+			DocFormat docFormat = new DocFormat("D:\\Documents\\sample.doc");
 			// get document properties
 			DocMetadata properties = docFormat.getDocumentProperties();
 			// get author
@@ -995,5 +995,35 @@ public class Documents {
 			// get format
 			System.out.printf("Format = %s\n", dublinCore.getFormat());
 		}
-	}
+
+        public static void readImageCover() {
+			try {
+				// open EPUB file
+				EpubFormat epub = new EpubFormat(Common.mapSourceFilePath(path));
+				// read image cover as array of bytes
+				byte[] imageCoverData = epub.getImageCoverBytes();
+				// store image data to file
+				// ...
+
+			}catch (Exception ex){
+				System.out.println(ex.getMessage());
+			}
+        }
+
+        public static void readEPUBPackageVersion() {
+		    try{
+                // open EPUB file
+                EpubFormat epub = new EpubFormat(Common.mapSourceFilePath(path));
+                // read EPUB metadata
+                EpubMetadata metadata = epub.getEpubMetadata();
+                // close file after getting metadata
+                epub.dispose();
+                // and print version
+                System.out.printf("EPUB version = %s", metadata.getVersion());
+
+            }catch (Exception ex){
+		        System.out.println(ex.getMessage());
+            }
+        }
+    }
 }
