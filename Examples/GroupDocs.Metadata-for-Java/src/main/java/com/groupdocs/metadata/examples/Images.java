@@ -277,6 +277,34 @@ public class Images {
 			// commit changes
 			gifFormat.save(Common.mapDestinationFilePath(outputPath));
 		}
+
+		public static void removeMetadata() {
+			try{
+
+				GifFormat format = new GifFormat(Common.mapSourceFilePath(path));
+
+				XmpEditableCollection xmpEditableCollection = format.getXmpValues();
+				XmpSchemes schemes = xmpEditableCollection.getSchemes();
+
+				schemes.getDublinCore().setSource(null);
+				schemes.getDublinCore().setSubject((String)null);
+
+				schemes.getPdf().setKeywords(null);
+				schemes.getPdf().setProducer(null);
+
+				schemes.getPhotoshop().setCity(null);
+				schemes.getPhotoshop().setCountry(null);
+
+				schemes.getXmpBasic().setBaseUrl(null);
+				schemes.getXmpBasic().setNickname(null);
+
+				format.save(Common.mapDestinationFilePath(path));
+				format.dispose();
+
+			}catch (Exception ex){
+				System.out.println(ex.getMessage());
+			}
+		}
 	}
 
 	public static class Jpeg {

@@ -469,7 +469,21 @@ public class AudioFormats {
             }
 
         }
-    }
+
+		public static void readImageCoverMetadataUtility() {
+			try {
+				// Get Thumbnail Metadata
+				ThumbnailMetadata thumbnailMetadata = (ThumbnailMetadata)MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(filepath), MetadataType.Thumbnail);
+				//Get Mime Type
+				System.out.println(thumbnailMetadata.getMimeType());
+				//Get Image Data Length
+				System.out.println(thumbnailMetadata.getImageData().length);
+
+			} catch (Exception ex) {
+				System.out.println(ex.getMessage());
+			}
+		}
+	}
 
 	public static class Wav {
 		private static String filepath = "\\Audio\\Wav\\sample.wav";
