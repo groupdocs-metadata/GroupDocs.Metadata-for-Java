@@ -3,6 +3,8 @@ package com.groupdocs.metadata.examples;
 import com.groupdocs.metadata.*;
 import com.groupdocs.metadata.examples.Utilities.Common;
 import org.apache.commons.io.FileUtils;
+import org.codehaus.groovy.ast.stmt.CatchStatement;
+import org.codehaus.groovy.ast.stmt.TryCatchStatement;
 
 import java.io.Console;
 import java.io.File;
@@ -303,6 +305,183 @@ public class AudioFormats {
 
 			// and commit changes
 			mp3Format.save();
+		}
+
+        public static void validateID3Metadata() {
+
+		    // init Mp3Format class
+            Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath));
+
+            // set album but with invalid length
+            mp3Format.getId3v1Properties().setAlbum("this is very looooooooong album name but must be less 30 characters");
+
+            try
+            {
+                // and commit changes
+                mp3Format.save(Common.mapDestinationFilePath(filepath));
+            }
+            catch (GroupDocsException e)
+            {
+                //e.Message is "Property 'album': Length could not be grater then 30"
+                System.out.println(e.getMessage());
+            }
+
+            // and close file
+            mp3Format.dispose();
+
+        }
+
+        public static void readAdditionalID3v2Properties() {
+		    try{
+                // init Mp3Format class
+                Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath));
+                // get ID3 v2 tag
+                Id3v2Tag id3v2 = mp3Format.getId3v2();
+                // close file
+                mp3Format.dispose();
+                if (id3v2 != null)
+                {
+                    // write subtitle version
+                    System.out.printf("Subtitle: %s\n", id3v2.getSubtitle());
+                    // read musical key
+                    System.out.printf("Musical key: %s\n", id3v2.getMusicalKey());
+                    // read length in milliseconds
+                    System.out.printf("Length in milliseconds: %s\n", id3v2.getLengthInMilliseconds());
+                    // read original album
+                    System.out.printf("Original album: %s\n", id3v2.getOriginalAlbum());
+                    // read size in bytes. Please note that is present TSIZ tag and may be overrided by invalid value
+                    System.out.printf("Size in bytes: %s\n", id3v2.getSizeInBytes());
+                    // read TSRC value
+                    System.out.printf("ISRC: %s\n", id3v2.getISRC());
+                    // read TSSE value
+                    System.out.printf("Software/Hardware: %s\n", id3v2.getSoftwareHardware());
+                    // read PCNT value
+                    System.out.printf("Play counter: %d\n", id3v2.getPlayCounter());
+                    // in trial mode only first 5 frames are available
+                    TagFrame[] idFrames = id3v2.getFrames();
+                    for (TagFrame tagFrame : idFrames)
+                    {
+                        System.out.printf("Frame: %s, value: %s\n", tagFrame.getName(), tagFrame.getFormattedValue());
+                    }
+                }
+
+            }catch(Exception ex){
+		        System.out.println(ex.getMessage());
+            }
+        }
+
+        public static void updateID3v2TagUsingProperties() {
+		    try{
+                // init Mp3Format class
+                Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath));
+
+                // get id3v2 tag
+                Id3v2Tag id3Tag = mp3Format.getId3v2Properties();
+
+                // set artist
+                id3Tag.setArtist("A-ha");
+
+                // set title
+                id3Tag.setTitle("Take on me");
+
+                // commit changes
+                mp3Format.save(Common.mapDestinationFilePath(outputPath));
+
+                // and close file
+                mp3Format.dispose();
+
+            }catch(Exception ex){
+                System.out.println(ex.getMessage());
+            }
+        }
+
+        public static void updateID3v1TagUsingProperties() {
+		    try{
+                // init Mp3Format class
+                Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath));
+                // get id3v1 tag
+                Id3v1Tag id3Tag = mp3Format.getId3v1Properties();
+                // set artist
+                id3Tag.setArtist("A-ha");
+                // set title
+                id3Tag.setTitle("Take on me");
+                // commit changes
+                mp3Format.save(Common.mapDestinationFilePath(outputPath));
+                // and close file
+                mp3Format.dispose();
+
+            }catch(Exception ex){
+		        System.out.println(ex.getMessage());
+            }
+        }
+
+        public static void readImageCoverID3() {
+		    try{
+                // init Mp3Format class
+                Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath));
+                // get ID3 v2 tag
+                Id3v2Tag id3v2 = mp3Format.getId3v2();
+                // close file after getting metadata
+                mp3Format.dispose();
+                if (id3v2 == null){
+                    return;
+                }
+                // read all APIC frames
+                TagFrame[] frames = id3v2.readFrames("APIC");
+                // get first exist APIC frame
+                if (frames != null && frames.length == 1)
+                {
+                    // get AttachedPictureFrame
+                    AttachedPictureFrame picture = (AttachedPictureFrame)frames[0];
+                    // get image bytes
+                    byte[] imageData = picture.getPictureData();
+                    // get MIME type
+                    String mime = picture.getMIMEType();
+                    System.out.printf("Mime type = %s, size = %d\n", mime, imageData.length);
+                    // write bytes to file
+                    // ..
+                }
+
+            }catch(Exception ex){
+		        System.out.println(ex.getMessage());
+            }
+        }
+
+        public static void updateOrRemoveImageCoverID3() {
+		    try{
+                // init Mp3Format class
+                Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath));
+                // get ID3 v2 tag
+                Id3v2Tag id3v2 = mp3Format.getId3v2();
+                if (id3v2 != null){
+                    // remove image cover
+                    id3v2.removeImageCover();
+                    // update tag
+                    mp3Format.updateId3v2(id3v2);
+                    // save changes
+                    mp3Format.save(Common.mapDestinationFilePath(outputPath));
+                }
+                // and close file
+                mp3Format.dispose();
+
+            }catch (Exception ex){
+		        System.out.println(ex.getMessage());
+            }
+
+        }
+
+		public static void readImageCoverMetadataUtility() {
+			try {
+				// Get Thumbnail Metadata
+				ThumbnailMetadata thumbnailMetadata = (ThumbnailMetadata)MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(filepath), MetadataType.Thumbnail);
+				//Get Mime Type
+				System.out.println(thumbnailMetadata.getMimeType());
+				//Get Image Data Length
+				System.out.println(thumbnailMetadata.getImageData().length);
+
+			} catch (Exception ex) {
+				System.out.println(ex.getMessage());
+			}
 		}
 	}
 
