@@ -3,7 +3,7 @@ package com.groupdocs.metadata.examples;
 import com.groupdocs.metadata.*;
 import com.groupdocs.metadata.examples.Utilities.Common;
 import org.apache.commons.io.FileUtils;
-import sun.misc.IOUtils;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +16,7 @@ public class Documents {
 
 		public static void getDocumentProperties() {
 			// initialize DocFormat
-			DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path));
+			DocFormat docFormat = new DocFormat("D:\\Documents\\sample.doc");
 			// get document properties
 			DocMetadata properties = docFormat.getDocumentProperties();
 			// get author
@@ -331,6 +331,48 @@ public class Documents {
 
 				// and commit changes
 				docFormat.save();
+			}
+		}
+
+		public static void readDublinCoreMetadata() {
+			try {
+				// open EPUB file
+				DublinCoreMetadata dublinCoreMetadata = (DublinCoreMetadata) MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.DublinCore);
+
+				// get dc title
+				System.out.printf("Title = %s\n", dublinCoreMetadata.getTitle());
+
+				// get creator
+				System.out.printf("Creator = %s\n", dublinCoreMetadata.getCreator());
+
+				// get dc publisher
+				System.out.printf("Publisher = %s\n", dublinCoreMetadata.getPublisher());
+
+				// get dc description
+				System.out.printf("Description = %s\n", dublinCoreMetadata.getDescription());
+
+				// get language
+				System.out.printf("Language = %s\n", dublinCoreMetadata.getLanguage());
+
+				// get format
+				System.out.printf("Format = %s\n", dublinCoreMetadata.getFormat());
+
+			} catch (Exception ex) {
+				System.out.println(ex.getMessage());
+			}
+		}
+
+		public static void readImageCoverMetadataUtility() {
+			try {
+				// Get Thumbnail Metadata
+				ThumbnailMetadata thumbnailMetadata = (ThumbnailMetadata)MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.Thumbnail);
+				//Get Mime Type
+				System.out.println(thumbnailMetadata.getMimeType());
+				//Get Image Data Length
+				System.out.println(thumbnailMetadata.getImageData().length);
+
+			} catch (Exception ex) {
+				System.out.println(ex.getMessage());
 			}
 		}
 	}
@@ -671,6 +713,21 @@ public class Documents {
 			} else
 				System.out.printf("No sheets found.");
 		}
+
+		public static void readImageCoverMetadataUtility() {
+			try {
+				// Get Thumbnail Metadata
+				ThumbnailMetadata thumbnailMetadata = (ThumbnailMetadata)MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.Thumbnail);
+				//Get Mime Type
+				System.out.println(thumbnailMetadata.getMimeType());
+				//Get Image Data Length
+				System.out.println(thumbnailMetadata.getImageData().length);
+
+			} catch (Exception ex) {
+				System.out.println(ex.getMessage());
+			}
+
+		}
 	}
 
 	public static class Pdf {
@@ -815,6 +872,33 @@ public class Documents {
 			}
 		}
 
+		public static void readDublinCoreMetadata() {
+			try {
+				//Read DublinCore Metadata
+				DublinCoreMetadata dublinCoreMetadata = (DublinCoreMetadata) MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.DublinCore);
+
+				// get dc title
+				System.out.printf("Title = %s\n", dublinCoreMetadata.getTitle());
+
+				// get creator
+				System.out.printf("Creator = %s\n", dublinCoreMetadata.getCreator());
+
+				// get dc publisher
+				System.out.printf("Publisher = %s\n", dublinCoreMetadata.getPublisher());
+
+				// get dc description
+				System.out.printf("Description = %s\n", dublinCoreMetadata.getDescription());
+
+				// get language
+				System.out.printf("Language = %s\n", dublinCoreMetadata.getLanguage());
+
+				// get format
+				System.out.printf("Format = %s\n", dublinCoreMetadata.getFormat());
+
+			} catch (Exception ex) {
+				System.out.println(ex.getMessage());
+			}
+		}
 	}
 
 	public static class MSVisio {
@@ -933,24 +1017,126 @@ public class Documents {
 		}
 	}
 
-	public static class ODS {
-		private static String path = "\\Documents\\ods\\sample.ods";
 
-		public static void readOdsMetadata() {
-			// initialize XlsFormat
-			XlsFormat xlsFormat = new XlsFormat(Common.mapSourceFilePath(path));
+	public static class EPUB {
+		private static String path = "\\Documents\\Epub\\sample.epub";
 
-			// get document properties
-			XlsMetadata properties = xlsFormat.getDocumentProperties();
+		public static void detectEPUBFormat() {
+			// init FileFormatChecker
+			FileFormatChecker formatChecker = new FileFormatChecker(Common.mapSourceFilePath(path));
 
-			// get author
-			System.out.printf("Author: %s", properties.getAuthor());
+			// validate format
+			boolean isEpub = formatChecker.verifyFormat(DocumentType.Epub);
 
-			// get company
-			System.out.printf("company: %s", properties.getCompany());
+			// and print appropriate message if success
+			if (isEpub) {
+				System.out.println("Is EPUB");
+			}
 
-			// get created date of the document
-			System.out.printf("Created Time: %s", properties.getCreatedTime());
+		}
+
+		public static void readEPUBFormatMetadata() {
+
+			// open EPUB file
+			EpubFormat epub = new EpubFormat(Common.mapSourceFilePath(path));
+
+			// read EPUB metadata
+			EpubMetadata metadata = epub.getEpubMetadata();
+
+			// get keys
+			String[] keys = metadata.getKeys();
+
+			for (String key : keys) {
+				// get next metadata property
+				MetadataProperty property = metadata.readByStringKey(key);
+
+				// and print it
+				System.out.println(property);
+			}
+		}
+
+		public static void readDublinCoreMetadata() {
+			// open EPUB file
+			EpubFormat epub = new EpubFormat(Common.mapSourceFilePath(path));
+
+			// read DublinCore metadata
+			DublinCoreMetadata dublinCore = epub.getDublinCore();
+
+			// get dc title
+			System.out.printf("Title = %s\n", dublinCore.getTitle());
+
+			// get creator
+			System.out.printf("Creator = %s\n", dublinCore.getCreator());
+
+			// get dc publisher
+			System.out.printf("Publisher = %s\n", dublinCore.getPublisher());
+
+			// get dc description
+			System.out.printf("Description = %s\n", dublinCore.getDescription());
+
+			// get language
+			System.out.printf("Language = %s\n", dublinCore.getLanguage());
+
+			// get format
+			System.out.printf("Format = %s\n", dublinCore.getFormat());
+		}
+
+		public static void readImageCover() {
+			try {
+				// Get Thumbnail Metadata
+				ThumbnailMetadata thumbnailMetadata = (ThumbnailMetadata)MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.Thumbnail);
+				//Get Mime Type
+				System.out.println(thumbnailMetadata.getMimeType());
+				//Get Image Data Length
+				System.out.println(thumbnailMetadata.getImageData().length);
+
+			} catch (Exception ex) {
+				System.out.println(ex.getMessage());
+			}
+		}
+
+		public static void readEPUBPackageVersion() {
+			try {
+				// open EPUB file
+				EpubFormat epub = new EpubFormat(Common.mapSourceFilePath(path));
+				// read EPUB metadata
+				EpubMetadata metadata = epub.getEpubMetadata();
+				// close file after getting metadata
+				epub.dispose();
+				// and print version
+				System.out.printf("EPUB version = %s", metadata.getVersion());
+
+			} catch (Exception ex) {
+				System.out.println(ex.getMessage());
+			}
+		}
+
+		public static void readDublinCoreMetadataUtility() {
+			try {
+				// open EPUB file
+				DublinCoreMetadata dublinCoreMetadata = (DublinCoreMetadata) MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.DublinCore);
+
+				// get dc title
+				System.out.printf("Title = %s\n", dublinCoreMetadata.getTitle());
+
+				// get creator
+				System.out.printf("Creator = %s\n", dublinCoreMetadata.getCreator());
+
+				// get dc publisher
+				System.out.printf("Publisher = %s\n", dublinCoreMetadata.getPublisher());
+
+				// get dc description
+				System.out.printf("Description = %s\n", dublinCoreMetadata.getDescription());
+
+				// get language
+				System.out.printf("Language = %s\n", dublinCoreMetadata.getLanguage());
+
+				// get format
+				System.out.printf("Format = %s\n", dublinCoreMetadata.getFormat());
+
+			} catch (Exception ex) {
+				System.out.println(ex.getMessage());
+			}
 		}
 	}
 }

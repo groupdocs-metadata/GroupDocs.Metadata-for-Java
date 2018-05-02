@@ -6,7 +6,7 @@ public class MainClass {
 	public static void main(String[] args) throws Throwable {
 		
 		// Uncomment following code if you have license file
-		// Common.applyLicenseFromFile();
+        // Common.applyLicenseFromFile();
 
 		// Using metered license
 		// Common.useDynabicMeteredAccount();
@@ -78,6 +78,12 @@ public class MainClass {
 		// Remove Digital Signature from word document
 		// Documents.Doc.removeDigitalSignature();
 
+		//Read DublinCore Metadata
+		//Documents.Doc.readDublinCoreMetadata();
+
+		//Read ImageCover using Metadata Utility
+		//Documents.Doc.readImageCoverMetadataUtility();
+
 		// Working with Ppt Files
 		// Get document properties of Ppt file
 		// Documents.Ppt.getDocumentProperties();
@@ -140,6 +146,9 @@ public class MainClass {
 		// Remove Hidden Data in Xls file
 		// Documents.Xls.removeHiddenData();
 
+		// Read ImageCover using Metadata Utility
+		// Documents.Xls.readImageCoverMetadataUtility();
+
 		// Working with Pdf Files
 		// Get document properties of Pdf file
 		// Documents.Pdf.getDocumentProperties();
@@ -167,6 +176,9 @@ public class MainClass {
 
 		// Remove hidden data in Pdf file
 		// Documents.Pdf.removeHiddenData();
+
+		//Read DublinCore Metadata
+		//Documents.Pdf.readDublinCoreMetadata();
 
 		// Working with MSVisio Files
 		// Get metadata of MSVisio file
@@ -224,6 +236,9 @@ public class MainClass {
 
 		// Update Basic Jon XMP properties values of Gif image
 		// Images.Gif.updateBasicJobXMPProperties();
+
+		// Remove Medatadata of Gif image
+		// Images.Gif.removeMetadata();
 
 		// Working with Jpeg
 		// Get XMP properties of Jpeg image
@@ -289,8 +304,12 @@ public class MainClass {
 		// Read Image Resource Blocks
 		// Images.Jpeg.readImageResourceBlocks();
 
+
 		// Read Sony maker notes
 		// Images.Jpeg.readSonyMakerNotes();
+
+        //The method loads and save EXIF metadata with better speed
+        //Images.Jpeg.getEXIFMetadataWithBetterSpeed();
 
 		// Working with Png
 		// Get XMP properties of Png image
@@ -483,6 +502,27 @@ public class MainClass {
 		// Read APEV2 tag in MP3 files
 		// AudioFormats.Mp3.readApev2Tag();
 
+        //Validate ID3 input metadata before saviing
+        //AudioFormats.Mp3.validateID3Metadata();
+
+        //Read additional properties from ID3v2 tag
+        //AudioFormats.Mp3.readAdditionalID3v2Properties();
+
+        //Update ID3v2 tag using properties
+        //AudioFormats.Mp3.updateID3v2TagUsingProperties();
+
+        //Update ID3v1 tag using properties
+        //AudioFormats.Mp3.updateID3v1TagUsingProperties();
+
+        //Ability to read Image cover from ID3 audio tag
+        //AudioFormats.Mp3.readImageCoverID3();
+
+        //Update or Remove image cover from ID3 audio tag
+        //AudioFormats.Mp3.updateOrRemoveImageCoverID3();
+
+		// Read ImageCover using Metadata Utility
+		//AudioFormats.Mp3.readImageCoverMetadataUtility();
+
 		// Working with WAV Files
 		// Detect WAV format
 		// AudioFormats.Wav.detectWavFormat();
@@ -493,6 +533,32 @@ public class MainClass {
 		// Working with Video Formats
 		// Read Header information in AVI format
 		// VideoFormats.Avi.readAviMainHeader();
+
+		//Detects EPUB file format
+		//Documents.EPUB.detectEPUBFormat();
+
+		//Read EPUB file format metadata
+		//Documents.EPUB.readEPUBFormatMetadata();
+
+		//Read Dublin Core Metadata
+		//Documents.EPUB.readDublinCoreMetadata();
+
+		//Read Image covr from EPUB Format
+		//Documents.EPUB.readImageCover();
+
+		//Read version of EPUB Package
+		//Documents.EPUB.readEPUBPackageVersion();
+
+		//Read DublinCore Metadata using unified approach
+		//Documents.EPUB.readDublinCoreMetadataUtility();
+
+		//Working with Bit Torrent
+
+		//Read Bit Torrent File Metadata
+		//Torrent.BitTorrent.getTorrentMetadata();
+
+		//Update Bit Torrent File Metadata
+		//Torrent.BitTorrent.updateTorrentMedata();
 
 	}
 }
