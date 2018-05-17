@@ -13,39 +13,39 @@ public class Emails {
 
 		public static void getOutlookEmailMetadata() {
 			// initialize outlookFormat
-			OutlookMessage msgFormat = new OutlookMessage(Common.mapSourceFilePath(path));
+			try (OutlookMessage msgFormat = new OutlookMessage(Common.mapSourceFilePath(path))) {
 
-			// get metadata
-			OutlookMessageMetadata metadata = msgFormat.getMsgInfo();
-
-			// display metadata
-			System.out.printf("Body: " + metadata.getBody());
-			System.out.printf("DeliveryTime: " + metadata.getDeliveryTime());
-			System.out.printf("Recipients: " + metadata.getRecipients()[0]);
-			System.out.printf("Subject: " + metadata.getSubject());
-			System.out.printf("Attachments: " + metadata.getAttachments()[0]);
+				// get metadata
+				OutlookMessageMetadata metadata = msgFormat.getMsgInfo();
+				// display metadata
+				System.out.printf("Body: " + metadata.getBody());
+				System.out.printf("DeliveryTime: " + metadata.getDeliveryTime());
+				System.out.printf("Recipients: " + metadata.getRecipients()[0]);
+				System.out.printf("Subject: " + metadata.getSubject());
+				System.out.printf("Attachments: " + metadata.getAttachments()[0]);
+			}
 		}
 
 		public static void removeOutlookEmailAttachments() {
 			// initialize outlookFormat
-			OutlookMessage outlookFormat = new OutlookMessage(Common.mapSourceFilePath(path));
+			try (OutlookMessage outlookFormat = new OutlookMessage(Common.mapSourceFilePath(path))) {
+				// remove attachments
+				outlookFormat.removeAttachments();
 
-			// remove attachments
-			outlookFormat.removeAttachments();
-
-			// commit changes
-			outlookFormat.save(Common.mapDestinationFilePath(outputPath));
+				// commit changes
+				outlookFormat.save(Common.mapDestinationFilePath(outputPath));
+			}
 		}
 
 		public static void removeOutlookEmailMetadata() {
 			// initialize outlookFormat
-			OutlookMessage outlookFormat = new OutlookMessage(Common.mapSourceFilePath(path));
+			try (OutlookMessage outlookFormat = new OutlookMessage(Common.mapSourceFilePath(path))) {
+				// remove metadata
+				outlookFormat.cleanMetadata();
 
-			// remove metadata
-			outlookFormat.cleanMetadata();
-
-			// commit changes
-			outlookFormat.save(Common.mapDestinationFilePath(outputPath));
+				// commit changes
+				outlookFormat.save(Common.mapDestinationFilePath(outputPath));
+			}
 		}
 	}
 
@@ -55,36 +55,38 @@ public class Emails {
 
 		public static void getEmailMetadata() {
 			// initialize EmlFormat
-			EmlFormat emlFormat = new EmlFormat(Common.mapSourceFilePath(path));
-			// get metadata
-			EmlMetadata metadata = emlFormat.getEmlInfo();
-			// display metadata
-			System.out.printf("CC: " + metadata.getCC());
-			System.out.printf("Mail Address From: " + metadata.getMailAddressFrom());
-			System.out.printf("Subject: " + metadata.getSubject());
-			System.out.printf("Attachments: " + metadata.getAttachments()[0]);
+			try (EmlFormat emlFormat = new EmlFormat(Common.mapSourceFilePath(path))) {
+				// get metadata
+				EmlMetadata metadata = emlFormat.getEmlInfo();
+				// display metadata
+				System.out.printf("CC: " + metadata.getCC());
+				System.out.printf("Mail Address From: " + metadata.getMailAddressFrom());
+				System.out.printf("Subject: " + metadata.getSubject());
+				System.out.printf("Attachments: " + metadata.getAttachments()[0]);
+			}
 		}
 
 		public static void removeEmailAttachments() {
 			// initialize EmlFormat
-			EmlFormat emlFormat = new EmlFormat(Common.mapSourceFilePath(path));
+			try (EmlFormat emlFormat = new EmlFormat(Common.mapSourceFilePath(path))) {
 
-			// remove attachments
-			emlFormat.removeAttachments();
+				// remove attachments
+				emlFormat.removeAttachments();
 
-			// commit changes
-			emlFormat.save(Common.mapDestinationFilePath(outputPath));
+				// commit changes
+				emlFormat.save(Common.mapDestinationFilePath(outputPath));
+			}
 		}
 
 		public static void removeEmailMetadata() {
 			// initialize EmlFormat
-			EmlFormat emlFormat = new EmlFormat(Common.mapSourceFilePath(path));
+			try (EmlFormat emlFormat = new EmlFormat(Common.mapSourceFilePath(path))) {
+				// remove metadata
+				emlFormat.cleanMetadata();
 
-			// remove metadata
-			emlFormat.cleanMetadata();
-
-			// commit changes
-			emlFormat.save(Common.mapDestinationFilePath(outputPath));
+				// commit changes
+				emlFormat.save(Common.mapDestinationFilePath(outputPath));
+			}
 		}
 	}
 }

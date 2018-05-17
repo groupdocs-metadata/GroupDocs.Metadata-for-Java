@@ -6,7 +6,7 @@ public class MainClass {
 	public static void main(String[] args) throws Throwable {
 		
 		// Uncomment following code if you have license file
-        // Common.applyLicenseFromFile();
+         Common.applyLicenseFromFile();
 
 		// Using metered license
 		// Common.useDynabicMeteredAccount();
@@ -83,6 +83,12 @@ public class MainClass {
 
 		//Read ImageCover using Metadata Utility
 		//Documents.Doc.readImageCoverMetadataUtility();
+
+		//Find Metadata Using Regex
+		//Documents.Doc.findMetadataUsingRegex();
+
+		//Replace Metadata Using Regex
+		//Documents.Doc.replaceMetadataUsingRegex();
 
 		// Working with Ppt Files
 		// Get document properties of Ppt file
@@ -240,6 +246,12 @@ public class MainClass {
 		// Remove Medatadata of Gif image
 		// Images.Gif.removeMetadata();
 
+		// Find XMP Metadata Using Regex
+		// Images.Gif.findXmpMetadataUsingRegex();
+
+		// Update XMP Metadata Using Regex
+		// Images.Gif.replaceXmpMetadataUsingRegex();
+
 		// Working with Jpeg
 		// Get XMP properties of Jpeg image
 		// Images.Jpeg.getXMPProperties();
@@ -310,6 +322,12 @@ public class MainClass {
 
         //The method loads and save EXIF metadata with better speed
         //Images.Jpeg.getEXIFMetadataWithBetterSpeed();
+
+        //Find EXIF Metadata using regex
+        //Images.Jpeg.findEXIFMetadataUsingRegex();
+
+        //Replace EXIF Metadata using regex
+        //Images.Jpeg.replaceEXIFMetadataUsingRegex();
 
 		// Working with Png
 		// Get XMP properties of Png image
@@ -552,6 +570,24 @@ public class MainClass {
 		//Read DublinCore Metadata using unified approach
 		//Documents.EPUB.readDublinCoreMetadataUtility();
 
+		//Get Torrent Metadata Using Stream
+		//Documents.EPUB.getMetadataUsingStream();
+
+        //Detect Zip file format using format factory
+        //Archives.Zip.detectZipFormat();
+
+        //Get Zip format metadata
+        //Archives.Zip.getZipMetadata();
+
+        // Get ZIP format metadata using stream
+        //Archives.Zip.getZipMatadataUsingStream();
+
+        //Remove ZIP format
+        //Archives.Zip.removeComment();
+
+        //Update ZIP format Comment
+        //Archives.Zip.updateComment();
+
 		//Working with Bit Torrent
 
 		//Read Bit Torrent File Metadata
@@ -559,6 +595,15 @@ public class MainClass {
 
 		//Update Bit Torrent File Metadata
 		//Torrent.BitTorrent.updateTorrentMedata();
+
+		//Read Bit Torrent File Metadata Using Stream
+		//Torrent.BitTorrent.getTorrentMetadataUsingStream();
+
+        //Get DublinCore of supported file formats using MetadataUtility class
+        //DublinCore.getDublinCoreMetadata();
+
+        //Get DublinCore Metadata of supported file formats using IDublinCore Interface
+        //DublinCore.getDublinCoreMetadataUsingIDublinCore();
 
 	}
 }
