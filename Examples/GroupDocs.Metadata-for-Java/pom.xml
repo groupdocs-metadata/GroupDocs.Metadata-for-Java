@@ -46,6 +46,13 @@
             <version>1.3.2</version>
         </dependency>
     </dependencies>
+    <repositories>
+	<repository>
+		<id>GroupDocsJavaAPI</id>
+		<name>GroupDocs Java API</name>
+		<url>http://artifact.groupdocs.com/repo/</url>
+	</repository>
+    </repositories>
     <build>
         <resources>
             <resource>
