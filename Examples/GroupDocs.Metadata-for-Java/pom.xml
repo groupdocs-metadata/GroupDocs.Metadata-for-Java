@@ -17,7 +17,7 @@
         <dependency>
             <groupId>com.groupdocs</groupId>
             <artifactId>groupdocs-metadata</artifactId>
-            <version>18.4</version>
+            <version>18.5</version>
         </dependency>
         <dependency>
             <groupId>commons-net</groupId>

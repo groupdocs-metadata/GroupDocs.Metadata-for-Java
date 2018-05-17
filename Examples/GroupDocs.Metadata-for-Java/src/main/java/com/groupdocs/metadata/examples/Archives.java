@@ -11,47 +11,50 @@ public class Archives {
 
 		public static void detectZipFormat() {
 			// open ZIP
-			ZipFormat zip = new ZipFormat(Common.mapSourceFilePath(filePath));
+			try(ZipFormat zip = new ZipFormat(Common.mapSourceFilePath(filePath))) {
 
-			// and get metadata
-			ZipMetadata metadata = zip.getZipInfo();
+				// and get metadata
+				ZipMetadata metadata = zip.getZipInfo();
 
-			// get array of files inside ZIP
-			ZipFileInfo[] files = metadata.getFiles();
+				// get array of files inside ZIP
+				ZipFileInfo[] files = metadata.getFiles();
 
-			System.out.println("Files:");
+				System.out.println("Files:");
 
-			// and print all files inside ZIP
-			for (ZipFileInfo file : files) {
-				System.out.println(file.getName());
+				// and print all files inside ZIP
+				for (ZipFileInfo file : files) {
+                    System.out.println(file.getName());
+                }
 			}
 		}
 
 		public static void getZipMetadata() {
 			// initialize DocFormat
-			ZipFormat movFormat = new ZipFormat(Common.mapSourceFilePath(filePath));
-			// get info
-			ZipMetadata info = movFormat.getZipInfo();
 
-			// get total entries
-			System.out.printf("Total Entries : %s, ", info.getTotalEntries());
+			try (ZipFormat movFormat = new ZipFormat(Common.mapSourceFilePath(filePath))) {
+				// get info
+				ZipMetadata info = movFormat.getZipInfo();
+				// get total entries
+				System.out.printf("Total Entries : %s, ", info.getTotalEntries());
 
-			// get comments
-			System.out.printf("Comments : %s, ", info.getComment());
-			for (ZipFileInfo fileInfo : info.getFiles()) {
-				// get file name
-				System.out.printf("File Name : %s, ", fileInfo.getName());
+				// get comments
+				System.out.printf("Comments : %s, ", info.getComment());
+				for (ZipFileInfo fileInfo : info.getFiles()) {
+					// get file name
+					System.out.printf("File Name : %s, ", fileInfo.getName());
 
-				// get compressed size
-				System.out.printf("CompressedSize : $s, ", fileInfo.getCompressedSize());
+					// get compressed size
+					System.out.printf("CompressedSize : $s, ", fileInfo.getCompressedSize());
 
-				// get uncompressed size
-				System.out.printf("UncompressedSize : %s, ", fileInfo.getUncompressedSize());
+					// get uncompressed size
+					System.out.printf("UncompressedSize : %s, ", fileInfo.getUncompressedSize());
 
-				// get compression method
-				System.out.printf("CompressionMethod : %s, ", fileInfo.getCompressionMethod());
+					// get compression method
+					System.out.printf("CompressionMethod : %s, ", fileInfo.getCompressionMethod());
 
+				}
 			}
+
 		}
 	}
 

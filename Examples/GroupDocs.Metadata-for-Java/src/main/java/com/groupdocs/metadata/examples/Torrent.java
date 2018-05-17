@@ -12,8 +12,7 @@ public class Torrent {
     private static String filePath = "\\Torrent\\Bit Torrent\\sample.torrent";
     public static class BitTorrent {
         public static void getTorrentMetadata() {
-            try{
-                TorrentFormat torrentFormat = new TorrentFormat(Common.mapSourceFilePath(filePath));
+            try (TorrentFormat torrentFormat = new TorrentFormat(Common.mapSourceFilePath(filePath))) {
 
                 TorrentMetadata info = torrentFormat.getTorrentInfo();
                 System.out.println(info.getAnnounce());
@@ -23,22 +22,17 @@ public class Torrent {
                 System.out.println(info.getPieceLength());
                 System.out.println(info.getPieces().length);
 
-                for (TorrentFileInfo file : info.getSharedFiles())
-                {
+                for (TorrentFileInfo file : info.getSharedFiles()) {
                     System.out.println(file.getName());
                     System.out.println(file.getLength());
                 }
 
                 torrentFormat.dispose();
-
-            }catch (Exception ex){
-                System.out.println(ex.getMessage());
             }
         }
 
         public static void updateTorrentMedata() {
-            try{
-                TorrentFormat torrentFormat = new TorrentFormat(Common.mapSourceFilePath(filePath));
+            try (TorrentFormat torrentFormat = new TorrentFormat(Common.mapSourceFilePath(filePath))) {
 
                 TorrentMetadata info = torrentFormat.getTorrentInfo();
 
@@ -49,9 +43,6 @@ public class Torrent {
                 torrentFormat.save(Common.mapDestinationFilePath(filePath));
 
                 torrentFormat.dispose();
-
-            }catch (Exception ex){
-                System.out.println(ex.getMessage());
             }
         }
     }
