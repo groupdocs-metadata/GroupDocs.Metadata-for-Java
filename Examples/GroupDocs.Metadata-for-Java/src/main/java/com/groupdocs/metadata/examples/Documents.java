@@ -5,9 +5,9 @@ import com.groupdocs.metadata.examples.Utilities.Common;
 import org.apache.commons.io.FileUtils;
 
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Field;
+import java.util.regex.Pattern;
 
 public class Documents {
 	public static class Doc {
@@ -400,7 +400,31 @@ public class Documents {
 				System.out.println(ex.getMessage());
 			}
 		}
-	}
+
+        public static void findMetadataUsingRegex() {
+            try {
+                Pattern pattern = Pattern.compile("author|company", Pattern.CASE_INSENSITIVE);
+                MetadataPropertyCollection properties = SearchFacade.scanDocument(Common.mapSourceFilePath(path), pattern);
+                for (int i = 0; i < properties.getCount(); i++)
+                {
+                    System.out.println(properties.readByIndex(i));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        public static void replaceMetadataUsingRegex() {
+            try {
+                Pattern pattern = Pattern.compile("^author|company$", Pattern.CASE_INSENSITIVE);
+                String replaceValue = "Aspose";
+                SearchFacade.replaceInDocument(Common.mapSourceFilePath(path), pattern, replaceValue, Common.mapDestinationFilePath(path));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 	public static class Ppt {
 		private static String path = "\\Documents\\ppt\\sample.pptx";
@@ -1198,5 +1222,31 @@ public class Documents {
 				System.out.println(ex.getMessage());
 			}
 		}
-	}
+
+        public static void getMetadataUsingStream() {
+            try (InputStream stream = new FileInputStream(Common.mapSourceFilePath(path)))
+            {
+                try (EpubFormat format = new EpubFormat(stream))
+                {
+                    // read EPUB metadata
+                    EpubMetadata metadata = format.getEpubMetadata();
+                    // get keys
+                    String[] keys = metadata.getKeys();
+
+                    for (String key : keys) {
+                        // get next metadata property
+                        MetadataProperty property = metadata.readByStringKey(key);
+
+                        // and print it
+                        System.out.println(property);
+                    }
+                }
+                // The stream is still open here
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

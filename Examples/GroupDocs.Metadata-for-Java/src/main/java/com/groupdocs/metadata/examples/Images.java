@@ -8,6 +8,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Images {
 	public static void retrieveImageSize(String directory) {
@@ -313,6 +314,29 @@ public class Images {
 
 			}catch (Exception ex){
 				System.out.println(ex.getMessage());
+			}
+		}
+
+		public static void findXmpMetadataUsingRegex() {
+			try {
+				Pattern pattern = Pattern.compile("^.*description$", Pattern.CASE_INSENSITIVE);
+				XmpNodeView[] properties = SearchFacade.scanXmp(Common.mapSourceFilePath(path), pattern);
+				for (int i = 0; i < properties.length; i++)
+                {
+                    System.out.println(properties[i]);
+                }
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		public static void replaceXmpMetadataUsingRegex() {
+			try {
+				Pattern pattern = Pattern.compile("^.*description$", Pattern.CASE_INSENSITIVE);
+				String replaceValue = "Test file";
+				SearchFacade.replaceInXmp(Common.mapSourceFilePath(path), pattern, replaceValue, Common.mapDestinationFilePath(path));
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 	}
@@ -949,7 +973,30 @@ public class Images {
 				System.out.println(ex.getMessage());
 			}
         }
-    }
+
+		public static void findEXIFMetadataUsingRegex() {
+			try {
+				Pattern pattern = Pattern.compile(".*");
+				ExifProperty[] properties = SearchFacade.scanExif(Common.mapSourceFilePath(path), pattern);
+				for (int i = 0; i < properties.length; i++)
+                {
+                    System.out.println(properties[i]);
+                }
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		public static void replaceEXIFMetadataUsingRegex() {
+			try {
+				Pattern pattern = Pattern.compile("James", Pattern.CASE_INSENSITIVE);
+				String replaceValue = "John";
+				SearchFacade.replaceInExif(Common.mapSourceFilePath(path), pattern, replaceValue, Common.mapDestinationFilePath(path));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 	public static class Png {
 		private static String path = "\\Images\\Png\\sample.png";
