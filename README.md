@@ -18,9 +18,11 @@ Directory | Description
 
 #  Resources
 
-+ **Website:** [www.groupdocs.com](http://www.groupdocs.com/)
++ **Website:** [www.groupdocs.com](https://www.groupdocs.com)
 + **Product Home:** [GroupDocs.Metadata for Java](https://products.groupdocs.com/metadata/java)
-+ **Download:** [Download GroupDocs.Metadata for Java](https://downloads.groupdocs.com/metadata/java)
++ **API Reference:** [GroupDocs.Metadata for Java API Reference](https://apireference.groupdocs.com/java/metadata)
++ **Download:** [Download GroupDocs.Metadata for Java](https://artifact.groupdocs.com/repo/com/groupdocs/groupdocs-metadata/)
 + **Documentation:** [GroupDocs.Metadata for Java Documentation](https://docs.groupdocs.com/display/metadatajava/Home)
-+ **Forum:** [GroupDocs.Metadata for Java Forum](https://forum.groupdocs.com/c/metadata)
++ **Free Support:** [GroupDocs.Metadata for Java Free Support Forum](https://forum.groupdocs.com/c/metadata)
++ **Paid Support:** [GroupDocs.Metadata for Java Paid Support Helpdesk](https://helpdesk.groupdocs.com/)
 + **Blog:** [GroupDocs.Metadata for Java Blog](https://blog.groupdocs.com/category/groupdocs-metadata-product-family/)
