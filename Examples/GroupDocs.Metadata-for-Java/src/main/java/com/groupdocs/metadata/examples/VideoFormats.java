@@ -8,6 +8,11 @@ import com.groupdocs.metadata.FormatFactory;
 import com.groupdocs.metadata.MovFormat;
 import com.groupdocs.metadata.examples.Utilities.Common;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
 public class VideoFormats {
 	public static class Avi {
 		private static String path = "\\Videos\\Avi\\sample.avi";
@@ -45,6 +50,34 @@ public class VideoFormats {
 
 				// and commit changes
 				aviFormat.save();
+			}
+		}
+
+		public static void readAviMainHeaderUsingStream() throws IOException {
+			try (OutputStream stream = new FileOutputStream(Common.mapDestinationFilePath(path)))
+			{
+				try (AviFormat format = new AviFormat(Common.mapSourceFilePath(path)))
+				{
+					// get AVI header
+					AviHeader header = format.getHeader();
+					// display video width
+					System.out.printf("Video width: %s", header.getWidth());
+
+					// display video height
+					System.out.printf("Video height: %s", header.getHeight());
+
+					// display total frames
+					System.out.printf("Total frames: %s", header.getTotalFrames());
+
+					// display number of streams in file
+					System.out.printf("Number of streams: %s", header.getStreams());
+
+					// display suggested buffer size for reading the file
+					System.out.printf("Suggested buffer size: %s", header.getSuggestedBufferSize());
+
+					format.save(stream);
+				}
+				// The stream is still open here
 			}
 		}
 	}

@@ -6,9 +6,8 @@ import org.apache.commons.io.FileUtils;
 import org.codehaus.groovy.ast.stmt.CatchStatement;
 import org.codehaus.groovy.ast.stmt.TryCatchStatement;
 
-import java.io.Console;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.util.Date;
 
 import static com.groupdocs.metadata.MetadataKey.*;
 
@@ -533,5 +532,54 @@ public class AudioFormats {
 				System.out.printf("Sample rate: %s", audioInfo.getSampleRate());
 			}
 		}
+		//This version is supported by version 18.6 or greater
+        public static void updateXmpMetadata() {
+			try (WavFormat format = new WavFormat(Common.mapSourceFilePath(filepath)))
+			{
+				System.out.println(format.getXmpValues().getSchemes().getXmpBasic().getCreateDate());
+				System.out.println(format.getXmpValues().getSchemes().getXmpBasic().getLabel());
+				System.out.println(format.getXmpValues().getSchemes().getDublinCore().getSubject());
+				System.out.println(format.getXmpValues().getSchemes().getDublinCore().getFormat());
+
+				format.getXmpValues().getSchemes().getXmpBasic().setCreateDate(new Date());
+				format.getXmpValues().getSchemes().getXmpBasic().setLabel("Test");
+				format.getXmpValues().getSchemes().getDublinCore().setSubject("WAV XMP Test");
+				format.getXmpValues().getSchemes().getDublinCore().setFormat("WAV Audio");
+
+				format.save(Common.mapDestinationFilePath(filepath));
+			}
+        }
+		//This version is supported by version 18.6 or greater
+		public static void removeXmpMetadata() {
+			try (WavFormat format = new WavFormat(Common.mapSourceFilePath(filepath)))
+			{
+				format.removeXmpData();
+				format.save(Common.mapDestinationFilePath(filepath));
+			}
+		}
+		//This version is supported by version 18.6 or greater
+		public static void UpdateXmpMetadataUsingStream() throws IOException {
+			try (OutputStream stream = new FileOutputStream(Common.mapDestinationFilePath(filepath)))
+			{
+				try (WavFormat format = new WavFormat(Common.mapSourceFilePath(filepath)))
+				{
+					System.out.println(format.getXmpValues().getSchemes().getXmpBasic().getCreateDate());
+					System.out.println(format.getXmpValues().getSchemes().getXmpBasic().getLabel());
+					System.out.println(format.getXmpValues().getSchemes().getDublinCore().getSubject());
+					System.out.println(format.getXmpValues().getSchemes().getDublinCore().getFormat());
+
+					format.getXmpValues().getSchemes().getXmpBasic().setCreateDate(new Date());
+					format.getXmpValues().getSchemes().getXmpBasic().setLabel("Test");
+					format.getXmpValues().getSchemes().getDublinCore().setSubject("WAV XMP Test");
+					format.getXmpValues().getSchemes().getDublinCore().setFormat("WAV Audio");
+
+
+
+					format.save(stream);
+				}
+				// The stream is still open here
+			}
+		}
+
 	}
 }
