@@ -1058,7 +1058,39 @@ public class Documents {
             }
 
 		}
-	}
+        // This Feature is supported in version 18.6 or greater of the API
+        public static void updateMetadata() {
+            try (MppFormat format = new MppFormat(Common.mapSourceFilePath(path)))
+            {
+                format.getProjectInfo().setAuthor("John Smith");
+                format.getProjectInfo().setSubject("Test project");
+                format.getProjectInfo().setCategory("Software Development");
+
+                format.save(Common.mapDestinationFilePath(path));
+            }
+        }
+        // This Feature is supported in version 18.6 or greater of the API
+        public static void cleanMetadata() {
+            try (MppFormat format = new MppFormat(Common.mapSourceFilePath(path)))
+            {
+                format.cleanMetadata();
+                format.save(Common.mapDestinationFilePath(path));
+            }
+        }
+        // This Feature is supported in version 18.6 or greater of the API
+        public static void updateMetadataUsingStream() throws IOException {
+            try (OutputStream stream = new FileOutputStream(Common.mapDestinationFilePath(path)))
+            {
+                try (MppFormat format = new MppFormat(Common.mapSourceFilePath(path)))
+                {
+                    // Working with metadata
+
+                    format.save(stream);
+                }
+                // The stream is still open here
+            }
+        }
+    }
 
 	public static class ODT {
 		private static String path = "\\Documents\\odt\\sample.odt";

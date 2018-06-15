@@ -1249,6 +1249,18 @@ public class Images {
                 }
             }
 		}
+
+		public static void removeXMPMetadata() {
+			// initialize TiffFormat
+			try (TiffFormat tiffFormat = new TiffFormat(Common.mapSourceFilePath(path)))
+			{
+				//remove Xmp Properties
+				tiffFormat.removeXmpData();
+
+				// commit changes and save output file
+				tiffFormat.save(Common.mapDestinationFilePath(path));
+			}
+		}
 	}
 
 	public static class WebP {

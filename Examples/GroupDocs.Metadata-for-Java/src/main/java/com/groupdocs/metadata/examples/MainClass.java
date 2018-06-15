@@ -201,6 +201,13 @@ public class MainClass {
 		// Get Metadata
 		// Documents.MSProject.getMetadata();
 
+		//Update MS Project Metadata
+		//Documents.MSProject.updateMetadata();
+		//Clean MS Project Metadata
+		//Documents.MSProject.cleanMetadata();
+		//Update MS Project Metadata using Stream
+		//Documents.MSProject.updateMetadataUsingStream();
+
 		// Working with Odt files
 		// Read metadata of odt File
 		// Documents.ODT.getOdtMetadata();
@@ -369,6 +376,10 @@ public class MainClass {
 
 		// Read IPTC metadata from Tiff File
 		// Images.Tiff.readIPTCmetadataTiff();
+
+		//Remove XMP Metadata
+		//Images.Tiff.removeXMPMetadata();
+
 
 		// Working with WebP
 		// Get metadata properties of WebP image
@@ -548,9 +559,20 @@ public class MainClass {
 		// Read Audio Details
 		// AudioFormats.Wav.readAudioDetails();
 
+		// Update XMP Metadata
+		//AudioFormats.Wav.updateXmpMetadata();
+
+		//Remove XMP Metadata
+		//AudioFormats.Wav.removeXmpMetadata();
+
+		//Update XMP Metadata using stream
+		//AudioFormats.Wav.UpdateXmpMetadataUsingStream();
+
 		// Working with Video Formats
 		// Read Header information in AVI format
 		// VideoFormats.Avi.readAviMainHeader();
+		//Read Avi Main header using stream
+		//VideoFormats.Avi.readAviMainHeaderUsingStream();
 
 		//Detects EPUB file format
 		//Documents.EPUB.detectEPUBFormat();
