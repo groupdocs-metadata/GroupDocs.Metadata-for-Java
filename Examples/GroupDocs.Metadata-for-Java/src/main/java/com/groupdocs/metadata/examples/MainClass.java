@@ -378,7 +378,7 @@ public class MainClass {
 		// Images.Tiff.readIPTCmetadataTiff();
 
 		//Remove XMP Metadata
-		//Images.Tiff.removeXMPMetadata();
+		////Images.Tiff.removeXMPMetadata();
 
 
 		// Working with WebP
@@ -412,6 +412,18 @@ public class MainClass {
 
 		// Read IPTC metadata from PSF file
 		// Images.Psd.readIPTCmetadataPsd();
+
+		// Update IPTC Metadata
+		//Images.Psd.updateIPTCMetadata();
+
+		// Remove IPTC Metadata
+		//Images.Psd.removeIPTCMetadata();
+
+		// Read IPTC Metadata PSD file using stream
+		//Images.Psd.readIPTCMetadatasUsingStream();
+
+		// Update IPTC Metadata using steam
+		//Images.Psd.updateIPTCMetadataUsingStream();
 
 		// Working with Emf
 		// Get metadata properties of emf image
@@ -505,34 +517,35 @@ public class MainClass {
 		// AudioFormats.Mp3.detectMp3Format();
 
 		// Read ID3v2 tag in MP3 format
-		// AudioFormats.Mp3.readID3v2Tag();
+		// AudioFormats.Mp3.readID3v2Tags();
 
 		// Update ID3v2Tag
-		// AudioFormats.Mp3.updateID3v2Tag();
+		// AudioFormats.Mp3.updateID3v2Tags();
 
 		// Remove ID3v2Tag
-		// AudioFormats.Mp3.removeID3v2Tag();
+		// AudioFormats.Mp3.removeID3v2Tags();
 
 		// Read ID3v1 tag in MP3 format
-		// AudioFormats.Mp3.readID3v1Tag();
+		// AudioFormats.Mp3.readID3v1Tags();
 
 		// Read MPEG audio information
 		// AudioFormats.Mp3.readMPEGAudioInfo();
 
 		// Read Layrics3 Tag
-		// AudioFormats.Mp3.readLayrics3Tag();
+		// AudioFormats.Mp3.readLayrics3Tags();
 
 		// Update ID3v1Tag
-		// AudioFormats.Mp3.updateID3v1Tag();
+		// AudioFormats.Mp3.updateID3v1Tags();
 
 		// Read ID3 metadata directtly from MP3
 		// AudioFormats.Mp3.readId3MetadataDirectly();
 
 		// Read APEV2 tag in MP3 files
-		// AudioFormats.Mp3.readApev2Tag();
+		// AudioFormats.Mp3.readApev2Tags();
+
 
         //Validate ID3 input metadata before saviing
-        //AudioFormats.Mp3.validateID3Metadata();
+        // AudioFormats.Mp3.validateID3Metadata();
 
         //Read additional properties from ID3v2 tag
         //AudioFormats.Mp3.readAdditionalID3v2Properties();
@@ -551,6 +564,12 @@ public class MainClass {
 
 		// Read ImageCover using Metadata Utility
 		//AudioFormats.Mp3.readImageCoverMetadataUtility();
+
+		//Read ID3v2 tag in MP3 format using stream
+		//AudioFormats.Mp3.readID3v2TagUsingStream();
+
+		// Update ID3v2Tag
+		//AudioFormats.Mp3.updateID3v2TagUsingStream();
 
 		// Working with WAV Files
 		// Detect WAV format

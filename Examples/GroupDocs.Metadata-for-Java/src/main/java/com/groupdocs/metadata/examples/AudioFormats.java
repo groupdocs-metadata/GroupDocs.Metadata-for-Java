@@ -492,6 +492,77 @@ public class AudioFormats {
 				System.out.println(ex.getMessage());
 			}
 		}
+
+        public static void readID3v2TagUsingStream() throws IOException {
+			try (InputStream stream = new FileInputStream("d:\\input.mp3"))
+			{
+				try (Mp3Format format = new Mp3Format(stream))
+				{
+					// Working with
+					// get ID3 v2 tag
+					Id3v2Tag id3v2 = format.getId3v2Properties();
+					if (id3v2 != null) {
+						// write ID3v2 version
+						System.out.printf("Version: %s", id3v2.getVersion());
+
+						// write known frames' values
+						System.out.printf("Title: %s", id3v2.getTitle());
+						System.out.printf("Artist: %s", id3v2.getArtist());
+						System.out.printf("Album: %s", id3v2.getAlbum());
+						System.out.printf("Comment: %s", id3v2.getComment());
+						System.out.printf("Composers: %s", id3v2.getComposers());
+						System.out.printf("Band: %s", id3v2.getBand());
+						System.out.printf("Track Number: %s", id3v2.getTrackNumber());
+						System.out.printf("Year: %s", id3v2.getYear());
+
+						// in trial mode only first 5 frames are available
+						TagFrame[] idFrames = id3v2.getFrames();
+
+						for (TagFrame tagFrame : idFrames) {
+							System.out.printf("Frame: %s, value: %s", tagFrame.getName(), tagFrame.getFormattedValue());
+						}
+					}
+				}
+				// The stream is still open here
+			}
+        }
+
+		public static void updateID3v2TagUsingStream() throws IOException {
+			try (OutputStream stream = new FileOutputStream("d:\\output.mp3"))
+			{
+				try (Mp3Format format = new Mp3Format("d:\\input.mp3"))
+				{
+					// Working with metadata
+					// get id3v2 tag
+					Id3v2Tag id3Tag = format.getId3v2Properties();
+
+					// set artist
+					id3Tag.setArtist("A-ha");
+
+					// set title
+					id3Tag.setTitle("Take on me");
+
+					// set band
+					id3Tag.setBand("A-ha");
+
+					// set comment
+					id3Tag.setComment("GroupDocs.Metadata creator");
+
+					// set track number
+					id3Tag.setTrackNumber("5");
+
+					// set year
+					id3Tag.setYear("1986");
+
+					// update ID3v2 tag
+					format.updateId3v2(id3Tag);
+
+					format.save(stream);
+				}
+				// The stream is still open here
+			}
+
+		}
 	}
 
 	public static class Wav {
