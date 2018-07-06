@@ -3,8 +3,7 @@ package com.groupdocs.metadata.examples;
 import com.groupdocs.metadata.*;
 import com.groupdocs.metadata.examples.Utilities.Common;
 
-import java.io.Console;
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -1402,6 +1401,73 @@ public class Images {
                     }
                 }
             }
+		}
+		//Update IPTC Metadata
+		//This version is supported by version 18.7 or higher
+        public static void updateIPTCMetadata() {
+			// initialize PsdFormat
+			try (PsdFormat format = new PsdFormat(Common.mapSourceFilePath(path)))
+			{
+				IptcCollection iptc = format.getIptc();
+				if (iptc == null)
+				{
+					iptc = new IptcCollection();
+				}
+				iptc.add(new IptcProperty(2, "urgency", 10, 5));
+				format.updateIptc(iptc);
+				format.save(Common.mapDestinationFilePath(path));
+			}
+
+        }
+		//Remove IPTC Metadata
+		//This version is supported by version 18.7 or higher
+		public static void removeIPTCMetadata() {
+			try (PsdFormat format = new PsdFormat(Common.mapSourceFilePath(path)))
+			{
+				format.removeIptc();
+				format.save(Common.mapDestinationFilePath(path));
+			}
+		}
+
+		public static void readIPTCMetadatasUsingStream() throws IOException {
+			try (InputStream stream = new FileInputStream(Common.mapSourceFilePath(path)))
+			{
+				try (PsdFormat format = new PsdFormat(stream))
+				{
+					// check if PSD contains IPTC metadata
+					if (format.hasIptc()) {
+						// get iptc collection
+						IptcCollection iptc = format.getIptc();
+
+						// and display it
+						for (int i = 0; i < iptc.getCount(); i++) {
+							IptcProperty iptcProperty = iptc.readByIndex(i);
+							System.out.printf("%s: %s", iptcProperty.getName(), iptcProperty.getFormattedValue());
+						}
+					}
+				}
+				// The stream is still open here
+			}
+		}
+
+
+		public static void updateIPTCMetadataUsingStream() throws IOException {
+			try (OutputStream stream = new FileOutputStream(Common.mapDestinationFilePath(path)))
+			{
+				try (PsdFormat format = new PsdFormat(Common.mapSourceFilePath(path)))
+				{
+					// Working with metadata
+					IptcCollection iptc = format.getIptc();
+					if (iptc == null)
+					{
+						iptc = new IptcCollection();
+					}
+					iptc.add(new IptcProperty(2, "urgency", 10, 5));
+					format.updateIptc(iptc);
+					format.save(stream);
+				}
+				// The stream is still open here
+			}
 		}
 	}
 
