@@ -1,5 +1,7 @@
 package com.groupdocs.metadata.examples;
 
+import java.util.regex.Pattern;
+
 import com.groupdocs.metadata.*;
 import com.groupdocs.metadata.examples.Utilities.Common;
 
@@ -40,14 +42,22 @@ public class APIs {
 			String firstFile = Common.mapSourceFilePath(first);
 			String secondFile = Common.mapSourceFilePath(second);
 			// get differences
-			ExifProperty[] differences = ComparisonFacade.compareExif(firstFile, secondFile,
-					ComparerSearchType.Difference);
+			TiffTag[] intersection = ComparisonFacade.compareExifTags(Common.mapSourceFilePath(firstFile), Common.mapDestinationFilePath(secondFile), ComparerSearchType.Intersection);
+			for (TiffTag tag : intersection)
+			{
+				System.out.println(tag.getName());
+				System.out.println(tag.getTagType());
+				System.out.println(tag.getFormattedValue());
+			}
 		}
 
 		public static void searchMetadata(String path) {
-			// looking the owner of the image
-			ExifProperty[] properties = SearchFacade.scanExif(Common.mapSourceFilePath(path), "Owner",
-					SearchCondition.Contains);
+			TiffTag[] resolutionTags = SearchFacade.scanExifTags(Common.mapSourceFilePath(path), Pattern.compile("^(XResolution|YResolution)$"));
+  
+			for (TiffTag resolutionTag : resolutionTags)
+			{
+				System.out.println(resolutionTag.getName() + " = " +  ((TiffRationalTag)resolutionTag).getTagValue()[0].getValue());
+			}
 		}
 	}
 }

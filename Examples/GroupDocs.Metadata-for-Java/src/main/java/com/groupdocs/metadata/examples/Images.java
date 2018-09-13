@@ -158,6 +158,26 @@ public class Images {
 				}
 			}
 		}
+		public static void getXMPPropertiesUsingStream() throws IOException {
+			try (InputStream stream = new FileInputStream(Common.mapSourceFilePath(path)))
+			{
+				try (GifFormat format = new GifFormat(stream))
+				{
+					// check if GIF supports XMP
+					if (format.isSupportedXmp()) {
+						// get xmp properties
+						XmpProperties xmpProperties = format.getXmpProperties();
+
+						// show xmp properties
+						for (String key : xmpProperties.getKeys()) {
+							XmpNodeView xmpNodeView = xmpProperties.get_Item(key);
+							System.out.printf("[%s] = %s", xmpNodeView.getName(), xmpNodeView.getValue());
+						}
+					}
+				}
+				// The stream is still open here
+			}
+		}
 
 		public static void updateXMPProperties() {
 			// initialize GifFormat
@@ -193,6 +213,46 @@ public class Images {
 					// and commit changes
 					gifFormat.save(Common.mapDestinationFilePath(outputPath));
 				}
+			}
+		}
+		public static void updateXMPPropertiesUsingStream() throws IOException {
+			try (OutputStream stream = new FileOutputStream(Common.mapDestinationFilePath(path)))
+			{
+				try (GifFormat format = new GifFormat(Common.mapSourceFilePath(path)))
+				{
+					// check if GIF supports XMP
+					if (format.isSupportedXmp()) {
+						// get xmp wrapper
+						XmpPacketWrapper xmpPacket = format.getXmpData();
+
+						// create xmp wrapper is not exist
+						if (xmpPacket == null) {
+							xmpPacket = new XmpPacketWrapper();
+						}
+
+						// check if DublinCore schema is exist
+						if (!xmpPacket.containsPackage(Namespaces.DublinCore)) {
+							// if no - add DublinCore schema
+							xmpPacket.addPackage(new DublinCorePackage());
+						}
+
+						// get DublinCore package
+						DublinCorePackage dublinCorePackage = (DublinCorePackage) xmpPacket.getPackage(Namespaces.DublinCore);
+
+						// set author
+						dublinCorePackage.setAuthor("Test author");
+						// set description
+						dublinCorePackage.setDescription("Some description");
+
+						// update XMP package
+						format.setXmpData(xmpPacket);
+
+						// and commit changes
+						format.save(stream);
+					}
+				
+				}
+				// The stream is still open here
 			}
 		}
 
@@ -363,6 +423,22 @@ public class Images {
 				}
 			}
 		}
+		public static void getXMPPropertiesUsingStream() throws IOException {
+			try (InputStream stream = new FileInputStream(Common.mapSourceFilePath(path)))
+				{
+					try (JpegFormat format = new JpegFormat(stream))
+					{
+						// get xmp properties
+						XmpProperties xmpProperties = format.getXmpProperties();
+						// show xmp properties
+						for (String key : xmpProperties.getKeys()) {
+							XmpNodeView xmpNodeView = xmpProperties.get_Item(key);
+							System.out.printf("[%s] = %s", xmpNodeView.getName(), xmpNodeView.getValue());
+						}
+					}
+					// The stream is still open here
+				}
+		}
 
 		public static void updateXMPProperties() {
 			// initialize JpegFormat
@@ -387,6 +463,34 @@ public class Images {
 				// and commit changes
 				jpegFormat.save(Common.mapDestinationFilePath(outputPath));
 			}
+		}
+		public static void updateXMPPropertiesUsingStream() throws IOException {
+			try (OutputStream stream = new FileOutputStream(Common.mapDestinationFilePath(path)))
+				{
+					try (JpegFormat format = new JpegFormat(Common.mapSourceFilePath(path)))
+					{
+						// get xmp wrapper
+						XmpPacketWrapper xmpPacket = format.getXmpData();
+						// create xmp wrapper is not exist
+						if (xmpPacket == null)
+							xmpPacket = new XmpPacketWrapper();
+						// check if DublinCore schema is exist
+						if (!xmpPacket.containsPackage(Namespaces.DublinCore)) {
+							xmpPacket.addPackage(new DublinCorePackage());
+						}
+						// get DublinCore package
+						DublinCorePackage dublinCorePackage = (DublinCorePackage) xmpPacket.getPackage(Namespaces.DublinCore);
+						// set author
+						dublinCorePackage.setAuthor("Test author");
+						// set description
+						dublinCorePackage.setDescription("Some description");
+						// update XMP package
+						format.setXmpData(xmpPacket);
+						// and commit changes
+						format.save(stream);
+					}
+					// The stream is still open here
+				}
 		}
 
 		public static void removeXMPProperties() {
@@ -995,6 +1099,26 @@ public class Images {
 				e.printStackTrace();
 			}
 		}
+		public static void getTiffTagsUsingExifProperties() {
+			// initialize TiffFormat
+			try (JpegFormat format = new JpegFormat(Common.mapDestinationFilePath(path)))
+			{
+				ExifInfo exif = format.getExifInfo();
+			
+				if (exif != null)
+				{
+					for (TiffTag tag : exif.getTags())
+					{
+						if (tag.getTagId() == TiffTagIdEnum.XResolution || tag.getTagId() == TiffTagIdEnum.YResolution)
+						{
+							System.out.println(tag.getName() + " = " +  ((TiffRationalTag)tag).getTagValue()[0].getValue());
+						}
+					}
+				}
+			}
+		}
+
+		
 	}
 
 	public static class Png {
@@ -1179,7 +1303,6 @@ public class Images {
                 }
             }
 		}
-
 		public static void updateExifInfoUsingProperties() {
 			// initialize TiffFormat
             try (TiffFormat tiffFormat = new TiffFormat(Common.mapSourceFilePath(path))) {
@@ -1231,6 +1354,22 @@ public class Images {
                 }
             }
 		}
+		public static void getXMPPropertiesusingStream()throws IOException {
+			try (InputStream stream = new FileInputStream(Common.mapSourceFilePath(path)))
+				{
+					try (TiffFormat format = new TiffFormat(stream))
+					{						
+						// get xmp properties
+						XmpProperties xmpProperties = format.getXmpProperties();
+						// show xmp properties
+						for (String key : xmpProperties.getKeys()) {
+							XmpNodeView xmpNodeView = xmpProperties.get_Item(key);
+							System.out.printf("[%s] = %s", xmpNodeView.getName(), xmpNodeView.getValue());
+						}					
+					}
+					// The stream is still open here
+				}	
+		}
 
 		public static void readIPTCmetadataTiff() {
 			// initialize TiffFormat
@@ -1258,6 +1397,81 @@ public class Images {
 
 				// commit changes and save output file
 				tiffFormat.save(Common.mapDestinationFilePath(path));
+			}
+		}
+		public static void removeXMPMetadataUsingStream() throws IOException {
+			try (OutputStream stream = new FileOutputStream(Common.mapDestinationFilePath(path)))
+				{
+					try (TiffFormat format = new TiffFormat(Common.mapSourceFilePath(path)))
+					{
+						//remove Xmp Properties
+						format.removeXmpData();
+				
+						format.save(stream);
+					}
+					// The stream is still open here
+				}
+		}
+
+		public static void extractSpecificTiffTags() {
+			// initialize TiffFormat
+			try (TiffFormat format = new TiffFormat(Common.mapSourceFilePath(path)))
+			{
+				TiffTag[] tags = format.getTags(format.getImageFileDirectories()[0]);
+			
+				for (TiffTag tag : tags)
+				{
+					if (tag.getTagId() == TiffTagIdEnum.XResolution || tag.getTagId() == TiffTagIdEnum.YResolution)
+					{
+						System.out.println(tag.getName() + " = " +  ((TiffRationalTag)tag).getTagValue()[0].getValue());
+					}
+				}
+			}
+		}
+		//This method is supported by version 18.9 or greater
+		public static void updateExifMetadataUsingShortcutProperties() {	
+			try (TiffFormat format = new TiffFormat(Common.mapSourceFilePath(path)))
+			{    
+				format.getExifValues().setArtist("GroupDocs");    
+				format.getExifValues().setSoftware("GroupDocs.Metadata");     
+			
+				format.save(Common.mapDestinationFilePath(path));
+			}
+		}
+		//This method is supported by version 18.9 or greater
+		public static void updateExifMetadatByReplacingTagCollection() {	
+			try (TiffFormat format = new TiffFormat(Common.mapSourceFilePath(path)))
+			{
+				TiffTag[] tags = new TiffTag[]
+				{
+					new TiffAsciiTag(TiffTagIdEnum.Artist, "GroupDocs"),
+					new TiffAsciiTag(TiffTagIdEnum.Copyright, "GroupDocs.Metadata"),
+				};
+				format.getExifValues().setTags(tags);
+			
+				format.save(Common.mapDestinationFilePath(path));
+			}
+		}
+		//This method is supported by version 18.9 or greater
+		public static void updateExifIFDTagsUsingShortcutProperties() {
+			try (TiffFormat format = new TiffFormat(Common.mapSourceFilePath(path)))
+			{
+				format.getExifValues().getExifIfdData().setUserComment("test comment");
+				format.getExifValues().getExifIfdData().setBodySerialNumber("1010101010");
+				format.save(Common.mapDestinationFilePath(path));
+			}
+		}
+		//This method is supported by version 18.9 or greater
+		public static void updateExifIFDTagsByReplacingTagCollection() {
+			try (TiffFormat format = new TiffFormat(Common.mapSourceFilePath(path)))
+			{
+				TiffTag[] tags = new TiffTag[]
+				{
+						new TiffAsciiTag(42032, "test camera owner"), // CameraOwnerName
+						new TiffAsciiTag(42033, "test body serial number"), // BodySerialNumber
+				};
+				format.getExifValues().getExifIfdData().setTags(tags);
+				format.save(Common.mapDestinationFilePath(path));
 			}
 		}
 	}
@@ -1467,6 +1681,22 @@ public class Images {
 					format.save(stream);
 				}
 				// The stream is still open here
+			}
+		}
+		//This method is supported by version 18.9 or greater
+		public static void readEXIFMetadata() {
+			try (PsdFormat format = new PsdFormat(Common.mapSourceFilePath(path)))
+			{
+				ExifInfo exif = format.getExifInfo();
+				if (exif != null)
+				{
+					for (TiffTag tag : exif.getTags())
+					{
+						System.out.println(tag.getName());
+						System.out.println(tag.getTagType());
+						System.out.println(tag.getFormattedValue());
+					}
+				}
 			}
 		}
 	}

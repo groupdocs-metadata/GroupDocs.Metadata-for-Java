@@ -3,8 +3,6 @@ package com.groupdocs.metadata.examples;
 import com.groupdocs.metadata.*;
 import com.groupdocs.metadata.examples.Utilities.Common;
 import org.apache.commons.io.FileUtils;
-import org.codehaus.groovy.ast.stmt.CatchStatement;
-import org.codehaus.groovy.ast.stmt.TryCatchStatement;
 
 import java.io.*;
 import java.util.Date;

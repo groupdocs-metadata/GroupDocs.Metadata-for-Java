@@ -673,15 +673,10 @@ public class Documents {
 		public static void getContentTypeDocumentProperties() {
 			// initialize XlsFormat
             try (XlsFormat xlsFormat = new XlsFormat(Common.mapSourceFilePath(path))) {
-
-                // get xls properties
-                XlsMetadata xlsProperties = xlsFormat.getDocumentProperties();
                 // get content properties
-                XlsContentProperty[] contentProperties = xlsProperties.getContentTypeProperties();
-
-                for (XlsContentProperty property : contentProperties) {
-                    System.out.printf("Property: %s, value: %s, type: %s", property.getName(), property.getValue(),
-                            property.getPropertyType());
+                for (XlsContentProperty property : xlsFormat.getDocumentProperties().getContentTypeProperties())
+                {
+                    System.out.println(property.getFormattedValue());
                 }
             }
 		}
@@ -1197,17 +1192,15 @@ public class Documents {
 		}
 
 		public static void readImageCover() {
-			try {
-				// Get Thumbnail Metadata
-				ThumbnailMetadata thumbnailMetadata = (ThumbnailMetadata)MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.Thumbnail);
-				//Get Mime Type
-				System.out.println(thumbnailMetadata.getMimeType());
-				//Get Image Data Length
-				System.out.println(thumbnailMetadata.getImageData().length);
-
-			} catch (Exception ex) {
-				System.out.println(ex.getMessage());
-			}
+            try (EpubFormat epubFormat = new EpubFormat(Common.mapSourceFilePath(path)))
+            {
+                ThumbnailMetadata thumbnail = epubFormat.readThumbnail();
+                if (thumbnail != null)
+                {
+                    System.out.println(thumbnail.getImageData().length);
+                    System.out.println(thumbnail.getMimeType());
+                }
+            }
 		}
 
 		public static void readEPUBPackageVersion() {

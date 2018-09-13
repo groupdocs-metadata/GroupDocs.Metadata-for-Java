@@ -235,8 +235,14 @@ public class MainClass {
 		// Get XMP properties of Gif image
 		// Images.Gif.getXMPProperties();
 
+		// Get XMP properties of Gif image using Stream
+		// Images.Gif.getXMPPropertiesUsingStream();
+
 		// Update XMP properties of Gif image
 		// Images.Gif.updateXMPProperties();
+
+		// Update XMP properties of Gif image
+		// Images.Gif.updateXMPPropertiesUsingStream();
 
 		// Remove XMP properties of Gif image
 		// Images.Gif.removeXMPProperties();
@@ -263,8 +269,14 @@ public class MainClass {
 		// Get XMP properties of Jpeg image
 		// Images.Jpeg.getXMPProperties();
 
+		// Get XMP properties of Jpeg image using Stream
+		// Images.Jpeg.getXMPPropertiesUsingStream();
+
 		// Update XMP properties of Jpeg image
 		// Images.Jpeg.updateXMPProperties();
+
+		// Update XMP properties of Jpeg image
+		// Images.Jpeg.updateXMPPropertiesUsingStream();
 
 		// Remove XMP properties of Jpeg image
 		// Images.Jpeg.removeXMPProperties();
@@ -323,7 +335,6 @@ public class MainClass {
 		// Read Image Resource Blocks
 		// Images.Jpeg.readImageResourceBlocks();
 
-
 		// Read Sony maker notes
 		// Images.Jpeg.readSonyMakerNotes();
 
@@ -334,7 +345,10 @@ public class MainClass {
         //Images.Jpeg.findEXIFMetadataUsingRegex();
 
         //Replace EXIF Metadata using regex
-        //Images.Jpeg.replaceEXIFMetadataUsingRegex();
+		//Images.Jpeg.replaceEXIFMetadataUsingRegex();
+		
+		//Get TIFF Tags using EXIF Properties 
+		//Images.Jpeg.getTiffTagsUsingExifProperties();
 
 		// Working with Png
 		// Get XMP properties of Png image
@@ -359,6 +373,9 @@ public class MainClass {
 		// Get XMP properties of Tiff image
 		// Images.Tiff.getXMPProperties();
 
+		// Get XMP properties of Tiff image using Stream
+		// Images.Tiff.getXMPPropertiesusingStream();
+
 		// Read File Directory Tags of Tiff Image
 		// Images.Tiff.readTiffFileDirectoryTags();
 
@@ -377,9 +394,26 @@ public class MainClass {
 		// Read IPTC metadata from Tiff File
 		// Images.Tiff.readIPTCmetadataTiff();
 
-		//Remove XMP Metadata
-		////Images.Tiff.removeXMPMetadata();
+		// Remove XMP Metadata
+		// Images.Tiff.removeXMPMetadata();
 
+		// Remove XMP Metadata Using Stream
+		// Images.Tiff.removeXMPMetadataUsingStream();
+
+		// Extract Specifc TIFF Tags 
+		// Images.Tiff.extractSpecificTiffTags();
+
+		// Update Exif Info of Tiff image using shortcut properties
+		// Images.Tiff.updateExifMetadataUsingShortcutProperties();
+
+		// Update Exif Info of Tiff image by replacing tag collection 
+		// Images.Tiff.updateExifMetadatByReplacingTagCollection();
+
+		// Update Exif IFD Tags of Tiff image using shortcut properties
+		// Images.Tiff.updateExifIFDTagsUsingShortcutProperties();
+
+		// Update Exif IFD Tags of Tiff image by replacing tag collection 
+		// Images.Tiff.updateExifIFDTagsByReplacingTagCollection();
 
 		// Working with WebP
 		// Get metadata properties of WebP image
@@ -424,6 +458,9 @@ public class MainClass {
 
 		// Update IPTC Metadata using steam
 		//Images.Psd.updateIPTCMetadataUsingStream();
+
+		// Read EXIF Metadata
+		// Images.Psd.readEXIFMetadata();
 
 		// Working with Emf
 		// Get metadata properties of emf image
