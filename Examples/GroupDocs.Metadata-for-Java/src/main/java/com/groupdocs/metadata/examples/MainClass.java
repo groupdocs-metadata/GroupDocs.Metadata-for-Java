@@ -568,8 +568,17 @@ public class MainClass {
 		// Read MPEG audio information
 		// AudioFormats.Mp3.readMPEGAudioInfo();
 
-		// Read Layrics3 Tag
-		// AudioFormats.Mp3.readLayrics3Tags();
+		// Read Lyrics3 Tag
+		// AudioFormats.Mp3.readLyrics3Tags();
+
+		// Update Lyrics3 Tag
+		// AudioFormats.Mp3.updateLyrics3Tag();
+
+		// Update Lyrics3 Tag by replacing whole field collection
+		// AudioFormats.Mp3.updateLyrics3TagByReplacingWholeFieldCollection();
+
+		// Update Lyrics3 Tag by replacing whole tag
+		// AudioFormats.Mp3.updateLyrics3TagByReplacingWholeTag();
 
 		// Update ID3v1Tag
 		// AudioFormats.Mp3.updateID3v1Tags();
