@@ -561,6 +561,48 @@ public class AudioFormats {
 			}
 
 		}
+		// Update Lyrics3 Tag
+        public static void updateLyrics3Tag() {
+			try (Mp3Format format = new Mp3Format(Common.mapSourceFilePath(filepath)))
+			{
+				format.getLyrics3v2Properties().setAlbum("test album");
+				format.getLyrics3v2Properties().setArtist("test artist");
+				format.getLyrics3v2Properties().setAdditionalInfo("test info");
+				format.getLyrics3v2Properties().setLyrics("[00:01] test lyrics");
+				format.save(Common.mapDestinationFilePath(outputPath));
+			}
+        }
+		// Update Lyrics3 Tag by replacing whole field collection
+		public static void updateLyrics3TagByReplacingWholeFieldCollection() {
+			try (Mp3Format format = new Mp3Format(Common.mapSourceFilePath(filepath)))
+			{
+				Lyrics3Field[] fields = new Lyrics3Field[]
+						{
+								new Lyrics3Field("EAL", "test album"),
+								new Lyrics3Field("EAR", "test artist"),
+								new Lyrics3Field("INF", "test info"),
+								new Lyrics3Field("LYR", "[00:01] test lyrics"),
+						};
+				format.getLyrics3v2Properties().setFields(fields);
+				format.save(Common.mapDestinationFilePath(outputPath));
+			}
+		}
+		// Update Lyrics3 Tag by replacing whole tag
+		public static void updateLyrics3TagByReplacingWholeTag() {
+			try (Mp3Format format = new Mp3Format(Common.mapSourceFilePath(filepath)))
+			{
+				Lyrics3Tag tag = new Lyrics3Tag();
+				tag.setFields(new Lyrics3Field[]
+						{
+								new Lyrics3Field("EAL", "test album"),
+								new Lyrics3Field("EAR", "test artist"),
+								new Lyrics3Field("INF", "test info"),
+								new Lyrics3Field("LYR", "[00:01] test lyrics"),
+						});
+				format.updateLyrics3v2(tag);
+				format.save(Common.mapDestinationFilePath(outputPath));
+			}
+		}
 	}
 
 	public static class Wav {
