@@ -7,6 +7,7 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.*;
 import java.lang.reflect.Field;
+import java.util.Date;
 import java.util.regex.Pattern;
 
 public class Documents {
@@ -573,28 +574,47 @@ public class Documents {
 
 		public static void getDocumentProperties() {
 			// initialize XlsFormat
+            try (XlsFormat format = new XlsFormat(Common.mapSourceFilePath(path))) {
 
-            try (XlsFormat xlsFormat = new XlsFormat(Common.mapSourceFilePath(path))) {
-                // get document properties
-                XlsMetadata properties = xlsFormat.getDocumentProperties();
-                // get author
-                System.out.printf("Author: %s", properties.getAuthor());
-                // get company
-                System.out.printf("Company: %s", properties.getCompany());
-                // get created date of the document
-                System.out.printf("Created Date: %s", properties.getCreatedTime());
+                System.out.println(format.getDocumentProperties().getAuthor());
+                System.out.println(format.getDocumentProperties().getCompany());
+                System.out.println(format.getDocumentProperties().getCreatedTime());
+
+                // Following metadata properties are supported by version 18.11 or higher
+                System.out.println(format.getDocumentProperties().getLanguage());
+                System.out.println(format.getDocumentProperties().getContentStatus());
+                System.out.println(format.getDocumentProperties().getContentType());
+                System.out.println(format.getDocumentProperties().getCreatedTime());
+                System.out.println(format.getDocumentProperties().getTotalEditingTime());
+                System.out.println(format.getDocumentProperties().getLastSavedTime());
+                System.out.println(format.getDocumentProperties().getLastPrintedDate());
+                System.out.println(format.getDocumentProperties().getLastSavedBy());
+                System.out.println(format.getDocumentProperties().getRevision());
+                System.out.println(format.getDocumentProperties().getVersion());
             }
 		}
 
 		public static void updateDocumentProperties() {
 			// initialize XlsFormat
             try (XlsFormat xlsFormat = new XlsFormat(Common.mapSourceFilePath(path))) {
-                // get document properties
-                XlsMetadata properties = xlsFormat.getDocumentProperties();
+
                 // update built-in properties
-                properties.setAuthor("test author");
-                properties.setSubject("test subject");
-                properties.setManager("test manager");
+                xlsFormat.getDocumentProperties().setAuthor("test author");
+                xlsFormat.getDocumentProperties().setSubject("test subject");
+                xlsFormat.getDocumentProperties().setManager("test manager");
+
+                // Following metadata properties are supported by version 18.11 or higher
+                xlsFormat.getDocumentProperties().setLanguage("test language");
+                xlsFormat.getDocumentProperties().setContentStatus("test content status");
+                xlsFormat.getDocumentProperties().setContentType("test content type");
+                xlsFormat.getDocumentProperties().setCreatedTime(new Date());
+                xlsFormat.getDocumentProperties().setTotalEditingTime(100);
+                xlsFormat.getDocumentProperties().setLastSavedTime(new Date());
+                xlsFormat.getDocumentProperties().setLastPrintedDate(new Date());
+                xlsFormat.getDocumentProperties().setLastSavedBy("test last saved by");
+                xlsFormat.getDocumentProperties().setRevision("test revision");
+                xlsFormat.getDocumentProperties().setVersion("12.1111");
+
                 // commit changes
                 xlsFormat.save(Common.mapDestinationFilePath(outputPath));
             }
