@@ -20,7 +20,7 @@ public class MainClass {
 		// Documents.Doc.getDocumentProperties();
 
 		// Update document properties of Doc file
-		// Documents.Doc.updateDocumentProperties();
+		 Documents.Doc.updateDocumentProperties();
 
 		// Remove document properties of Doc file
 		// Documents.Doc.removeDocumentProperties();
@@ -125,10 +125,10 @@ public class MainClass {
 		//region Working with Xls files
 
 		// Get document properties of Xls file
-		 Documents.Xls.getDocumentProperties();
+		// Documents.Xls.getDocumentProperties();
 
 		// Update document properties of Xls file
-		 Documents.Xls.updateDocumentProperties();
+		// Documents.Xls.updateDocumentProperties();
 
 		// Remove document properties of Xls file
 		// Documents.Xls.removeDocumentProperties();
@@ -836,6 +836,22 @@ public class MainClass {
 
         //Get DublinCore Metadata of supported file formats using IDublinCore Interface
         //DublinCore.getDublinCoreMetadataUsingIDublinCore();
+
+		//endregion
+
+		//region Working with Password Protected Document
+
+		//Load a password-protected PDF document
+		//Documents.Pdf.passwordProtectedPDFDocument();
+
+		//Load a password-protected Word document
+		//Documents.Doc.loadPasswordProtectedWordDocument();
+
+		//Load a password-protected Excel document
+		//Documents.Xls.loadPasswordProtectedExcelDocument();
+
+		//Load a password-protected Presentation document
+		//Documents.Ppt.loadPasswordProtectedPresentationDocument();
 
 		//endregion
 

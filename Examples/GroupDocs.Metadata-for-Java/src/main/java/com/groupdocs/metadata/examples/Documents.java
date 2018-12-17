@@ -14,6 +14,7 @@ public class Documents {
 	public static class Doc {
 		private static String path = "\\Documents\\Doc\\sample.doc";
 		private static String outputPath = "\\Documents\\Doc\\result.doc";
+        private static String protectedFilePath = "\\Documents\\Doc\\protected-sample.docx";
 
 		public static void getDocumentProperties() {
 
@@ -40,6 +41,10 @@ public class Documents {
 				properties.setAuthor("test author");
 				properties.setCompany("test company");
 				properties.setManager("test manager");
+
+				//Following properties are supported by version 18.12 or greater
+                docFormat.getDocumentProperties().setValueByKey("Words", new PropertyValue(1));
+                docFormat.getDocumentProperties().setValueByKey("Version", new PropertyValue(851968));
 
 				// commit changes
 				docFormat.save(Common.mapDestinationFilePath(outputPath));
@@ -425,11 +430,25 @@ public class Documents {
                 e.printStackTrace();
             }
         }
+
+        /**
+         * Loads Password Protect Word document and cleans metadata
+         */
+        public static void loadPasswordProtectedWordDocument() {
+            LoadOptions loadOptions = new LoadOptions("password");
+            try (DocFormat format = new DocFormat(Common.mapSourceFilePath(protectedFilePath), loadOptions))
+            {
+                // Working with the password-protected document
+                format.cleanMetadata();
+                format.save(Common.mapDestinationFilePath(protectedFilePath));
+            }
+        }
     }
 
 	public static class Ppt {
 		private static String path = "\\Documents\\ppt\\sample.pptx";
 		private static String outputPath = "\\Documents\\ppt\\result.pptx";
+        private static String protectedFilePath = "\\Documents\\Ppt\\protected-sample.pptx";
 
 		public static void getDocumentProperties() {
 			// initialize PptFormat
@@ -566,11 +585,25 @@ public class Documents {
                 }
             }
 		}
-	}
+
+        /**
+         *  Loads Password Protected Presentation document and cleans metadata
+         */
+        public static void loadPasswordProtectedPresentationDocument() {
+            LoadOptions loadOptions = new LoadOptions("password");
+            try (PptFormat format = new PptFormat(Common.mapSourceFilePath(protectedFilePath), loadOptions))
+            {
+                // Working with the password-protected document
+                format.cleanMetadata();
+                format.save(Common.mapDestinationFilePath(protectedFilePath));
+            }
+        }
+    }
 
 	public static class Xls {
 		private static String path = "\\Documents\\Xls\\sample.xls";
 		private static String outputPath = "\\Documents\\Xls\\result.xls";
+        private static String protectedFilePath = "\\Documents\\Xls\\protected-sample.xls";
 
 		public static void getDocumentProperties() {
 			// initialize XlsFormat
@@ -816,13 +849,28 @@ public class Documents {
 			}
 
 		}
-	}
+
+        /**
+         *  Loads Password Protected Excel document and cleans metadata
+         */
+        public static void loadPasswordProtectedExcelDocument() {
+            LoadOptions loadOptions = new LoadOptions("password");
+            try (XlsFormat format = new XlsFormat(Common.mapSourceFilePath(protectedFilePath), loadOptions))
+            {
+                // Working with the password-protected document
+                format.cleanMetadata();
+                format.save(Common.mapDestinationFilePath(protectedFilePath));
+            }
+        }
+    }
 
 	public static class Pdf {
 		private static String path = "\\Documents\\Pdf\\sample.pdf";
 		private static String outputPath = "\\Documents\\Pdf\\result.pdf";
+        private static String protectedFilePath = "\\Documents\\Pdf\\protected-sample.pdf";
 
-		public static void getDocumentProperties() {
+
+        public static void getDocumentProperties() {
 			// initialize PdfFormat
             try (PdfFormat pdfFormat = new PdfFormat(Common.mapSourceFilePath(path))) {
                 // get document properties
@@ -996,7 +1044,20 @@ public class Documents {
 				System.out.println(ex.getMessage());
 			}
 		}
-	}
+
+        /**
+         * Loads Password Protected PDF documents and cleans metadata
+         */
+        public static void passwordProtectedPDFDocument() {
+            LoadOptions loadOptions = new LoadOptions("password");
+            try (PdfFormat format = new PdfFormat(Common.mapSourceFilePath(protectedFilePath), loadOptions))
+            {
+                // Working with the password-protected document
+                format.cleanMetadata();
+                format.save(Common.mapDestinationFilePath(protectedFilePath));
+            }
+        }
+    }
 
 	public static class MSVisio {
 		private static String path = "\\Documents\\MSVisio\\sample.vdx";
@@ -1060,7 +1121,7 @@ public class Documents {
             try (MppFormat mppFormat = new MppFormat(Common.mapSourceFilePath(path))) {
 
                 // get document properties
-                MppMetadata properties = mppFormat.getProjectProperties();
+                MppMetadata properties = mppFormat.getProjectInfo();
 
                 if (mppFormat != null) {
                     // get Author
