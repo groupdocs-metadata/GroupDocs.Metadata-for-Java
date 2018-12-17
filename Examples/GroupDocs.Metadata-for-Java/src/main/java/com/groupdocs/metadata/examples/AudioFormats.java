@@ -82,7 +82,7 @@ public class AudioFormats {
 			try (Mp3Format mp3Format = new Mp3Format((Common.mapSourceFilePath(filepath)))) {
 
 				// get ID3v1 tag
-				Id3v1Tag id3V1 = mp3Format.getId3v1();
+				Id3v1Tag id3V1 = mp3Format.getId3v1Properties();
 				// NOTE: please remember you may use different approaches to getting
 				// metadata
 
@@ -139,7 +139,7 @@ public class AudioFormats {
 			try (Mp3Format mp3Format = new Mp3Format((Common.mapSourceFilePath(filepath)))) {
 
 				// get ID3 v2 tag
-				Id3v2Tag id3v2 = mp3Format.getId3v2();
+				Id3v2Tag id3v2 = mp3Format.getId3v2Properties();
 				if (id3v2 != null) {
 					// write ID3v2 version
 					System.out.printf("Version: %s", id3v2.getVersion());
@@ -169,7 +169,7 @@ public class AudioFormats {
 			try (Mp3Format mp3Format = new Mp3Format((Common.mapSourceFilePath(filepath)))) {
 
 				// get id3v2 tag
-				Id3v2Tag id3Tag = mp3Format.getId3v2();
+				Id3v2Tag id3Tag = mp3Format.getId3v2Tag();
 
 				// set artist
 				id3Tag.setArtist("A-ha");
@@ -215,7 +215,7 @@ public class AudioFormats {
 			try (Mp3Format mp3Format = new Mp3Format((Common.mapSourceFilePath(filepath)))) {
 
 				// get Lyrics3 v2.00 tag
-				Lyrics3Tag lyrics3Tag = mp3Format.getLyrics3v2();
+				Lyrics3Tag lyrics3Tag = mp3Format.getLyrics3Tag();
 				// check if Lyrics3 is presented. It could be absent.
 				if (lyrics3Tag != null) {
 					// Display defined tag values
@@ -253,10 +253,10 @@ public class AudioFormats {
 			try (Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath))) {
 
 				// read album in ID3 v1
-				System.out.printf(mp3Format.getId3v1().getAlbum());
+				System.out.printf(mp3Format.getId3v1Properties().getAlbum());
 
 				// read title in ID3 v2
-				System.out.printf("Title: %", mp3Format.getId3v2().getTitle());
+				System.out.printf("Title: %", mp3Format.getId3v2Properties().getTitle());
 			}
 
 		}
@@ -340,7 +340,7 @@ public class AudioFormats {
 
 				try (Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath))) {
 					// get ID3 v2 tag
-					Id3v2Tag id3v2 = mp3Format.getId3v2();
+					Id3v2Tag id3v2 = mp3Format.getId3v2Tag();
 					if (id3v2 != null)
 					{
 						// write subtitle version
@@ -426,7 +426,7 @@ public class AudioFormats {
                 // init Mp3Format class
 				try (Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath))) {
 					// get ID3 v2 tag
-					Id3v2Tag id3v2 = mp3Format.getId3v2();
+					Id3v2Tag id3v2 = mp3Format.getId3v2Tag();
 					// close file after getting metadata
 					if (id3v2 == null){
 						return;
@@ -458,7 +458,7 @@ public class AudioFormats {
                 // init Mp3Format class
 				try (Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath))) {
 					// get ID3 v2 tag
-					Id3v2Tag id3v2 = mp3Format.getId3v2();
+					Id3v2Tag id3v2 = mp3Format.getId3v2Tag();
 					if (id3v2 != null) {
 						// remove image cover
 						id3v2.removeImageCover();
