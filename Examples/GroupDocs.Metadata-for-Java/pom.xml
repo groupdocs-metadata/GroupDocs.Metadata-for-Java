@@ -16,7 +16,7 @@
         <repository>
             <id>GroupDocsJavaAPI</id>
             <name>GroupDocs Java API</name>
-            <url>https://artifact.groupdocs.com/repo/</url>
+            <url>https://repository.groupdocs.com/repo/</url>
         </repository>
     </repositories>
     <dependencies>
