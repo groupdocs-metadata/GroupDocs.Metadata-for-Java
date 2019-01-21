@@ -7,7 +7,7 @@ public class MainClass {
 
 		//region Working with licensing
 		// Uncomment following code if you have license file
-         Common.applyLicenseFromFile();
+		// Common.applyLicenseFromFile();
 
 		// Using metered license
 		// Common.useDynabicMeteredAccount();
@@ -20,7 +20,7 @@ public class MainClass {
 		// Documents.Doc.getDocumentProperties();
 
 		// Update document properties of Doc file
-		 Documents.Doc.updateDocumentProperties();
+		// Documents.Doc.updateDocumentProperties();
 
 		// Remove document properties of Doc file
 		// Documents.Doc.removeDocumentProperties();
@@ -400,16 +400,16 @@ public class MainClass {
 		// Read Sony maker notes
 		// Images.Jpeg.readSonyMakerNotes();
 
-        //The method loads and save EXIF metadata with better speed
-        //Images.Jpeg.getEXIFMetadataWithBetterSpeed();
+		//The method loads and save EXIF metadata with better speed
+		//Images.Jpeg.getEXIFMetadataWithBetterSpeed();
 
-        //Find EXIF Metadata using regex
-        //Images.Jpeg.findEXIFMetadataUsingRegex();
+		//Find EXIF Metadata using regex
+		//Images.Jpeg.findEXIFMetadataUsingRegex();
 
-        //Replace EXIF Metadata using regex
+		//Replace EXIF Metadata using regex
 		//Images.Jpeg.replaceEXIFMetadataUsingRegex();
-		
-		//Get TIFF Tags using EXIF Properties 
+
+		//Get TIFF Tags using EXIF Properties
 		//Images.Jpeg.getTiffTagsUsingExifProperties();
 
 		//endregion
@@ -468,19 +468,19 @@ public class MainClass {
 		// Remove XMP Metadata Using Stream
 		// Images.Tiff.removeXMPMetadataUsingStream();
 
-		// Extract Specifc TIFF Tags 
+		// Extract Specifc TIFF Tags
 		// Images.Tiff.extractSpecificTiffTags();
 
 		// Update Exif Info of Tiff image using shortcut properties
 		// Images.Tiff.updateExifMetadataUsingShortcutProperties();
 
-		// Update Exif Info of Tiff image by replacing tag collection 
+		// Update Exif Info of Tiff image by replacing tag collection
 		// Images.Tiff.updateExifMetadatByReplacingTagCollection();
 
 		// Update Exif IFD Tags of Tiff image using shortcut properties
 		// Images.Tiff.updateExifIFDTagsUsingShortcutProperties();
 
-		// Update Exif IFD Tags of Tiff image by replacing tag collection 
+		// Update Exif IFD Tags of Tiff image by replacing tag collection
 		// Images.Tiff.updateExifIFDTagsByReplacingTagCollection();
 
 		//endregion
@@ -705,23 +705,23 @@ public class MainClass {
 		// Read APEV2 tag in MP3 files
 		// AudioFormats.Mp3.readApev2Tags();
 
-        //Validate ID3 input metadata before saviing
-        // AudioFormats.Mp3.validateID3Metadata();
+		//Validate ID3 input metadata before saviing
+		// AudioFormats.Mp3.validateID3Metadata();
 
-        //Read additional properties from ID3v2 tag
-        //AudioFormats.Mp3.readAdditionalID3v2Properties();
+		//Read additional properties from ID3v2 tag
+		//AudioFormats.Mp3.readAdditionalID3v2Properties();
 
-        //Update ID3v2 tag using properties
-        //AudioFormats.Mp3.updateID3v2TagUsingProperties();
+		//Update ID3v2 tag using properties
+		//AudioFormats.Mp3.updateID3v2TagUsingProperties();
 
-        //Update ID3v1 tag using properties
-        //AudioFormats.Mp3.updateID3v1TagUsingProperties();
+		//Update ID3v1 tag using properties
+		//AudioFormats.Mp3.updateID3v1TagUsingProperties();
 
-        //Ability to read Image cover from ID3 audio tag
-        //AudioFormats.Mp3.readImageCoverID3();
+		//Ability to read Image cover from ID3 audio tag
+		//AudioFormats.Mp3.readImageCoverID3();
 
-        //Update or Remove image cover from ID3 audio tag
-        //AudioFormats.Mp3.updateOrRemoveImageCoverID3();
+		//Update or Remove image cover from ID3 audio tag
+		//AudioFormats.Mp3.updateOrRemoveImageCoverID3();
 
 		// Read ImageCover using Metadata Utility
 		//AudioFormats.Mp3.readImageCoverMetadataUtility();
@@ -775,41 +775,56 @@ public class MainClass {
 
 		//region Working with Flv
 
-        //Detect FLV file format
-        //VideoFormats.Flv.detectFlvFormat();
+		//Detect FLV file format
+		//VideoFormats.Flv.detectFlvFormat();
 
-        //Get XMP Metadata
-        //VideoFormats.Flv.getXMPMetadata();
+		//Get XMP Metadata
+		//VideoFormats.Flv.getXMPMetadata();
 
-        //Update XMP Metadata
-        //VideoFormats.Flv.updateXMPMetadata();
+		//Update XMP Metadata
+		//VideoFormats.Flv.updateXMPMetadata();
 
-        //Remove XMP Metadata
-        //VideoFormats.Flv.removeXMPMetadata();
+		//Remove XMP Metadata
+		//VideoFormats.Flv.removeXMPMetadata();
 
-        //Read FLV header metadata
-        //VideoFormats.Flv.readFlvHeaderMetadata();
+		//Read FLV header metadata
+		//VideoFormats.Flv.readFlvHeaderMetadata();
 
 		//endregion
 
+		//region Working with MKV file format
+
+		//Get Matroska Metadata
+		//VideoFormats.Mkv.getMetadata();
+
+		//Get Matroska Segment Info Metadata
+		//VideoFormats.Mkv.matroskaSegmentInfoMetadata();
+
+		//Get Matroska Tag Metadata
+		//VideoFormats.Mkv.matroskaTagMetadata();
+
+		//Get Matroska Track Metadata
+		//VideoFormats.Mkv.matroskaTrackMetadata();
+
+		//endregion
 		//endregion
 
 		//region Working with ZIP Archives
 
 		//Detect Zip file format using format factory
-        //Archives.Zip.detectZipFormat();
+		//Archives.Zip.detectZipFormat();
 
-        //Get Zip format metadata
-        //Archives.Zip.getZipMetadata();
+		//Get Zip format metadata
+		//Archives.Zip.getZipMetadata();
 
-        // Get ZIP format metadata using stream
-        //Archives.Zip.getZipMatadataUsingStream();
+		// Get ZIP format metadata using stream
+		//Archives.Zip.getZipMatadataUsingStream();
 
-        //Remove ZIP format
-        //Archives.Zip.removeComment();
+		//Remove ZIP format
+		//Archives.Zip.removeComment();
 
-        //Update ZIP format Comment
-        //Archives.Zip.updateComment();
+		//Update ZIP format Comment
+		//Archives.Zip.updateComment();
 
 		//endregion
 
@@ -832,10 +847,10 @@ public class MainClass {
 
 		//region Working with DublinCore Metadata
 		//Get DublinCore of supported file formats using MetadataUtility class
-        //DublinCore.getDublinCoreMetadata();
+		//DublinCore.getDublinCoreMetadata();
 
-        //Get DublinCore Metadata of supported file formats using IDublinCore Interface
-        //DublinCore.getDublinCoreMetadataUsingIDublinCore();
+		//Get DublinCore Metadata of supported file formats using IDublinCore Interface
+		//DublinCore.getDublinCoreMetadataUsingIDublinCore();
 
 		//endregion
 
@@ -852,6 +867,9 @@ public class MainClass {
 
 		//Load a password-protected Presentation document
 		//Documents.Ppt.loadPasswordProtectedPresentationDocument();
+
+		//Load a password-protected OneNote document
+		//Documents.OneNote.loadPasswordProtectedOneNoteDocument();
 
 		//endregion
 

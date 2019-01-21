@@ -312,9 +312,9 @@ public class AudioFormats {
 			}
 		}
 
-        public static void validateID3Metadata() {
+		public static void validateID3Metadata() {
 
-		    // init Mp3Format class
+			// init Mp3Format class
 			try (Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath))) {
 
 				// set album but with invalid length
@@ -332,11 +332,11 @@ public class AudioFormats {
 				mp3Format.dispose();
 			}
 
-        }
+		}
 
-        public static void readAdditionalID3v2Properties() {
-		    try{
-                // init Mp3Format class
+		public static void readAdditionalID3v2Properties() {
+			try{
+				// init Mp3Format class
 
 				try (Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath))) {
 					// get ID3 v2 tag
@@ -369,14 +369,14 @@ public class AudioFormats {
 					// close file
 					mp3Format.dispose();
 				}
-            }catch(Exception ex){
-		        System.out.println(ex.getMessage());
-            }
-        }
+			}catch(Exception ex){
+				System.out.println(ex.getMessage());
+			}
+		}
 
-        public static void updateID3v2TagUsingProperties() {
-		    try{
-                // init Mp3Format class
+		public static void updateID3v2TagUsingProperties() {
+			try{
+				// init Mp3Format class
 				try (Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath))) {
 
 					// get id3v2 tag
@@ -395,14 +395,14 @@ public class AudioFormats {
 					mp3Format.dispose();
 				}
 
-            }catch(Exception ex){
-                System.out.println(ex.getMessage());
-            }
-        }
+			}catch(Exception ex){
+				System.out.println(ex.getMessage());
+			}
+		}
 
-        public static void updateID3v1TagUsingProperties() {
-		    try{
-                // init Mp3Format class
+		public static void updateID3v1TagUsingProperties() {
+			try{
+				// init Mp3Format class
 				try (Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath))) {
 					// get id3v1 tag
 					Id3v1Tag id3Tag = mp3Format.getId3v1Properties();
@@ -416,14 +416,14 @@ public class AudioFormats {
 					mp3Format.dispose();
 				}
 
-            }catch(Exception ex){
-		        System.out.println(ex.getMessage());
-            }
-        }
+			}catch(Exception ex){
+				System.out.println(ex.getMessage());
+			}
+		}
 
-        public static void readImageCoverID3() {
-		    try{
-                // init Mp3Format class
+		public static void readImageCoverID3() {
+			try{
+				// init Mp3Format class
 				try (Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath))) {
 					// get ID3 v2 tag
 					Id3v2Tag id3v2 = mp3Format.getId3v2Tag();
@@ -448,14 +448,14 @@ public class AudioFormats {
 					}
 					mp3Format.dispose();
 				}
-            }catch(Exception ex){
-		        System.out.println(ex.getMessage());
-            }
-        }
+			}catch(Exception ex){
+				System.out.println(ex.getMessage());
+			}
+		}
 
-        public static void updateOrRemoveImageCoverID3() {
-		    try{
-                // init Mp3Format class
+		public static void updateOrRemoveImageCoverID3() {
+			try{
+				// init Mp3Format class
 				try (Mp3Format mp3Format = new Mp3Format(Common.mapSourceFilePath(filepath))) {
 					// get ID3 v2 tag
 					Id3v2Tag id3v2 = mp3Format.getId3v2Tag();
@@ -471,11 +471,11 @@ public class AudioFormats {
 					mp3Format.dispose();
 				}
 
-            }catch (Exception ex){
-		        System.out.println(ex.getMessage());
-            }
+			}catch (Exception ex){
+				System.out.println(ex.getMessage());
+			}
 
-        }
+		}
 
 		public static void readImageCoverMetadataUtility() {
 			try {
@@ -491,7 +491,7 @@ public class AudioFormats {
 			}
 		}
 
-        public static void readID3v2TagUsingStream() throws IOException {
+		public static void readID3v2TagUsingStream() throws IOException {
 			try (InputStream stream = new FileInputStream("d:\\input.mp3"))
 			{
 				try (Mp3Format format = new Mp3Format(stream))
@@ -523,7 +523,7 @@ public class AudioFormats {
 				}
 				// The stream is still open here
 			}
-        }
+		}
 
 		public static void updateID3v2TagUsingStream() throws IOException {
 			try (OutputStream stream = new FileOutputStream("d:\\output.mp3"))
@@ -562,7 +562,7 @@ public class AudioFormats {
 
 		}
 		// Update Lyrics3 Tag
-        public static void updateLyrics3Tag() {
+		public static void updateLyrics3Tag() {
 			try (Mp3Format format = new Mp3Format(Common.mapSourceFilePath(filepath)))
 			{
 				format.getLyrics3v2Properties().setAlbum("test album");
@@ -571,7 +571,7 @@ public class AudioFormats {
 				format.getLyrics3v2Properties().setLyrics("[00:01] test lyrics");
 				format.save(Common.mapDestinationFilePath(outputPath));
 			}
-        }
+		}
 		// Update Lyrics3 Tag by replacing whole field collection
 		public static void updateLyrics3TagByReplacingWholeFieldCollection() {
 			try (Mp3Format format = new Mp3Format(Common.mapSourceFilePath(filepath)))
@@ -644,12 +644,13 @@ public class AudioFormats {
 			}
 		}
 		//This version is supported by version 18.6 or greater
-        public static void updateXmpMetadata() {
+		public static void updateXmpMetadata() {
 			try (WavFormat format = new WavFormat(Common.mapSourceFilePath(filepath)))
 			{
 				System.out.println(format.getXmpValues().getSchemes().getXmpBasic().getCreateDate());
 				System.out.println(format.getXmpValues().getSchemes().getXmpBasic().getLabel());
-				System.out.println(format.getXmpValues().getSchemes().getDublinCore().getSubject());
+				//getSubject() method is supported by version 19.1 or greater
+				System.out.println(format.getXmpValues().getSchemes().getDublinCore().getSubjects());
 				System.out.println(format.getXmpValues().getSchemes().getDublinCore().getFormat());
 
 				format.getXmpValues().getSchemes().getXmpBasic().setCreateDate(new Date());
@@ -659,7 +660,7 @@ public class AudioFormats {
 
 				format.save(Common.mapDestinationFilePath(filepath));
 			}
-        }
+		}
 		//This version is supported by version 18.6 or greater
 		public static void removeXmpMetadata() {
 			try (WavFormat format = new WavFormat(Common.mapSourceFilePath(filepath)))
@@ -676,15 +677,14 @@ public class AudioFormats {
 				{
 					System.out.println(format.getXmpValues().getSchemes().getXmpBasic().getCreateDate());
 					System.out.println(format.getXmpValues().getSchemes().getXmpBasic().getLabel());
-					System.out.println(format.getXmpValues().getSchemes().getDublinCore().getSubject());
+					//getSubjects() method is supported by version 19.1 or higher
+					System.out.println(format.getXmpValues().getSchemes().getDublinCore().getSubjects());
 					System.out.println(format.getXmpValues().getSchemes().getDublinCore().getFormat());
 
 					format.getXmpValues().getSchemes().getXmpBasic().setCreateDate(new Date());
 					format.getXmpValues().getSchemes().getXmpBasic().setLabel("Test");
 					format.getXmpValues().getSchemes().getDublinCore().setSubject("WAV XMP Test");
 					format.getXmpValues().getSchemes().getDublinCore().setFormat("WAV Audio");
-
-
 
 					format.save(stream);
 				}
