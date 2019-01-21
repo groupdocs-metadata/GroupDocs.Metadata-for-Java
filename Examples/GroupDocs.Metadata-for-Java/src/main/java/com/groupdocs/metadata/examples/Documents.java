@@ -11,97 +11,97 @@ import java.util.Date;
 import java.util.regex.Pattern;
 
 public class Documents {
-	public static class Doc {
-		private static String path = "\\Documents\\Doc\\sample.doc";
-		private static String outputPath = "\\Documents\\Doc\\result.doc";
+    public static class Doc {
+        private static String path = "\\Documents\\Doc\\sample.doc";
+        private static String outputPath = "\\Documents\\Doc\\result.doc";
         private static String protectedFilePath = "\\Documents\\Doc\\protected-sample.docx";
 
-		public static void getDocumentProperties() {
+        public static void getDocumentProperties() {
 
-			try (DocFormat docFormat = new DocFormat("D:\\Documents\\sample.doc")) {
-				// get document properties
+            try (DocFormat docFormat = new DocFormat("D:\\Documents\\sample.doc")) {
+                // get document properties
                 DocMetadata properties = docFormat.getDocumentProperties();
                 // get author
-				System.out.printf("Author: %s ", properties.getAuthor());
-				// get company
-				System.out.printf("Company: %s ", properties.getAuthor());
-				// get name of the last author
+                System.out.printf("Author: %s ", properties.getAuthor());
+                // get company
+                System.out.printf("Company: %s ", properties.getAuthor());
+                // get name of the last author
 
-			}
-		}
+            }
+        }
 
-		public static void updateDocumentProperties() {
-			// initialize DocFormat
-			try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
+        public static void updateDocumentProperties() {
+            // initialize DocFormat
+            try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
 
-				// get document properties
-				DocMetadata properties = docFormat.getDocumentProperties();
+                // get document properties
+                DocMetadata properties = docFormat.getDocumentProperties();
 
-				// update built-in properties
-				properties.setAuthor("test author");
-				properties.setCompany("test company");
-				properties.setManager("test manager");
+                // update built-in properties
+                properties.setAuthor("test author");
+                properties.setCompany("test company");
+                properties.setManager("test manager");
 
-				//Following properties are supported by version 18.12 or greater
+                //Following properties are supported by version 18.12 or greater
                 docFormat.getDocumentProperties().setValueByKey("Words", new PropertyValue(1));
                 docFormat.getDocumentProperties().setValueByKey("Version", new PropertyValue(851968));
 
-				// commit changes
-				docFormat.save(Common.mapDestinationFilePath(outputPath));
-			}
-		}
+                // commit changes
+                docFormat.save(Common.mapDestinationFilePath(outputPath));
+            }
+        }
 
-		public static void removeDocumentProperties() {
-			// initialize DocFormat
-			try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
-				// reset built-in document properties; remove all comments and
-				// custom properties
-				docFormat.cleanMetadata();
-				// commit changes
-				docFormat.save(Common.mapDestinationFilePath(outputPath));
-			}
-		}
+        public static void removeDocumentProperties() {
+            // initialize DocFormat
+            try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
+                // reset built-in document properties; remove all comments and
+                // custom properties
+                docFormat.cleanMetadata();
+                // commit changes
+                docFormat.save(Common.mapDestinationFilePath(outputPath));
+            }
+        }
 
-		public static void addCustomProperty() {
-			// initialize DocFormat
-			try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
-				// initialize DocMetadata
-				DocMetadata metadata = docFormat.getDocumentProperties();
-				// add string key
-				if (!metadata.containsKey("NET version")) {
-					metadata.add("NET version", "4.0");
-				}
-				// add boolean key
-				if (!metadata.containsKey("IsSigned")) {
-					metadata.add("IsSigned", false);
-				}
-				// save changes
-				docFormat.save(Common.mapDestinationFilePath(outputPath));
-			}
-		}
+        public static void addCustomProperty() {
+            // initialize DocFormat
+            try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
+                // initialize DocMetadata
+                DocMetadata metadata = docFormat.getDocumentProperties();
+                // add string key
+                if (!metadata.containsKey("NET version")) {
+                    metadata.add("NET version", "4.0");
+                }
+                // add boolean key
+                if (!metadata.containsKey("IsSigned")) {
+                    metadata.add("IsSigned", false);
+                }
+                // save changes
+                docFormat.save(Common.mapDestinationFilePath(outputPath));
+            }
+        }
 
-		public static void getCustomProperties() {
-			// initialize PdfFormat
-			try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
-				// get DocMetadata
-				DocMetadata metadata = docFormat.getDocumentProperties();
-				// get metadata all metadata keys
-				String[] metadataKeys = metadata.getKeys();
-				for (String key : metadataKeys) {
-					// check if metadata value is custom
-					if (!metadata.isBuiltIn(key)) {
-						// get metadata value by key
-						PropertyValue propertyValue = metadata.readPropertyValue(key);
+        public static void getCustomProperties() {
+            // initialize PdfFormat
+            try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
+                // get DocMetadata
+                DocMetadata metadata = docFormat.getDocumentProperties();
+                // get metadata all metadata keys
+                String[] metadataKeys = metadata.getKeys();
+                for (String key : metadataKeys) {
+                    // check if metadata value is custom
+                    if (!metadata.isBuiltIn(key)) {
+                        // get metadata value by key
+                        PropertyValue propertyValue = metadata.readPropertyValue(key);
 
-						// write value to output
-						System.out.printf("key: %s, type: %s, value: %s", key, propertyValue.getType(), propertyValue);
-					}
-				}
-			}
-		}
+                        // write value to output
+                        System.out.printf("key: %s, type: %s, value: %s", key, propertyValue.getType(), propertyValue);
+                    }
+                }
+            }
+        }
 
-		public static void getHiddenData() {
-			// initialize DocFormat
+        public static void getHiddenData() {
+            // initialize DocFormat
 
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
 
@@ -131,28 +131,28 @@ public class Documents {
                     }
                 }
             }
-		}
+        }
 
-		public static void removeMergeFields() {
-			// initialize DocFormat
+        public static void removeMergeFields() {
+            // initialize DocFormat
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
                 // inspect document
                 DocInspectionResult inspectionResult = docFormat.inspectDocument();
 
                 // if merge fields are presented
                 if (inspectionResult.getFields().length > 0) {
-                // remove it
+                    // remove it
                     docFormat.removeHiddenData(new DocInspectionOptions(DocInspectorOptionsEnum.Fields));
 
-                // and commit changes
+                    // and commit changes
                     docFormat.save(Common.mapDestinationFilePath(outputPath));
                 }
             }
 
-		}
+        }
 
-		public static void removeCustomProperties() {
-			// initialize DocFormat
+        public static void removeCustomProperties() {
+            // initialize DocFormat
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
                 // get DocMetadata
                 DocMetadata metadata = docFormat.getDocumentProperties();
@@ -164,10 +164,10 @@ public class Documents {
                 // and save changes
                 docFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-		public static void clearCustomProperties() {
-			// initialize DocFormat
+        public static void clearCustomProperties() {
+            // initialize DocFormat
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
                 // Use one of the following methods
                 // Method 1 - clear custom properties
@@ -177,10 +177,10 @@ public class Documents {
                 // commit changes
                 docFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-		public static void readComments() {
-			// initialize DocFormat
+        public static void readComments() {
+            // initialize DocFormat
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
                 // get comments
                 DocComment[] comments = docFormat.extractComments();
@@ -192,20 +192,20 @@ public class Documents {
                 }
             }
 
-		}
+        }
 
-		public static void removeComments() {
-			// initialize DocFormat
+        public static void removeComments() {
+            // initialize DocFormat
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
                 // remove all comments
                 docFormat.clearComments();
                 // commit changes
                 docFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-		public static void updateComments() {
-			// initialize DocFormat
+        public static void updateComments() {
+            // initialize DocFormat
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
 
                 // extract comments
@@ -228,10 +228,10 @@ public class Documents {
                     docFormat.save(Common.mapDestinationFilePath(outputPath));
                 }
             }
-		}
+        }
 
-		public static void saveFileAfterMetadataUpdate() {
-			// initialize format
+        public static void saveFileAfterMetadataUpdate() {
+            // initialize format
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
                 // update document properties
                 docFormat.getDocumentProperties().setAuthor("Joe Doe");
@@ -239,10 +239,10 @@ public class Documents {
                 // commit changes
                 docFormat.save();
             }
-		}
+        }
 
-		public static void readDocumentInfo() {
-			// initialize DocFormat
+        public static void readDocumentInfo() {
+            // initialize DocFormat
 
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
                 // get document info
@@ -254,33 +254,33 @@ public class Documents {
                 System.out.printf("Pages: %s", documentInfo.getPagesCount());
             }
 
-		}
+        }
 
-		public static void detectProtectedDocument() {
-			// initialize DocFormat
+        public static void detectProtectedDocument() {
+            // initialize DocFormat
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
                 // determines whether document is protected by password
                 boolean isProtected = docFormat.isProtected();
                 System.out.printf("IsProtected : %s", isProtected);
             }
 
-		}
+        }
 
-		public static void documentProtectedException() {
-			try {
-				// initialize DocFormat
+        public static void documentProtectedException() {
+            try {
+                // initialize DocFormat
                 try (DocFormat pdfFormat = new DocFormat(path)) {
 
                     // and try to get document properties
                     DocMetadata documentProperties = pdfFormat.getDocumentProperties();
                 }
-			} catch (DocumentProtectedException ex) {
-				System.out.printf("File is protected by password PDF: %s", ex.getMessage());
-			}
-		}
+            } catch (DocumentProtectedException ex) {
+                System.out.printf("File is protected by password PDF: %s", ex.getMessage());
+            }
+        }
 
-		public static void removeHiddenData() {
-			// initialize DocFormat
+        public static void removeHiddenData() {
+            // initialize DocFormat
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
 
                 // inspect document
@@ -295,10 +295,10 @@ public class Documents {
                     docFormat.save(Common.mapDestinationFilePath(outputPath));
                 }
             }
-		}
+        }
 
-		public static void lazyLoadDocumentInfoProperty() {
-			// initialize DocFormat
+        public static void lazyLoadDocumentInfoProperty() {
+            // initialize DocFormat
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
 
                 // get document info
@@ -308,10 +308,10 @@ public class Documents {
                 DocumentInfo next = docFormat.getDocumentInfo();
             }
 
-		}
+        }
 
-		public static void detectDocumentType() {
-			// initialize DocFormat
+        public static void detectDocumentType() {
+            // initialize DocFormat
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
 
                 // display file type
@@ -325,10 +325,10 @@ public class Documents {
                         break;
                 }
             }
-		}
+        }
 
-		public static void readDigitalSignature() {
-			// initialize DocFormat
+        public static void readDigitalSignature() {
+            // initialize DocFormat
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
 
                 // if document contains digital signatures
@@ -348,10 +348,10 @@ public class Documents {
                     }
                 }
             }
-		}
+        }
 
-		public static void removeDigitalSignature() {
-			// initialize DocFormat
+        public static void removeDigitalSignature() {
+            // initialize DocFormat
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
 
                 // if document contains digital signatures
@@ -363,49 +363,49 @@ public class Documents {
                     docFormat.save();
                 }
             }
-		}
+        }
 
-		public static void readDublinCoreMetadata() {
-			try {
-				// open EPUB file
-				DublinCoreMetadata dublinCoreMetadata = (DublinCoreMetadata) MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.DublinCore);
+        public static void readDublinCoreMetadata() {
+            try {
+                // open EPUB file
+                DublinCoreMetadata dublinCoreMetadata = (DublinCoreMetadata) MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.DublinCore);
 
-				// get dc title
-				System.out.printf("Title = %s\n", dublinCoreMetadata.getTitle());
+                // get dc title
+                System.out.printf("Title = %s\n", dublinCoreMetadata.getTitle());
 
-				// get creator
-				System.out.printf("Creator = %s\n", dublinCoreMetadata.getCreator());
+                // get creator
+                System.out.printf("Creator = %s\n", dublinCoreMetadata.getCreator());
 
-				// get dc publisher
-				System.out.printf("Publisher = %s\n", dublinCoreMetadata.getPublisher());
+                // get dc publisher
+                System.out.printf("Publisher = %s\n", dublinCoreMetadata.getPublisher());
 
-				// get dc description
-				System.out.printf("Description = %s\n", dublinCoreMetadata.getDescription());
+                // get dc description
+                System.out.printf("Description = %s\n", dublinCoreMetadata.getDescription());
 
-				// get language
-				System.out.printf("Language = %s\n", dublinCoreMetadata.getLanguage());
+                // get language
+                System.out.printf("Language = %s\n", dublinCoreMetadata.getLanguage());
 
-				// get format
-				System.out.printf("Format = %s\n", dublinCoreMetadata.getFormat());
+                // get format
+                System.out.printf("Format = %s\n", dublinCoreMetadata.getFormat());
 
-			} catch (Exception ex) {
-				System.out.println(ex.getMessage());
-			}
-		}
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
 
-		public static void readImageCoverMetadataUtility() {
-			try {
-				// Get Thumbnail Metadata
-				ThumbnailMetadata thumbnailMetadata = (ThumbnailMetadata)MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.Thumbnail);
-				//Get Mime Type
-				System.out.println(thumbnailMetadata.getMimeType());
-				//Get Image Data Length
-				System.out.println(thumbnailMetadata.getImageData().length);
+        public static void readImageCoverMetadataUtility() {
+            try {
+                // Get Thumbnail Metadata
+                ThumbnailMetadata thumbnailMetadata = (ThumbnailMetadata)MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.Thumbnail);
+                //Get Mime Type
+                System.out.println(thumbnailMetadata.getMimeType());
+                //Get Image Data Length
+                System.out.println(thumbnailMetadata.getImageData().length);
 
-			} catch (Exception ex) {
-				System.out.println(ex.getMessage());
-			}
-		}
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
 
         public static void findMetadataUsingRegex() {
             try {
@@ -445,13 +445,13 @@ public class Documents {
         }
     }
 
-	public static class Ppt {
-		private static String path = "\\Documents\\ppt\\sample.pptx";
-		private static String outputPath = "\\Documents\\ppt\\result.pptx";
+    public static class Ppt {
+        private static String path = "\\Documents\\ppt\\sample.pptx";
+        private static String outputPath = "\\Documents\\ppt\\result.pptx";
         private static String protectedFilePath = "\\Documents\\Ppt\\protected-sample.pptx";
 
-		public static void getDocumentProperties() {
-			// initialize PptFormat
+        public static void getDocumentProperties() {
+            // initialize PptFormat
 
             try (PptFormat pptFormat = new PptFormat(Common.mapSourceFilePath(path))) {
                 // get document properties
@@ -463,10 +463,10 @@ public class Documents {
                 // get created date of the document
                 System.out.printf("Created Date: %s", properties.getCreatedTime());
             }
-		}
+        }
 
-		public static void updateDocumentProperties() {
-			// initialize PptFormat
+        public static void updateDocumentProperties() {
+            // initialize PptFormat
             try (PptFormat pptFormat = new PptFormat(Common.mapSourceFilePath(path))) {
                 // get document properties
                 PptMetadata properties = pptFormat.getDocumentProperties();
@@ -477,20 +477,20 @@ public class Documents {
                 // commit changes
                 pptFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-		public static void removeDocumentProperties() {
-			// initialize PptFormat
+        public static void removeDocumentProperties() {
+            // initialize PptFormat
             try (PptFormat pptFormat = new PptFormat(Common.mapSourceFilePath(path))) {
                 // reset built-in document properties; remove all custom properties
                 pptFormat.cleanMetadata();
                 // commit changes
                 pptFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-		public static void addCustomProperty() {
-			// initialize PptFormat
+        public static void addCustomProperty() {
+            // initialize PptFormat
             try (PptFormat pptFormat = new PptFormat(Common.mapSourceFilePath(path))) {
 
                 // get document properties
@@ -508,10 +508,10 @@ public class Documents {
                 // save changes
                 pptFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-		public static void getCustomProperties() {
-			// initialize PptFormat
+        public static void getCustomProperties() {
+            // initialize PptFormat
             try (PptFormat pptFormat = new PptFormat(Common.mapSourceFilePath(path))) {
 
                 // get document properties
@@ -532,10 +532,10 @@ public class Documents {
             }
 
 
-		}
+        }
 
-		public static void removeCustomProperties() {
-			// initialize PptFormat
+        public static void removeCustomProperties() {
+            // initialize PptFormat
             try (PptFormat pptFormat = new PptFormat(Common.mapSourceFilePath(path))) {
 
                 // get document properties
@@ -549,10 +549,10 @@ public class Documents {
                 // and save changes
                 pptFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-		public static void getHiddenData() {
-			// initialize PptFormat
+        public static void getHiddenData() {
+            // initialize PptFormat
             try (PptFormat pptFormat = new PptFormat(Common.mapSourceFilePath(path))) {
 
                 // get hidden data
@@ -564,10 +564,10 @@ public class Documents {
                     System.out.printf("Author: %s, slide: %s", comment.getAuthor(), comment.getSlideId());
                 }
             }
-		}
+        }
 
-		public static void removeHiddenData() {
-			// initialize PptFormat
+        public static void removeHiddenData() {
+            // initialize PptFormat
             try (PptFormat pptFormat = new PptFormat(Common.mapSourceFilePath(path))) {
 
                 // get hidden data
@@ -584,7 +584,7 @@ public class Documents {
                     pptFormat.save();
                 }
             }
-		}
+        }
 
         /**
          *  Loads Password Protected Presentation document and cleans metadata
@@ -600,13 +600,13 @@ public class Documents {
         }
     }
 
-	public static class Xls {
-		private static String path = "\\Documents\\Xls\\sample.xls";
-		private static String outputPath = "\\Documents\\Xls\\result.xls";
+    public static class Xls {
+        private static String path = "\\Documents\\Xls\\sample.xls";
+        private static String outputPath = "\\Documents\\Xls\\result.xls";
         private static String protectedFilePath = "\\Documents\\Xls\\protected-sample.xls";
 
-		public static void getDocumentProperties() {
-			// initialize XlsFormat
+        public static void getDocumentProperties() {
+            // initialize XlsFormat
             try (XlsFormat format = new XlsFormat(Common.mapSourceFilePath(path))) {
 
                 System.out.println(format.getDocumentProperties().getAuthor());
@@ -625,10 +625,10 @@ public class Documents {
                 System.out.println(format.getDocumentProperties().getRevision());
                 System.out.println(format.getDocumentProperties().getVersion());
             }
-		}
+        }
 
-		public static void updateDocumentProperties() {
-			// initialize XlsFormat
+        public static void updateDocumentProperties() {
+            // initialize XlsFormat
             try (XlsFormat xlsFormat = new XlsFormat(Common.mapSourceFilePath(path))) {
 
                 // update built-in properties
@@ -651,20 +651,20 @@ public class Documents {
                 // commit changes
                 xlsFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-		public static void removeDocumentProperties() {
-			// initialize XlsFormat
+        public static void removeDocumentProperties() {
+            // initialize XlsFormat
             try (XlsFormat xlsFormat = new XlsFormat(Common.mapSourceFilePath(path))) {
                 // reset built-in document properties; remove all custom properties
                 xlsFormat.cleanMetadata();
                 // commit changes
                 xlsFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-		public static void addCustomProperty() {
-			// initialize XlsFormat
+        public static void addCustomProperty() {
+            // initialize XlsFormat
             try (XlsFormat xlsFormat = new XlsFormat(Common.mapSourceFilePath(path))) {
                 // get document properties
                 XlsMetadata metadata = xlsFormat.getDocumentProperties();
@@ -679,10 +679,10 @@ public class Documents {
                 // save changes
                 xlsFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-		public static void getCustomProperties() {
-			// initialize XlsFormat
+        public static void getCustomProperties() {
+            // initialize XlsFormat
             try (XlsFormat xlsFormat = new XlsFormat(Common.mapSourceFilePath(path))) {
                 // get document properties
                 XlsMetadata metadata = xlsFormat.getDocumentProperties();
@@ -704,10 +704,10 @@ public class Documents {
                     }
                 }
             }
-		}
+        }
 
-		public static void removeCustomProperties() {
-			// initialize XlsFormat
+        public static void removeCustomProperties() {
+            // initialize XlsFormat
             try (XlsFormat xlsFormat = new XlsFormat(Common.mapSourceFilePath(path))) {
 
                 // get document properties
@@ -721,10 +721,10 @@ public class Documents {
                 // and save changes
                 xlsFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-		public static void getContentTypeDocumentProperties() {
-			// initialize XlsFormat
+        public static void getContentTypeDocumentProperties() {
+            // initialize XlsFormat
             try (XlsFormat xlsFormat = new XlsFormat(Common.mapSourceFilePath(path))) {
                 // get content properties
                 for (XlsContentProperty property : xlsFormat.getDocumentProperties().getContentTypeProperties())
@@ -732,11 +732,11 @@ public class Documents {
                     System.out.println(property.getFormattedValue());
                 }
             }
-		}
+        }
 
-		public static void addContentTypeProperty() {
+        public static void addContentTypeProperty() {
 
-			// initialize XlsFormat
+            // initialize XlsFormat
             try (XlsFormat xlsFormat = new XlsFormat(Common.mapSourceFilePath(path))) {
 
                 // get all xls properties
@@ -755,10 +755,10 @@ public class Documents {
                 xlsFormat.save(Common.mapDestinationFilePath(outputPath));
             }
 
-		}
+        }
 
-		public static void readThumbnailXls() {
-			// initialize XlsFormat
+        public static void readThumbnailXls() {
+            // initialize XlsFormat
 
             try (XlsFormat docFormat = new XlsFormat(Common.mapSourceFilePath(path))) {
 
@@ -775,19 +775,19 @@ public class Documents {
             }
 
 
-		}
+        }
 
-		public static void exportContentTypeProperties() throws IOException {
-			// export to excel
-			byte[] content = ExportFacade.exportToExcel(Common.mapSourceFilePath(path));
-			// write data to the file
-			FileUtils.writeByteArrayToFile(new File(Common.mapDestinationFilePath(outputPath)), content);
+        public static void exportContentTypeProperties() throws IOException {
+            // export to excel
+            byte[] content = ExportFacade.exportToExcel(Common.mapSourceFilePath(path));
+            // write data to the file
+            FileUtils.writeByteArrayToFile(new File(Common.mapDestinationFilePath(outputPath)), content);
 
-			System.out.printf("File has been exported");
-		}
+            System.out.printf("File has been exported");
+        }
 
-		public static void getHiddenData() {
-			// initialize XlsFormat
+        public static void getHiddenData() {
+            // initialize XlsFormat
 
             try (XlsFormat xlsFormat = new XlsFormat(Common.mapSourceFilePath(path))) {
 
@@ -809,10 +809,10 @@ public class Documents {
             }
 
 
-		}
+        }
 
-		public static void removeHiddenData() {
-			// initialize XlsFormat
+        public static void removeHiddenData() {
+            // initialize XlsFormat
             try (XlsFormat xlsFormat = new XlsFormat(Common.mapSourceFilePath(path))) {
 
                 // get hidden data
@@ -833,22 +833,22 @@ public class Documents {
                 } else
                     System.out.printf("No sheets found.");
             }
-		}
+        }
 
-		public static void readImageCoverMetadataUtility() {
-			try {
-				// Get Thumbnail Metadata
-				ThumbnailMetadata thumbnailMetadata = (ThumbnailMetadata)MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.Thumbnail);
-				//Get Mime Type
-				System.out.println(thumbnailMetadata.getMimeType());
-				//Get Image Data Length
-				System.out.println(thumbnailMetadata.getImageData().length);
+        public static void readImageCoverMetadataUtility() {
+            try {
+                // Get Thumbnail Metadata
+                ThumbnailMetadata thumbnailMetadata = (ThumbnailMetadata)MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.Thumbnail);
+                //Get Mime Type
+                System.out.println(thumbnailMetadata.getMimeType());
+                //Get Image Data Length
+                System.out.println(thumbnailMetadata.getImageData().length);
 
-			} catch (Exception ex) {
-				System.out.println(ex.getMessage());
-			}
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
 
-		}
+        }
 
         /**
          *  Loads Password Protected Excel document and cleans metadata
@@ -864,14 +864,14 @@ public class Documents {
         }
     }
 
-	public static class Pdf {
-		private static String path = "\\Documents\\Pdf\\sample.pdf";
-		private static String outputPath = "\\Documents\\Pdf\\result.pdf";
+    public static class Pdf {
+        private static String path = "\\Documents\\Pdf\\sample.pdf";
+        private static String outputPath = "\\Documents\\Pdf\\result.pdf";
         private static String protectedFilePath = "\\Documents\\Pdf\\protected-sample.pdf";
 
 
         public static void getDocumentProperties() {
-			// initialize PdfFormat
+            // initialize PdfFormat
             try (PdfFormat pdfFormat = new PdfFormat(Common.mapSourceFilePath(path))) {
                 // get document properties
                 PdfMetadata properties = pdfFormat.getDocumentProperties();
@@ -882,10 +882,10 @@ public class Documents {
                 // get created date of the document
                 System.out.printf("Created Date: %s", properties.getCreatedDate());
             }
-		}
+        }
 
-		public static void updateDocumentProperties() {
-			// initialize PdfFormat
+        public static void updateDocumentProperties() {
+            // initialize PdfFormat
             try (PdfFormat pdfFormat = new PdfFormat(Common.mapSourceFilePath(path))) {
                 // get document properties
                 PdfMetadata properties = pdfFormat.getDocumentProperties();
@@ -896,10 +896,10 @@ public class Documents {
                 // commit changes
                 pdfFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-		public static void removeDocumentProperties() {
-			// initialize PdfFormat
+        public static void removeDocumentProperties() {
+            // initialize PdfFormat
             try (PdfFormat pdfFormat = new PdfFormat(Common.mapSourceFilePath(path))) {
 
                 // reset built-in document properties; remove all custom properties
@@ -908,10 +908,10 @@ public class Documents {
                 // commit changes
                 pdfFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-		public static void addCustomProperty() {
-			// initialize PdfFormat
+        public static void addCustomProperty() {
+            // initialize PdfFormat
             try (PdfFormat pdfFormat = new PdfFormat(Common.mapSourceFilePath(path))) {
 
                 // initialize PdfMetadata
@@ -924,10 +924,10 @@ public class Documents {
                 // save changes
                 pdfFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-		public static void getCustomProperties() {
-			// initialize PdfFormat
+        public static void getCustomProperties() {
+            // initialize PdfFormat
             try (PdfFormat pdfFormat = new PdfFormat(Common.mapSourceFilePath(path))) {
                 // initialize PdfMetadata
                 PdfMetadata metadata = pdfFormat.getDocumentProperties();
@@ -946,10 +946,10 @@ public class Documents {
                 }
             }
 
-		}
+        }
 
-		public static void removeCustomProperties() {
-			// initialize PdfFormat
+        public static void removeCustomProperties() {
+            // initialize PdfFormat
             try (PdfFormat pdfFormat = new PdfFormat(Common.mapSourceFilePath(path))) {
 
                 // initialize PdfMetadata
@@ -964,10 +964,10 @@ public class Documents {
                 // and save changes
                 pdfFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-		public static void updateXMPProperties() {
-			// initialize PdfFormat
+        public static void updateXMPProperties() {
+            // initialize PdfFormat
             try (PdfFormat pdfFormat = new PdfFormat(Common.mapSourceFilePath(path))) {
 
                 // get pdf schema
@@ -983,10 +983,10 @@ public class Documents {
                 pdfFormat.save(Common.mapDestinationFilePath(outputPath));
             }
 
-		}
+        }
 
-		public static void getXMPProperties() {
-			// initialize Pdf Format
+        public static void getXMPProperties() {
+            // initialize Pdf Format
             try (PdfFormat pdfFormat = new PdfFormat(Common.mapSourceFilePath(path))) {
                 // get pdf schema
                 PdfPackage pdfPackage = pdfFormat.getXmpValues().getSchemes().getPdf();
@@ -994,10 +994,10 @@ public class Documents {
                 System.out.printf("PdfVersion: %s", pdfPackage.getPdfVersion());
                 System.out.printf("Producer: %s", pdfPackage.getProducer());
             }
-		}
+        }
 
-		public static void removeHiddenData() {
-			// initialize PdfFormat
+        public static void removeHiddenData() {
+            // initialize PdfFormat
             try (PdfFormat pdfFormat = new PdfFormat(Common.mapSourceFilePath(path))) {
 
                 // inspect document
@@ -1015,35 +1015,35 @@ public class Documents {
                     pdfFormat.save(Common.mapDestinationFilePath(outputPath));
                 }
             }
-		}
+        }
 
-		public static void readDublinCoreMetadata() {
-			try {
-				//Read DublinCore Metadata
-				DublinCoreMetadata dublinCoreMetadata = (DublinCoreMetadata) MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.DublinCore);
+        public static void readDublinCoreMetadata() {
+            try {
+                //Read DublinCore Metadata
+                DublinCoreMetadata dublinCoreMetadata = (DublinCoreMetadata) MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.DublinCore);
 
-				// get dc title
-				System.out.printf("Title = %s\n", dublinCoreMetadata.getTitle());
+                // get dc title
+                System.out.printf("Title = %s\n", dublinCoreMetadata.getTitle());
 
-				// get creator
-				System.out.printf("Creator = %s\n", dublinCoreMetadata.getCreator());
+                // get creator
+                System.out.printf("Creator = %s\n", dublinCoreMetadata.getCreator());
 
-				// get dc publisher
-				System.out.printf("Publisher = %s\n", dublinCoreMetadata.getPublisher());
+                // get dc publisher
+                System.out.printf("Publisher = %s\n", dublinCoreMetadata.getPublisher());
 
-				// get dc description
-				System.out.printf("Description = %s\n", dublinCoreMetadata.getDescription());
+                // get dc description
+                System.out.printf("Description = %s\n", dublinCoreMetadata.getDescription());
 
-				// get language
-				System.out.printf("Language = %s\n", dublinCoreMetadata.getLanguage());
+                // get language
+                System.out.printf("Language = %s\n", dublinCoreMetadata.getLanguage());
 
-				// get format
-				System.out.printf("Format = %s\n", dublinCoreMetadata.getFormat());
+                // get format
+                System.out.printf("Format = %s\n", dublinCoreMetadata.getFormat());
 
-			} catch (Exception ex) {
-				System.out.println(ex.getMessage());
-			}
-		}
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
 
         /**
          * Loads Password Protected PDF documents and cleans metadata
@@ -1059,12 +1059,12 @@ public class Documents {
         }
     }
 
-	public static class MSVisio {
-		private static String path = "\\Documents\\MSVisio\\sample.vdx";
-		private static String outputPath = "\\Documents\\MSVisio\\result.vdx";
+    public static class MSVisio {
+        private static String path = "\\Documents\\MSVisio\\sample.vdx";
+        private static String outputPath = "\\Documents\\MSVisio\\result.vdx";
 
-		public static void getMetadata() {
-			// initialize VisioFormat
+        public static void getMetadata() {
+            // initialize VisioFormat
             try (VisioFormat visioFormat = new VisioFormat(Common.mapSourceFilePath(path))) {
 
                 VisioMetadata properties = visioFormat.getDocumentProperties();
@@ -1074,10 +1074,10 @@ public class Documents {
                 // get creator
                 System.out.printf("Creator: %s", properties.getCreator());
             }
-		}
+        }
 
-		public static void updateMetadata() {
-			// initialize VisioFormat
+        public static void updateMetadata() {
+            // initialize VisioFormat
             try (VisioFormat visioFormat = new VisioFormat(Common.mapSourceFilePath(path))) {
 
                 // get properties
@@ -1092,16 +1092,16 @@ public class Documents {
                 // commit changes
                 visioFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
+        }
 
-	}
+    }
 
-	public static class OneNote {
-		private static String path = "\\Documents\\OneNote\\sample.one";
-		private static String outputPath = "\\Documents\\OneNote\\result.one";
+    public static class OneNote {
+        private static String path = "\\Documents\\OneNote\\sample.one";
+        private static String protectedFilePath = "\\Documents\\OneNote\\protected_sample.one";
 
-		public static void getPagesInfo() {
-			// initialize OneNoteFormat
+        public static void getPagesInfo() {
+            // initialize OneNoteFormat
             try (OneNoteFormat oneNoteFormat = new OneNoteFormat(Common.mapSourceFilePath(path))) {
                 // and read pages
                 OneNotePageInfo[] pages = oneNoteFormat.getPages();
@@ -1110,14 +1110,34 @@ public class Documents {
                     System.out.println("Title: " + page.getTitle());
                 }
             }
-		}
-	}
+        }
 
-	public static class MSProject {
-		private static String path = "\\Documents\\MSProject\\sample.mpp";
+        /**
+         * This method loads password protected OneNote document
+         * This method is supported by version 19.1 or greater
+         */
+        public static void loadPasswordProtectedOneNoteDocument() {
+            if (MetadataUtility.isProtected(Common.mapSourceFilePath(protectedFilePath)))
+            {
+                LoadOptions loadOptions = new LoadOptions("test");
+                try (OneNoteFormat format = new OneNoteFormat(Common.mapSourceFilePath(protectedFilePath), loadOptions))
+                {
+                    // Working with the password-protected document
+                    OneNotePageInfo[] pages = format.getPages();
+                    for (OneNotePageInfo page : pages) {
+                        System.out.println("Author: " + page.getAuthor());
+                        System.out.println("Title: " + page.getTitle());
+                    }
+                }
+            }
+        }
+    }
 
-		public static void getMetadata() {
-			// initialize MppFormat
+    public static class MSProject {
+        private static String path = "\\Documents\\MSProject\\sample.mpp";
+
+        public static void getMetadata() {
+            // initialize MppFormat
             try (MppFormat mppFormat = new MppFormat(Common.mapSourceFilePath(path))) {
 
                 // get document properties
@@ -1133,7 +1153,7 @@ public class Documents {
                 }
             }
 
-		}
+        }
         // This Feature is supported in version 18.6 or greater of the API
         public static void updateMetadata() {
             try (MppFormat format = new MppFormat(Common.mapSourceFilePath(path)))
@@ -1168,12 +1188,12 @@ public class Documents {
         }
     }
 
-	public static class ODT {
-		private static String path = "\\Documents\\odt\\sample.odt";
-		private static String outputPath = "\\Documents\\Odt\\result.odt";
+    public static class ODT {
+        private static String path = "\\Documents\\odt\\sample.odt";
+        private static String outputPath = "\\Documents\\Odt\\result.odt";
 
-		public static void getOdtMetadata() {
-			// initialize DocFormat with ODT file's path
+        public static void getOdtMetadata() {
+            // initialize DocFormat with ODT file's path
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
 
                 // read all metadata properties
@@ -1189,10 +1209,10 @@ public class Documents {
 
                 }
             }
-		}
+        }
 
-		public static void updateOdtMetadata() {
-			// initialize DocFormat with ODT file's path
+        public static void updateOdtMetadata() {
+            // initialize DocFormat with ODT file's path
             try (DocFormat docFormat = new DocFormat(Common.mapSourceFilePath(path))) {
 
                 // initialize DocMetadata
@@ -1206,15 +1226,15 @@ public class Documents {
                 // save output file...
                 docFormat.save(Common.mapDestinationFilePath(outputPath));
             }
-		}
-	}
+        }
+    }
 
 
-	public static class EPUB {
-		private static String path = "\\Documents\\Epub\\sample.epub";
+    public static class EPUB {
+        private static String path = "\\Documents\\Epub\\sample.epub";
 
-		public static void detectEPUBFormat() {
-			// init FileFormatChecker
+        public static void detectEPUBFormat() {
+            // init FileFormatChecker
             try (FileFormatChecker formatChecker = new FileFormatChecker(Common.mapSourceFilePath(path))) {
 
                 // validate format
@@ -1224,11 +1244,11 @@ public class Documents {
                     System.out.println("Is EPUB");
                 }
             }
-		}
+        }
 
-		public static void readEPUBFormatMetadata() {
+        public static void readEPUBFormatMetadata() {
 
-			// open EPUB file
+            // open EPUB file
             try (EpubFormat epub = new EpubFormat(Common.mapSourceFilePath(path))) {
 
                 // read EPUB metadata
@@ -1244,10 +1264,10 @@ public class Documents {
                     System.out.println(property);
                 }
             }
-		}
+        }
 
-		public static void readDublinCoreMetadata() {
-			// open EPUB file
+        public static void readDublinCoreMetadata() {
+            // open EPUB file
             try (EpubFormat epub = new EpubFormat(Common.mapSourceFilePath(path))) {
 
                 // read DublinCore metadata
@@ -1270,9 +1290,9 @@ public class Documents {
                 // get format
                 System.out.printf("Format = %s\n", dublinCore.getFormat());
             }
-		}
+        }
 
-		public static void readImageCover() {
+        public static void readImageCover() {
             try (EpubFormat epubFormat = new EpubFormat(Common.mapSourceFilePath(path)))
             {
                 ThumbnailMetadata thumbnail = epubFormat.readThumbnail();
@@ -1282,11 +1302,11 @@ public class Documents {
                     System.out.println(thumbnail.getMimeType());
                 }
             }
-		}
+        }
 
-		public static void readEPUBPackageVersion() {
-			try {
-				// open EPUB file
+        public static void readEPUBPackageVersion() {
+            try {
+                // open EPUB file
                 try (EpubFormat epub = new EpubFormat(Common.mapSourceFilePath(path))) {
                     // read EPUB metadata
                     EpubMetadata metadata = epub.getEpubMetadata();
@@ -1296,38 +1316,38 @@ public class Documents {
                     System.out.printf("EPUB version = %s", metadata.getVersion());
                 }
 
-			} catch (Exception ex) {
-				System.out.println(ex.getMessage());
-			}
-		}
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
 
-		public static void readDublinCoreMetadataUtility() {
-			try {
-				// open EPUB file
-				DublinCoreMetadata dublinCoreMetadata = (DublinCoreMetadata) MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.DublinCore);
+        public static void readDublinCoreMetadataUtility() {
+            try {
+                // open EPUB file
+                DublinCoreMetadata dublinCoreMetadata = (DublinCoreMetadata) MetadataUtility.extractSpecificMetadata(Common.mapSourceFilePath(path), MetadataType.DublinCore);
 
-				// get dc title
-				System.out.printf("Title = %s\n", dublinCoreMetadata.getTitle());
+                // get dc title
+                System.out.printf("Title = %s\n", dublinCoreMetadata.getTitle());
 
-				// get creator
-				System.out.printf("Creator = %s\n", dublinCoreMetadata.getCreator());
+                // get creator
+                System.out.printf("Creator = %s\n", dublinCoreMetadata.getCreator());
 
-				// get dc publisher
-				System.out.printf("Publisher = %s\n", dublinCoreMetadata.getPublisher());
+                // get dc publisher
+                System.out.printf("Publisher = %s\n", dublinCoreMetadata.getPublisher());
 
-				// get dc description
-				System.out.printf("Description = %s\n", dublinCoreMetadata.getDescription());
+                // get dc description
+                System.out.printf("Description = %s\n", dublinCoreMetadata.getDescription());
 
-				// get language
-				System.out.printf("Language = %s\n", dublinCoreMetadata.getLanguage());
+                // get language
+                System.out.printf("Language = %s\n", dublinCoreMetadata.getLanguage());
 
-				// get format
-				System.out.printf("Format = %s\n", dublinCoreMetadata.getFormat());
+                // get format
+                System.out.printf("Format = %s\n", dublinCoreMetadata.getFormat());
 
-			} catch (Exception ex) {
-				System.out.println(ex.getMessage());
-			}
-		}
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
 
         public static void getMetadataUsingStream() {
             try (InputStream stream = new FileInputStream(Common.mapSourceFilePath(path)))
