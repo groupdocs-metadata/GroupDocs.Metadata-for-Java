@@ -309,6 +309,7 @@ public class Documents {
             }
 
         }
+       
 
         public static void detectDocumentType() {
             // initialize DocFormat

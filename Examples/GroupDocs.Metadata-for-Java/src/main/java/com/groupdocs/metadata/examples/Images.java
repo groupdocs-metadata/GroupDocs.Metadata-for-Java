@@ -549,7 +549,7 @@ public class Images {
 			// initialize JpegFormat
 			try (JpegFormat jpegFormat = new JpegFormat(Common.mapSourceFilePath(path))) {
 				// get EXIF data
-				JpegExifInfo exif = (JpegExifInfo) jpegFormat.getExifInfo();
+				ExifInfo exif = (ExifInfo) jpegFormat.getExifInfo();
 				if (exif != null) {
 					// get artist
 					String artist = exif.getArtist();
@@ -560,7 +560,7 @@ public class Images {
 					System.out.printf("Description: %s", description);
 
 					// get user's comment
-					String comment = exif.getUserComment();
+					String comment = exif.getExifIfdData().getUserComment();
 					System.out.printf("Comment: %s", comment);
 				}
 			}
@@ -571,17 +571,17 @@ public class Images {
 			try (JpegFormat jpegFormat = new JpegFormat(Common.mapSourceFilePath(path))) {
 
 				// get EXIF data
-				JpegExifInfo exif = (JpegExifInfo) jpegFormat.getExifInfo();
+				ExifInfo exif = (ExifInfo) jpegFormat.getExifInfo();
 
 				if (exif == null) {
 					// initialize EXIF data if null
-					exif = new JpegExifInfo();
+					exif = new ExifInfo();
 				}
 				// set artist
 				exif.setArtist("test artist");
 
 				// set the name of the camera's owner
-				exif.setCameraOwnerName("camera owner's name");
+				exif.getExifIfdData().setCameraOwnerName("camera owner's name");
 
 				// set description
 				exif.setImageDescription("test description");
@@ -609,13 +609,13 @@ public class Images {
 			try (JpegFormat jpegFormat = new JpegFormat(Common.mapSourceFilePath(path))) {
 
 				// get EXIF data
-				JpegExifInfo exif = (JpegExifInfo) jpegFormat.getExifValues();
+				ExifInfo exif = (ExifInfo) jpegFormat.getExifValues();
 
 				// set artist
 				exif.setArtist("test artist");
 
 				// set the name of the camera's owner
-				exif.setCameraOwnerName("camera owner's name");
+				exif.getExifIfdData().setCameraOwnerName("camera owner's name");
 
 				// set description
 				exif.setImageDescription("test description");
@@ -1022,7 +1022,7 @@ public class Images {
 
 				// init EXIF metadata if not exist
 				if (exif == null) {
-					exif = new JpegExifInfo();
+					exif = new ExifInfo();
 				}
 
 				// define array of tags
@@ -1047,18 +1047,18 @@ public class Images {
 				try (JpegFormat jpegFormat = new JpegFormat(Common.mapSourceFilePath(path))) {
 
 					// get EXIF data
-					JpegExifInfo exif = (JpegExifInfo) jpegFormat.getExifInfo();
+					ExifInfo exif = (ExifInfo) jpegFormat.getExifInfo();
 
 					if (exif == null) {
 						// initialize EXIF data if null
-						exif = new JpegExifInfo();
+						exif = new ExifInfo();
 					}
 
 					// set artist
 					exif.setArtist("test artist");
 
 					// set the name of the camera's owner
-					exif.setCameraOwnerName("camera owner's name");
+					exif.getExifIfdData().setCameraOwnerName("camera owner's name");
 
 					// set description
 					exif.setImageDescription("test description");
@@ -1294,13 +1294,13 @@ public class Images {
 				ExifInfo exif = tiffFormat.getExifInfo();
 				if (exif != null) {
 					// get Camera Owner Name
-					System.out.printf("Camera Owner Name: %s", exif.getCameraOwnerName());
+					System.out.printf("Camera Owner Name: %s", exif.getExifIfdData().getCameraOwnerName());
 
 					// get Body Serial Number
-					System.out.printf("Body Serial Number: %s", exif.getBodySerialNumber());
+					System.out.printf("Body Serial Number: %s", exif.getExifIfdData().getBodySerialNumber());
 
 					// get user's comment
-					System.out.printf("Comment: %s", exif.getUserComment());
+					System.out.printf("Comment: %s", exif.getExifIfdData().getUserComment());
 				}
 			}
 		}
@@ -1309,10 +1309,10 @@ public class Images {
 			try (TiffFormat tiffFormat = new TiffFormat(Common.mapSourceFilePath(path))) {
 
 				// set the name of the camera's owner
-				tiffFormat.getExifValues().setCameraOwnerName("camera owner's name");
+				tiffFormat.getExifValues().getExifIfdData().setCameraOwnerName("camera owner's name");
 
 				// set user comment
-				tiffFormat.getExifValues().setUserComment("user's comment");
+				tiffFormat.getExifValues().getExifIfdData().setUserComment("user's comment");
 
 				// and commit changes
 				tiffFormat.save(Common.mapDestinationFilePath(outputPath));
@@ -1324,9 +1324,9 @@ public class Images {
 			try (TiffFormat tiffFormat = new TiffFormat(Common.mapSourceFilePath(path))) {
 				ExifInfo exifInfo = tiffFormat.getExifInfo();
 				// set the name of the camera's owner
-				exifInfo.setCameraOwnerName("camera owner's name");
+				exifInfo.getExifIfdData().setCameraOwnerName("camera owner's name");
 				// set user comment
-				exifInfo.setUserComment("user's comment");
+				exifInfo.getExifIfdData().setUserComment("user's comment");
 				// and commit changes
 				tiffFormat.save(Common.mapDestinationFilePath(outputPath));
 			}

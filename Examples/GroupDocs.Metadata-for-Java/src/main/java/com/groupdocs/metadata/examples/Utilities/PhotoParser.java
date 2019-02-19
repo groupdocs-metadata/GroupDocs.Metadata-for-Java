@@ -58,7 +58,7 @@ public class PhotoParser
                 JpegFormat jpeg = (JpegFormat)format;
 
                 // get exif data
-                JpegExifInfo exif = (JpegExifInfo)jpeg.getExifInfo();
+                ExifInfo exif = (ExifInfo)jpeg.getExifInfo();
 
                 if (exif != null)
                 {

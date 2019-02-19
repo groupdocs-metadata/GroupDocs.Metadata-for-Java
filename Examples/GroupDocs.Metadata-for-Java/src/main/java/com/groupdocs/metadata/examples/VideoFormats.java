@@ -282,4 +282,150 @@ public class VideoFormats {
 			}
 		}
 	}
+
+	 public static class Asf
+     {
+         //Source file path
+         private static String filePath = "Video/ASF/sample.asf";
+         /**
+         * This method gets ASF video native metadata
+         * This method is supported by version 19.2 or greater 
+         */
+         public static void GetMetadata()
+         {
+             //ExStart:GetASFNativeMetadata
+             try (AsfFormat format = new AsfFormat(Common.mapSourceFilePath(filePath)))
+             {
+                 // get AsfMetadata
+                 AsfMetadata metadata = format.getAsfInfo();
+
+                 //Display properties
+                 System.out.println("Creation date: "+metadata.getCreationDate());
+                 System.out.println("File id: "+ metadata.getFileId());
+                 System.out.println("Flags: "+ metadata.getFlags());
+
+                 // Display Asf Codec Information
+                 for (AsfCodecInfo codecInfo : metadata.getCodecInformation())
+                 {
+                     System.out.println("Codec type: "+ codecInfo.getCodecType());
+                     System.out.println("Description: "+ codecInfo.getDescription());
+                     System.out.println("Codec information: "+ codecInfo.getInformation());
+                     System.out.println(codecInfo.getName());
+                 }
+                 // Display metadata descriptors
+                 for (AsfBaseDescriptor descriptor : metadata.getMetadataDescriptors())
+                 {
+
+                     System.out.println("Name: "+ descriptor.getName());
+                     System.out.println("Formatted value: "+ descriptor.getFormattedValue());
+                     AsfMetadataDescriptor metadataDescriptor = (AsfMetadataDescriptor)descriptor ;
+                     if (metadataDescriptor != null)
+                     {
+                         System.out.println("Language: "+ metadataDescriptor.getLanguage());
+                         System.out.println("Stream number: "+ metadataDescriptor.getStreamNumber());
+                         System.out.println("Original name: "+ metadataDescriptor.getOriginalName());
+                     }
+                 }
+                 //Dispay the base stream related metadata 
+                 for (AsfBaseStreamProperty property : metadata.getStreamProperties())
+                 {
+                     System.out.println("Alternate bitrate: "+ property.getAlternateBitrate());
+                     System.out.println("Average bitrate: "+ property.getAverageBitrate());
+                     System.out.println("Average time per frame: "+ property.getAverageTimePerFrame());
+                     System.out.println("Bitrate: "+ property.getBitrate());
+                     System.out.println("Stream end time: "+ property.getEndTime());
+                     System.out.println("Stream flags: "+ property.getFlags());
+                     System.out.println("Stream language: "+ property.getLanguage());
+                     System.out.println("Stream start time: "+ property.getStartTime());
+                     System.out.println("Stream number: "+ property.getStreamNumber());
+                     System.out.println("Stream type: "+ property.getStreamType());
+                     
+                     //Display the audio stream related metadata
+                     AsfAudioStreamProperty audioStreamProperty = (AsfAudioStreamProperty)property ;
+                     if (audioStreamProperty != null)
+                     {
+                         System.out.println("Audio bits per sample: "+ audioStreamProperty.getBitsPerSample());
+                         System.out.println("Audio channels: "+ audioStreamProperty.getChannels());
+                         System.out.println("Audio format tag: "+ audioStreamProperty.getFormatTag());
+                         System.out.println("Audio samples per second: "+ audioStreamProperty.getSamplesPerSecond());
+                     }
+                     //Display the vedio stream related metadata
+                     AsfVideoStreamProperty videoStreamProperty = (AsfVideoStreamProperty)property ;
+                     if (videoStreamProperty != null)
+                     {
+                         System.out.println("Video bits per pixels: "+ videoStreamProperty.getBitsPerPixels());
+                         System.out.println("Compression: "+ videoStreamProperty.getCompression());
+                         System.out.println("Image height: "+ videoStreamProperty.getImageHeight());
+                         System.out.println("Image width: "+ videoStreamProperty.getImageWidth());
+                     }
+                 }
+             }
+             //ExEnd:GetASFNativeMetadata
+         }
+        
+         /**
+          * This method gets ASF video XMP metadata
+          * This method is supported by version 19.2 or greater 
+          */
+         public static void GetXMPMetadata()
+         {
+             //ExStart: GetASFXMPMetadata
+             try (AsfFormat asfFormat = new AsfFormat(Common.mapSourceFilePath(filePath)))
+             {
+                 //Get XMP Basic metadata
+                 XmpBasicPackage xmpMetadata = asfFormat.getXmpValues().getSchemes().getXmpBasic();
+
+                 // Display some properties from the XMP Basic metadata
+                 System.out.println("Creation date: "+ xmpMetadata.getCreateDate());
+                 System.out.println("Label: "+ xmpMetadata.getLabel());
+                 System.out.println("Rating: "+ xmpMetadata.getRating());
+             }
+
+             //ExEnd:GetASFXMPMetadata
+         }
+         
+         /**
+          * This method write ASF video XMP metadata
+          * This method is supported by version 19.2 or greater 
+          */ public static void SetXMPMetadata()
+         {
+             //ExStart: WriteASFXMPMetadata
+             try (AsfFormat asfFormat = new AsfFormat(Common.mapSourceFilePath(filePath)))
+             {
+                 //Get XMP Basic metadata
+            	 XmpBasicPackage xmpMetadata = asfFormat.getXmpValues().getSchemes().getXmpBasic();
+
+                 // set some properties to write xmp data
+                 xmpMetadata.setCreateDate( new Date());
+                 xmpMetadata.setRating(4);
+                 xmpMetadata.setNickname("ASF Video");
+
+                 // Update the ASF file
+                 asfFormat.save(Common.mapDestinationFilePath(filePath));
+             }
+
+             //ExEnd:WriteASFXMPMetadata
+         }
+          
+         /**
+          * This method remove ASF video XMP metadata
+          * This method is supported by version 19.2 or greater 
+          */
+          public static void RemoveXMPMetadata()
+         {
+             //ExStart: RemoveASFXMPMetadata
+             try (AsfFormat format = new AsfFormat(Common.mapSourceFilePath(filePath)))
+             {
+                 // Remove all XMP data from ASF file
+                 format.removeXmpData();
+                 
+                 // Update the ASF file
+                 format.save(Common.mapDestinationFilePath(filePath));
+             }
+
+             //ExEnd:RemoveASFXMPMetadata
+         }
+     }
+
+
 }
