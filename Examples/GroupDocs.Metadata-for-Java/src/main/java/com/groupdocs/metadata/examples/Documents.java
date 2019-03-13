@@ -444,6 +444,38 @@ public class Documents {
                 format.save(Common.mapDestinationFilePath(protectedFilePath));
             }
         }
+    
+        /**
+         * Render image previews for supported document types
+         * Feature is supported by version 19.2 or greater
+         */
+      
+        public static void renderImagePreviews(String filePath)
+        {
+            try
+            {
+                //ExStart:RenderImagePreviews_19.3
+            	try (PreviewHandler handler = PreviewFactory.load(Common.mapSourceFilePath(path)))
+            	{
+            	    for (int i = 0; i < handler.getPages().length; i++)
+            	    {
+            	        PreviewImageData[] pagePreviews = handler.getPageImage(i);
+            	        for (int j = 0; j < pagePreviews.length; j++)
+            	        {
+            	            try (FileOutputStream stream = new FileOutputStream(Common.mapDestinationFilePath(outputPath)+"\\Documents\\Preview\\" + i + "-" + j + ".png")) 
+            	            {
+            	                pagePreviews[j].writeTo(stream);
+            	            }
+            	        }
+            	    }
+            	}
+                //ExEnd:RenderImagePreviews_19.3
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+    
     }
 
     public static class Ppt {
