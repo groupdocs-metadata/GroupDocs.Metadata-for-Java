@@ -281,6 +281,37 @@ public class VideoFormats {
 				}
 			}
 		}
+	
+		/**
+        * This method reads all subtitles stored in an MKV video
+        * This method is supported by version 19.4 or greater 
+        */
+        public static void readAllMatroskaSubtitles()
+        {
+            //ExStart:ReadAllMatroskaSubtitles_19.4
+        	try (MatroskaFormat format = new MatroskaFormat(Common.mapSourceFilePath((path)))) {
+        		for (MatroskaSubtitleTrackMetadata subtitleTrack : format.getSubtitleTracks())
+                {
+                    String language = subtitleTrack.getLanguageIetf() ;
+                    if (language == null)
+                    {
+                        language = subtitleTrack.getLanguage();
+                    }
+                    System.out.println(language);
+                    for (MatroskaSubtitle subtitle : subtitleTrack.getSubtitles())
+                    {
+                        System.out.println(
+                                        "Timecode = " + Common.millisecondsToTimeFormattedString(subtitle.getTimecode()) + 
+                                        ", Duration = " + Common.millisecondsToTimeFormattedString(subtitle.getDuration()));
+                        System.out.println(subtitle.getText());
+                    }
+                }
+        	}
+            //ExEnd:ReadAllMatroskaSubtitles_19.4
+
+        }
+	
+	
 	}
 
 	 public static class Asf

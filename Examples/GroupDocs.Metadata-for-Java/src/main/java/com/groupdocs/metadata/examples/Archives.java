@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 
 public class Archives {
 	public static class Zip {
@@ -28,8 +29,8 @@ public class Archives {
 
 				// and print all files inside ZIP
 				for (ZipFileInfo file : files) {
-                    System.out.println(file.getName());
-                }
+					System.out.println(file.getName());
+				}
 			}
 		}
 
@@ -114,6 +115,29 @@ public class Archives {
 				//format.setZipFileComment("test comment");
 				format.save(Common.mapDestinationFilePath(filePath));
 			}
+		}
+
+		/**
+		 * Read all entries of a ZIP archive using a specific encoding
+		 * This method is supported by version 19.4 or greater
+		 */
+		public static void readAllZipEntries()
+		{
+
+			//ExStart:ReadAllZipEntries_19.4
+
+			// Use a specific encoding for filenames
+			Charset charset = Charset.forName("cp866");
+			try (ZipFormat format = new ZipFormat("D:\\input.zip"))
+			{
+				for (ZipFileInfo file : format.getZipInfo().getFiles())
+				{
+					// Use the getRawName method to get the sequence of bytes representing the filename
+					System.out.println(new String(file.getRawName(), charset));
+				}
+			}
+			//ExEnd:ReadAllZipEntries_19.4
+
 		}
 	}
 }

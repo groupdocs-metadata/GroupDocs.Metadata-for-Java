@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
+import java.util.TimeZone;
 
 import com.groupdocs.metadata.*;
 
@@ -108,6 +112,13 @@ public class Common {
         {
             e.printStackTrace();
         }
+    }
+    public static String millisecondsToTimeFormattedString(double milliseconds)
+    {
+        Date date = new Date((long)milliseconds);
+        DateFormat formatter = new SimpleDateFormat("HH:mm:ss.SSS");
+        formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return formatter.format(date);
     }
 
 }
