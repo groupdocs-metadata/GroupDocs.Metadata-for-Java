@@ -872,6 +872,19 @@ public class MainClass {
 		//Documents.OneNote.loadPasswordProtectedOneNoteDocument();
 
 		//endregion
+		
+		//region Working with vCards
+		
+		//Read vCard properties using simplified APIs
+		//Documents.VCard.getSimpleMetadata();
+		
+		//Read vCard properties along with descriptive parameters
+		//Documents.VCard.getMetadataWithDescriptiveParams();
+		
+		//Filter vCard properties
+		//Documents.VCard.getSimpleMetadataUsingFilter();
+		
+		//endregion
 
 	}
 }

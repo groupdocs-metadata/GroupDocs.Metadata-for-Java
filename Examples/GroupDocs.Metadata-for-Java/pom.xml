@@ -23,7 +23,7 @@
         <dependency>
             <groupId>com.groupdocs</groupId>
             <artifactId>groupdocs-metadata</artifactId>
-            <version>19.4</version>
+            <version>19.5</version>
         </dependency>
         <dependency>
             <groupId>commons-net</groupId>

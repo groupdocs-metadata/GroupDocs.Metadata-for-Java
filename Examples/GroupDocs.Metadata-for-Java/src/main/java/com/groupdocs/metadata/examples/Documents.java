@@ -1408,4 +1408,93 @@ public class Documents {
             }
         }
     }
+    
+    public static class VCard
+    {
+        // initialize file path
+        //ExStart:SourceVCardFilePath
+    	 private static String path = "\\Documents\\VCards\\sample.vcf";
+       //ExEnd:SourceVCardFilePath
+
+        /**
+        * Read vCard properties using simplified APIs
+        */
+        public static void getSimpleMetadata()
+        {
+           
+                //ExStart:GetMetadataVCardFormat_19.5
+                // initialize VCardFormat
+        		try (VCardFormat format = new VCardFormat(Common.mapSourceFilePath(path)))
+        	    {
+        	        for (VCardMetadata vCard : format.getVCardInfo())
+        	        {
+        	            System.out.println(vCard.getIdentificationRecordset().getName());
+        	            Common.printArray(vCard.getIdentificationRecordset().getFormattedNames());
+        	            Common.printArray(vCard.getCommunicationRecordset().getEmails());
+        	            Common.printArray(vCard.getCommunicationRecordset().getTelephones());
+        	        }
+        	    }
+                //ExEnd:GetMetadataVCardFormat_19.5
+           
+        }
+        /**
+        * Read vCard properties along with descriptive parameters
+        */
+        public static void getMetadataWithDescriptiveParams()
+        {            
+        	//ExStart:GetMetadataWithDescriptiveParams_19.5
+        	// initialize VCardFormat
+        	try (VCardFormat format = new VCardFormat("D:\\input.vcf"))
+        	{
+        		for (VCardMetadata vCard : format.getVCardInfo())
+        		{
+        			if (vCard.getIdentificationRecordset().getPhotoUriRecords() != null)
+        			{
+        				// Iterate all photos represented by URIs
+        				for (VCardTextRecordMetadata photoUriRecord : vCard.getIdentificationRecordset().getPhotoUriRecords())
+        				{
+        					// Print the property value
+        					System.out.println(photoUriRecord.getValue());
+
+        					// Print some additional parameters of the property
+        					System.out.println(photoUriRecord.getContentType());
+        					System.out.println(photoUriRecord.getMediaTypeParameter());
+        					if (photoUriRecord.getTypeParameters() != null)
+        					{
+        						for (String parameter : photoUriRecord.getTypeParameters())
+        						{
+        							System.out.println(parameter);
+        						}
+        					}
+        					System.out.println(photoUriRecord.getPrefParameter());
+        				}
+        			}
+        		}
+        	} 
+        	//ExEnd:GetMetadataWithDescriptiveParams_19.5
+            
+        }
+
+        /**
+        * Filter vCard properties
+        */
+        public static void getSimpleMetadataUsingFilter()
+        {
+        	//ExStart:GetSimpleMetadataUsingFilter_19.5
+        	// initialize VCardFormat
+        	try (VCardFormat format = new VCardFormat("D:\\input.vcf"))
+        	{
+        		for (VCardMetadata vCard : format.getVCardInfo())
+        		{
+        			// Print most preferred work phone numbers and work emails
+        			VCardMetadata filtered = vCard.filterWorkTags().filterPreferred();
+        			Common.printArray(filtered.getCommunicationRecordset().getTelephones());
+        			Common.printArray(filtered.getCommunicationRecordset().getEmails());
+        		}
+        	}   
+        	//ExEnd:GetSimpleMetadataUsingFilter_19.5
+            
+        }
+
+    }
 }
