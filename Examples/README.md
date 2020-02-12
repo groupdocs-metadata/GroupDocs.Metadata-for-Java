@@ -2,7 +2,7 @@
 # GroupDocs.Metadata for Java Examples
 
 
-This package contains the code examples of the features offered by [GroupDocs.Metadata for Java](https://products.groupdocs.com/metadata/java) as well as the sample input templates used in the examples.
+This package contains the code examples of the features offered by [GroupDocs.Metadata for Java](https://products.groupdocs.com/metadata/java) as well as the sample input files used in the examples.
 
 <p align="center">
   <a title="Download complete GroupDocs.Metadata for Java source code" href="https://github.com/groupdocs-metadata/GroupDocs.Metadata-for-java/archive/master.zip">
@@ -25,6 +25,6 @@ You may find following resources helpful:
 
 Follow below steps if you have product license
 
-1. Open Common.java
-2. Set "licensePath" variable to your license path
-3. Call applyLicense method from MainClass.java
+1. Open Constants.java
+2. Set the LicenseFilePath field to your license path
+3. Call the SetLicenseFromFile.run() method from RunExamples.java

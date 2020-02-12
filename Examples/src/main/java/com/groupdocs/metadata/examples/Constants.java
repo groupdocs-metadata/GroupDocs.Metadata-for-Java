@@ -7,7 +7,7 @@ package com.groupdocs.metadata.examples;
 public class Constants {
     public static final String ResourcesPath = ".\\Resources\\";
 
-    public static final String LicenseFilePath = "D:\\_Work\\Metadata\\GitHub\\GroupDocs.Metadata-for-Java\\Examples\\Resources\\GroupDocs.Metadata.lic";//CombinePath(ResourcesPath, "GroupDocs.Metadata.lic");
+    public static final String LicenseFilePath = CombinePath(ResourcesPath, "GroupDocs.Metadata.lic");
 
     public static final String InputPath = CombinePath(ResourcesPath, "SampleFiles\\Input\\");
     public static final String OutputPath = CombinePath(ResourcesPath, "SampleFiles\\Output\\");
