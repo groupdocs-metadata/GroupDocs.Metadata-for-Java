@@ -19,7 +19,7 @@ Directory | Description
 ## How to Run the Examples
 Please see the following article that explains how to run the GroupDocs.Metadata for Java Console Examples.
 
-+ [How to Run the Examples](https://docs.groupdocs.com/display/metadatajava/How+to+Run+Examples)
++ [How to Run the Examples](https://docs.groupdocs.com/display/metadatajava/How+to+Run)
 
 ##  Resources
 
