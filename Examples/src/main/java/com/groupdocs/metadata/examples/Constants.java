@@ -63,6 +63,10 @@ public class Constants {
     public static final String MP3WithID3V2 = CombinePath(InputPath, "id3v2.mp3");
     public static final String MP3WithLyrics = CombinePath(InputPath, "lyrics.mp3");
     public static final String MP3WithApe = CombinePath(InputPath, "ape.mp3");
+    public static final String CanonJpeg = CombinePath(InputPath, "canon_raw.jpg");
+    public static final String NikonJpeg = CombinePath(InputPath, "nikon_raw.jpg");
+    public static final String PanasonicJpeg = CombinePath(InputPath, "panasonic_raw.jpg");
+    public static final String SonyJpeg = CombinePath(InputPath, "sony_raw.jpg");
 
 
     public static final String OutputDocx = CombinePath(OutputPath, "output.docx");

@@ -28,6 +28,7 @@ import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_spec
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.dicom.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.gif.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.jpeg.*;
+import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.jpeg.maker_note.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.jpeg2000.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.psd.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.tiff.*;
@@ -217,21 +218,27 @@ public class RunExamples {
 //        ImageReadFileFormatProperties.run();
 
 //        BmpReadHeaderProperties.run();
-//
+
 //        DicomReadNativeMetadataProperties.run();
-//
+
 //        GifReadFileFormatProperties.run();
-//
+
 //        JpegDetectBarcodes.run();
 //        JpegReadImageResourceBlocks.run();
 //        JpegRemoveImageResourceBlocks.run();
-//
+
+//        MakerNoteReadAllTags.run();
+//        MakerNoteReadCanonProperties.run();
+//        MakerNoteReadNikonProperties.run();
+//        MakerNoteReadPanasonicProperties.run();
+//        MakerNoteReadSonyProperties.run();
+
 //        Jpeg2000ReadComments.run();
-//
+
 //        PsdReadBasicExifProperties.run();
 //        PsdReadImageResourceBlocks.run();
 //        PsdReadNativeMetadataProperties.run();
-//
+
 //        TiffReadBasicIptcProperties.run();
 
         // Peer2Peer
@@ -242,14 +249,14 @@ public class RunExamples {
         // Video
 
 //        AsfReadNativeMetadataProperties.run();
-//
+
 //        AviReadHeaderProperties.run();
-//
+
 //        FlvReadHeaderProperties.run();
-//
+
 //        MatroskaReadNativeMetadataProperties.run();
 //        MatroskaReadSubtitles.run();
-//
+
 //        MovReadQuickTimeAtoms.run();
 
         // Working with metadata standards
@@ -287,11 +294,11 @@ public class RunExamples {
         // Migration
 
 //        ExportPropertiesToCsv.run();
-//
+
 //        ExtractPackageUsingCommonApi.run();
-//
+
 //        UpdatePropertyValue.run();
-//
+
 //        FindPropertiesByRegex.run();
 //        UpdatePropertiesByRegex.run();
 
