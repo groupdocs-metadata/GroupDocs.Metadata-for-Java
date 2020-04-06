@@ -21,7 +21,7 @@ public class MakerNoteReadAllTags {
                 for (TiffTag tag : root.getMakerNotePackage().toList()) {
 
                     // Please note that tag ids used by camera manufacturers may intersect with the ids defined in the TIFF/EXIF specification
-                    System.out.println(String.format("%s = %s", (int) tag.getTagID(), tag.getValue()));
+                    System.out.println(String.format("%s = %s", tag.getTagID(), tag.getValue()));
                 }
             }
         }
