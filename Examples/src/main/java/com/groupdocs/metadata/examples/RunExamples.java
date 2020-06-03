@@ -82,7 +82,7 @@ public class RunExamples {
 //        SettingMetadata.run();
 //        TraverseWholeMetadataTree.run();
 //        UpdatingMetadata.run();
-//          ExportingMetadataProperties.run();
+//        ExportingMetadataProperties.run();
 
         // Loading files
 
