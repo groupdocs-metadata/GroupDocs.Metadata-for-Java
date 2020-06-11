@@ -1,0 +1,28 @@
+git:
+  submodules: false
+
+before_install:
+- openssl aes-256-cbc -K $encrypted_dfdcfd5172af_key -iv $encrypted_dfdcfd5172af_iv
+  -in deploy_key.enc -out ./deploy_key -d
+- sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+- git submodule update --init --recursive Docs
+- git submodule foreach git pull origin master
+- eval "$(ssh-agent -s)"
+- chmod 600 ./deploy_key
+- echo -e "Host $HOST\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- ssh-add ./deploy_key
+
+install:
+- curl -LO https://github.com/gohugoio/hugo/releases/download/v0.67.1/hugo_extended_0.67.1_Linux-64bit.deb
+- sudo dpkg -i hugo_extended_0.67.1_Linux-64bit.deb
+
+script:
+- cp -r Docs/content/* Docs/docs-common/content/
+- hugo --source Docs/docs-common/ --minify
+- mkdir -p Docs/docs-common/public/search-json
+- mv Docs/docs-common/public/index.json Docs/docs-common/public/search-json/metadata-java.json
+
+after_success:
+- scp -i ./deploy_key -r Docs/docs-common/public/metadata $USER@$HOST:/var/www/docs.groupdocs.com/html/
+- scp -i ./deploy_key -r Docs/docs-common/public/product-sitemap.xml $USER@$HOST:/var/www/docs.groupdocs.com/html/sitemaps/metadata-java.xml
+- scp -i ./deploy_key -r Docs/docs-common/public/search-json/metadata-java.json $USER@$HOST:/var/www/docs.groupdocs.com/html/search-json/metadata-java.json
