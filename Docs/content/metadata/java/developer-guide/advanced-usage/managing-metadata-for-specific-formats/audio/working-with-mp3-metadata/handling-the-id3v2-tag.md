@@ -8,8 +8,6 @@ keywords:
 productName: GroupDocs.Metadata for Java
 hideChildren: False
 ---
-# Handling the ID3v1 tag
-
 ## What is ID3v1?
 
 ID3v1 is a metadata tag that is usually used with MP3 audio files. The whole tag occupies 128 bytes and allows adding metadata properties such as title, artist, album, track number, etc.The ID3v1 standard was introduced in 1996 but it's still widely supported by various audio players and decoders. To get more information about ID3v1 tags please visit [http://id3.org/ID3v1](http://id3.org/ID3v1).

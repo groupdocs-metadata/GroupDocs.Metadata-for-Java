@@ -8,4 +8,3 @@ keywords:
 productName: GroupDocs.Metadata for Java
 hideChildren: False
 ---
-###### Release Notes

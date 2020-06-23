@@ -8,8 +8,6 @@ keywords:
 productName: GroupDocs.Metadata for Java
 hideChildren: False
 ---
-# Features overview
-
 *   Reading, updating and removing metadata in a variety of formats
 *   Searching, updating and removing particular metadata properties that satisfy a specification
 *   Using tags to easily manipulate most common metadata properties in a unified manner

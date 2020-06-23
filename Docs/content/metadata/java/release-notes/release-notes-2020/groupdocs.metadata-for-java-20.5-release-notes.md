@@ -10,8 +10,7 @@ hideChildren: False
 ---
 {{< alert style="info" >}}This page contains release notes for GroupDocs.Metadata for Java 20.5{{< /alert >}}
 
-#   
-Major Features
+## Major Features
 
 {{< alert style="danger" >}}In version 20.5 the legacy API has been removed (all types from the com.groupdocs.metadata.legacy package were removed).{{< /alert >}}
 

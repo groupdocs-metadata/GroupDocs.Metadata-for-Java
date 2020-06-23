@@ -8,11 +8,11 @@ keywords:
 productName: GroupDocs.Metadata for Java
 hideChildren: False
 ---
-# What is GroupDocs.Metadata?
+## What is GroupDocs.Metadata?
 
 GroupDocs.Metadata for Java is a full featured class library which allows users to read and edit metadata associated with various document, image, audio, video and many other formats. It works with most notable metadata standards: XMP, EXIF, IPTC, Image Resource Blocks, ID3 and format-specific metadata properties. The Metadata API is very flexible and easy to operate with. It provides extended capabilities allowing working with metadata in a unified way regardless of the file format. 
 
-# Why use GroupDocs.Metadata?
+## Why use GroupDocs.Metadata?
 
 *   Work with most popular metadata standards: XMP, EXIF, IPTC, Image Resource Blocks, ID3, document properties, etc
 *   Manage audio metadata: ID3 tag (ID3v1, ID3v2), Lyrics3 tag, APE

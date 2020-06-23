@@ -8,7 +8,7 @@ keywords:
 productName: GroupDocs.Metadata for Java
 hideChildren: False
 ---
-# Why To Migrate?
+## Why To Migrate?
 
 Here are the key reasons to use the new API provided by GroupDocs.Metadata for Java starting from version 20.2:
 
@@ -17,7 +17,7 @@ Here are the key reasons to use the new API provided by GroupDocs.Metadata for J
 *   The product architecture was redesigned from scratch in order to simplify most common operations with metadata properties.
 *   Getting document information and preview generation procedures were simplified.
 
-# How To Migrate?
+## How To Migrate?
 
 Here is a brief comparison of how to manage metadata using the old and new API.
 

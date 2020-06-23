@@ -8,8 +8,6 @@ keywords:
 productName: GroupDocs.Metadata for Java
 hideChildren: False
 ---
-# Working with metadata in WordProcessing documents
-
 GroupDocs.Metadata for Java provides functionality that allows working with different kinds of WordProcessing documents such as DOC, DOCX, ODT, etc. For the full list of supported document formats please refer to [Supported document formats]({{< ref "metadata/java/getting-started/supported-document-formats.md" >}}).
 
 ## Detecting the exact type of a document

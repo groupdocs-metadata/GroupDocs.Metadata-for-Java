@@ -8,8 +8,6 @@ keywords:
 productName: GroupDocs.Metadata for Java
 hideChildren: False
 ---
-#  Working with metadata in ASF files
-
 ## Reading ASF format-specific properties
 
 The GroupDocs.Metadata API supports extracting format-specific information from ASF files.

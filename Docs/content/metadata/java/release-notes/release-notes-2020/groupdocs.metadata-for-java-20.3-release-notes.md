@@ -10,7 +10,7 @@ hideChildren: False
 ---
 {{< alert style="info" >}}This page contains release notes for GroupDocs.Metadata for Java 20.3{{< /alert >}}
 
-# Major Features
+## Major Features
 
 There are the following features, enhancements and fixes in this release:
 

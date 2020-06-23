@@ -8,8 +8,6 @@ keywords:
 productName: GroupDocs.Metadata for Java
 hideChildren: False
 ---
-# Working with MP3 metadata
-
 ## Working with XMP metadata
 
 GroupDocs.Metadata for Java also allows managing XMP metadata in MP3 files. For more details please refer to the following guide: [Working with XMP metadata]({{< ref "metadata/java/developer-guide/advanced-usage/working-with-metadata-standards/working-with-xmp-metadata.md" >}})

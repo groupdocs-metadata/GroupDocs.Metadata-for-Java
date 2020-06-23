@@ -8,8 +8,6 @@ keywords:
 productName: GroupDocs.Metadata for Java
 hideChildren: False
 ---
-# Supported file formats
-
 The following table contains a full list of file formats that are currently supported by GroupDocs.Metadata for Java
 
 | Format | Description | Load | Save | Remarks |

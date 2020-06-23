@@ -8,8 +8,6 @@ keywords:
 productName: GroupDocs.Metadata for Java
 hideChildren: True
 ---
-#  Home 
-
 {{< alert style="info" >}}Welcome to the GroupDocs.Metadata for JavaGroupDocs.Metadata for Java - A metadata management API for documents to create, preview, analyze, update and remove meta information from all popular file formats. Java metadata changer API gets the file as input, access the file property information and allows users to perform metadata operations for locating this specific file easily for future reference.{{< /alert >}}
 
 ## GroupDocs.Metadata for Java Resources
