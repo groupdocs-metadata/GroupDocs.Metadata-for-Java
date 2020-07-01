@@ -173,7 +173,9 @@ public class RunExamples {
         // Project management
 
 //        ProjectManagementReadBuiltInProperties.run();
+//        ProjectManagementReadCustomProperties.run();
 //        ProjectManagementUpdateBuiltInProperties.run();
+//        ProjectManagementUpdateCustomProperties.run();
 
         // Spreadsheet
 
