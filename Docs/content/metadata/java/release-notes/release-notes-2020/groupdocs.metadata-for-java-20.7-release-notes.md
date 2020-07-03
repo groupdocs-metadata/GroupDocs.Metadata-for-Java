@@ -56,7 +56,7 @@ the [Jpeg2000RootPackage](https://apireference.groupdocs.com/metadata/java/com.
 Read EXIF metadata properties from a JPEG2000 image
 
 
-``` {.theme: .Confluence; .brush: .java; .gutter: .false style="font-size:12px;"}
+```java
 try (Metadata metadata = new Metadata("D:\\exif.jp2")) {
     IExif root = (IExif) metadata.getRootPackage();
 
@@ -107,7 +107,7 @@ the [FileFormat](https://apireference.groupdocs.com/metadata/java/com.groupdocs
 Read XMP metadata properties from a HEIC image
 
 
-``` {.theme: .Confluence; .brush: .java; .gutter: .false style="font-size:12px;"}
+```java
 try (Metadata metadata = new Metadata("D:\\xmp.heic")) {
 
     IXmp root = (IXmp) metadata.getRootPackage();
