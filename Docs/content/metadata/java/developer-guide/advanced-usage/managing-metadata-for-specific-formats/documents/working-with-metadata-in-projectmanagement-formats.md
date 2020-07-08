@@ -34,6 +34,24 @@ try (Metadata metadata = new Metadata(Constants.InputMpp)) {
 }
 ```
 
+## Reading custom metadata properties
+
+If you need to extract custom metadata properties of a ProjectManagement document please follow the code sample below.
+
+**advanced_usage.managing_metadata_for_specific_formats.<WBR>document.project_management.<WBR>ProjectManagementReadCustomProperties**
+
+```csharp
+try (Metadata metadata = new Metadata(Constants.InputMpp)) {
+    ProjectManagementRootPackage root = metadata.getRootPackageGeneric();
+  
+    IReadOnlyList<MetadataProperty> customProperties = root.getDocumentProperties().findProperties(new ContainsTagSpecification(Tags.getDocument().getBuiltIn()).not());
+  
+    for (MetadataProperty property : customProperties) {
+        System.out.println(String.format("%s = %s", property.getName(), property.getValue()));
+    }
+}
+```
+
 ## Updating built-in metadata properties
 
 Updating any built-in document properties is as simple as getting them. The following code sample demonstrates how to update built-in metadata properties in a ProjectManagement document.
@@ -53,6 +71,24 @@ try (Metadata metadata = new Metadata(Constants.InputMpp)) {
 	// ...
 
 	metadata.save(Constants.OutputMpp);
+}
+```
+
+## Adding or updating custom metadata properties
+
+The GroupDocs.Metadata API also allows adding and updating custom metadata properties in a ProjectManagement document. Please check the code sample below.
+**advanced_usage.managing_metadata_for_specific_formats.<WBR>document.project_management.<WBR>ProjectManagementUpdateCustomProperties**
+
+```csharp
+try (Metadata metadata = new Metadata(Constants.InputMpp)) {
+  
+    ProjectManagementRootPackage root = metadata.getRootPackageGeneric();
+  
+    root.getDocumentProperties().set("customProperty1", "some value");
+    root.getDocumentProperties().set("customProperty2", 7);
+    root.getDocumentProperties().set("customProperty3", true);
+  
+    metadata.save(Constants.OutputMpp);
 }
 ```
 

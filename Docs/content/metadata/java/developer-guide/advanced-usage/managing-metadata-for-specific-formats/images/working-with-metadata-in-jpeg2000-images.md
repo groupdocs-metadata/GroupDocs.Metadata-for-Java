@@ -37,6 +37,10 @@ try (Metadata metadata = new Metadata(Constants.InputJpeg2000)) {
 
 GroupDocs.Metadata for Java also allows managing XMP metadata in JPEG2000 images. For more details please refer to the following guide: [Working with XMP Metadata]({{< ref "metadata/java/developer-guide/advanced-usage/working-with-metadata-standards/working-with-xmp-metadata.md" >}}).
 
+## Working with EXIF metadata
+
+The GroupDocs.Metadata API supports handling EXIF metadata in JPEG images. Please find appropriate code samples in the [Working with EXIF metadata]({{< ref "metadata/net/developer-guide/advanced-usage/working-with-metadata-standards/working-with-exif-metadata.md" >}}) section.
+
 ## More resources
 
 ### GitHub examples
