@@ -19,7 +19,7 @@ To access metadata in a CAD drawing, the GroupDocs.Metadata API provides the [C
 
 The following code snippet reads metadata associated with a CAD file.
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.cad.CadReadNativeMetadataProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>cad.CadReadNativeMetadataProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputDxf)) {

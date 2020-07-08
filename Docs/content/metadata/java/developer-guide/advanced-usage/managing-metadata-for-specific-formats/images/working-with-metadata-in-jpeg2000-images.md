@@ -19,7 +19,7 @@ The following are the steps to read the JPEG2000 comments (pieces of metadata re
 3.  Extract  the native metadata package using the [Jpeg2000RootPackage.getJpeg2000Package](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/Jpeg2000RootPackage#getJpeg2000Package()) method
 4.  Read the JPEG2000 comments
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.image.jpeg2000.Jpeg2000ReadComments**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>image.jpeg2000.Jpeg2000ReadComments**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputJpeg2000)) {

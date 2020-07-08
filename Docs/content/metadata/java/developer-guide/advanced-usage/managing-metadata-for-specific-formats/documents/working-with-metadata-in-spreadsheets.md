@@ -18,7 +18,7 @@ The following sample of code will help you to detect the exact type of a loaded 
 2.  Extract the root metadata package
 3.  Use the [getSpreadsheetType](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/SpreadsheetRootPackage#getSpreadsheetType()) method to obtain file format information
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.document.spreadsheet.SpreadsheetReadFileFormatProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>document.spreadsheet.<WBR>SpreadsheetReadFileFormatProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputXlsx)) {
@@ -37,7 +37,7 @@ To access built-in metadata of a spreadsheet, please use the [getDocumentProper
 
 The following code snippet extracts built-in metadata properties and displays them on the screen.
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.document.spreadsheet.SpreadsheetReadBuiltInProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>document.spreadsheet.<WBR>SpreadsheetReadBuiltInProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputXlsx)) {
@@ -59,7 +59,7 @@ try (Metadata metadata = new Metadata(Constants.InputXlsx)) {
 
 If you need to extract custom metadata properties of a spreadsheet please follow the code sample below.
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.document.spreadsheet.SpreadsheetReadCustomProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>document.spreadsheet.<WBR>SpreadsheetReadCustomProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputXls)) {
@@ -88,7 +88,7 @@ The inspection feature that is introduced in this section doesn't work with meta
 2.  Extract the root metadata package
 3.  Use the [getInspectionPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/SpreadsheetRootPackage#getInspectionPackage()) method to inspect the document
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.document.spreadsheet.SpreadsheetReadInspectionProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>document.spreadsheet.<WBR>SpreadsheetReadInspectionProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputXls)) {
@@ -127,7 +127,7 @@ try (Metadata metadata = new Metadata(Constants.InputXls)) {
 
 Updating any built-in document properties is as simple as getting them. The following code sample demonstrates how to update built-in metadata properties in a spreadsheet.
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.document.spreadsheet.SpreadsheetUpdateBuiltInProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>document.spreadsheet.<WBR>SpreadsheetUpdateBuiltInProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputXlsx)) {
@@ -149,7 +149,7 @@ try (Metadata metadata = new Metadata(Constants.InputXlsx)) {
 
 The GroupDocs.Metadata API also allows adding and updating custom metadata properties (including content type properties) in a spreadsheet. Please check the code sample below.
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.document.spreadsheet.SpreadsheetUpdateCustomProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>document.spreadsheet.<WBR>SpreadsheetUpdateCustomProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputXls)) {
@@ -169,7 +169,7 @@ try (Metadata metadata = new Metadata(Constants.InputXls)) {
 
 When you inspect a spreadsheet GroupDocs.Metadata for Java forms a metadata package containing the extracted information. The package class also provides some basic methods that allow removing the extracted properties. The following code sample demonstrates how to remove the inspection properties in a spreadsheet.
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.document.spreadsheet.SpreadsheetUpdateInspectionProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>document.spreadsheet.<WBR>SpreadsheetUpdateInspectionProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputXlsx)) {

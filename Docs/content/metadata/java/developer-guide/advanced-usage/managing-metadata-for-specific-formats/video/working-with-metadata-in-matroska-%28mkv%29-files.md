@@ -19,7 +19,7 @@ The following are the steps to read native MKV metadata.
 3.  Extract  the native metadata package using the [MatroskaRootPackage.getMatroskaPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/MatroskaRootPackage#getMatroskaPackage()) method
 4.  Read the Matroska metadata properties on different levels of the format structure
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.video.matroska.MatroskaReadNativeMetadataProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>video.matroska.MatroskaReadNativeMetadataProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputMkv)) {
@@ -101,7 +101,7 @@ The GroupDocs.Metadata API also provides a convenient way of extracting subtitle
 2.  Get the root metadata package
 3.  Use the [MatroskaPackage.getSubtitleTracks](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/MatroskaPackage#getSubtitleTracks()) method to extract sets of subtitles in different languages
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.video.matroska.MatroskaReadSubtitles**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>video.matroska.MatroskaReadSubtitles**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.MkvWithSubtitles)) {

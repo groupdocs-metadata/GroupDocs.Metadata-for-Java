@@ -21,7 +21,7 @@ To get TORRENT file metadata, the following steps are needed to be followed:
 3.  Extract  the native metadata package using the [TorrentRootPackage.getTorrentPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/TorrentRootPackage#getTorrentPackage()) method
 4.  Read the TORRENT file properties
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.peer2peer.TorrentReadNativeMetadataProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>peer2peer.TorrentReadNativeMetadataProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputTorrent)) {
@@ -44,7 +44,7 @@ try (Metadata metadata = new Metadata(Constants.InputTorrent)) {
 
 The GroupDocs.Metadata API also supports updating some metadata properties of a TORRENT file. Please see the code snippet below to learn how to do that.
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.peer2peer.TorrentReadNativeMetadataProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>peer2peer.TorrentReadNativeMetadataProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputTorrent)) {

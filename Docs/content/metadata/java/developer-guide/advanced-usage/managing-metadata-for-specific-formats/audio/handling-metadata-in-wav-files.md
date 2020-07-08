@@ -19,7 +19,7 @@ The following are the steps to read audio details.
 3.  Extract  the native metadata package using the [WavRootPackage.getWavPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/WavRootPackage#getWavPackage()) method
 4.  Read the WAV audio properties
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.audio.wav.WavReadNativeMetadataProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>audio.wav.WavReadNativeMetadataProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputWav)) {

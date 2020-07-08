@@ -19,7 +19,7 @@ The following are the steps to read native ASF metadata.
 3.  Extract  the native metadata package using the [AsfRootPackage.getAsfPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/AsfRootPackage#getAsfPackage()) method
 4.  Read the ASF metadata properties
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.video.asf.AsfReadNativeMetadataProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>video.asf.AsfReadNativeMetadataProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputAsf)) {

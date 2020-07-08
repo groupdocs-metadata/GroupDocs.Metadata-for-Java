@@ -16,7 +16,7 @@ To access built-in metadata of a ProjectManagement document, please use the [ge
 
 The following code snippet extracts built-in metadata properties and displays them on the screen.
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.document.project\_management.ProjectManagementReadBuiltInProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>document.project\_management.<WBR>ProjectManagementReadBuiltInProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputMpp)) {
@@ -38,7 +38,7 @@ try (Metadata metadata = new Metadata(Constants.InputMpp)) {
 
 Updating any built-in document properties is as simple as getting them. The following code sample demonstrates how to update built-in metadata properties in a ProjectManagement document.
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.document.project\_management.ProjectManagementUpdateBuiltInProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>document.project\_management.<WBR>ProjectManagementUpdateBuiltInProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputMpp)) {

@@ -20,7 +20,7 @@ The API allows detecting ZIP archives and reading format metadata. The following
 
 The following code snippet shows how to get metadata from a ZIP archive.
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.archive.ZipReadNativeMetadataProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>archive.ZipReadNativeMetadataProperties**
 
 ```csharp
 Charset charset = Charset.forName("cp866");
@@ -56,7 +56,7 @@ GroupDocs.Metadata for Java allows you to update the user comment in a ZIP archi
 
 The following code snippet demonstrates the usage of this feature.
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.archive.ZipUpdateArchiveComment**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>archive.ZipUpdateArchiveComment**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputZip)) {
@@ -72,7 +72,7 @@ try (Metadata metadata = new Metadata(Constants.InputZip)) {
 
 GroupDocs.Metadata for Java allows you to remove the user comment associated with a ZIP archive. The following code snippet demonstrates the usage of this feature.
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.archive.ZipRemoveArchiveComment**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>archive.ZipRemoveArchiveComment**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputZip)) {

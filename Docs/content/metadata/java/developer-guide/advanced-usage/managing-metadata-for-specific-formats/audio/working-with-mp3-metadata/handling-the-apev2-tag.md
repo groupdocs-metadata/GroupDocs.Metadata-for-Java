@@ -25,7 +25,7 @@ The following steps show how to read the APEv2 tag in an MP3 file.
 3.  Get the APEv2 tag by using the [MP3RootPackage.getApeV2](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/MP3RootPackage#getApeV2())method
 4.  If the APEv2 tag is not null then check for all of its metadata properties
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.audio.mp3.MP3ReadApeTag**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>audio.mp3.MP3ReadApeTag**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.MP3WithApe)) {
@@ -56,7 +56,7 @@ The following are the steps to remove the APEv2 tag from an MP3 file.
 3.  Remove the tag by calling the [removeApeV2](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/MP3RootPackage#removeApeV2()) method
 4.  [Save]({{< ref "metadata/java/developer-guide/advanced-usage/saving-files/_index.md" >}}) the changes
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.audio.mp3.MP3RemoveApeTag**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>audio.mp3.MP3RemoveApeTag**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.MP3WithApe)) {

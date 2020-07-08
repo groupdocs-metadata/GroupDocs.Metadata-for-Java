@@ -19,7 +19,7 @@ The code sample below demonstrates how to extract image resource blocks (buildin
 3.  Extract the [ImageResourcePackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/ImageResourcePackage) instance and obtain a list of [ImageResourceBlock](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/ImageResourceBlock) objects
 4.  Iterate trough the collection of resource blocks
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.image.psd.PsdReadImageResourceBlocks**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>image.psd.PsdReadImageResourceBlocks**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.PsdWithIrb)) {
@@ -46,7 +46,7 @@ The following are the steps to read the header of a PSD file and extract informa
 3.  Extract  the native metadata package using the [PsdRootPackage.getPsdPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/PsdRootPackage#getPsdPackage()) method
 4.  Read the PSD header and layer information
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.image.psd.PsdReadNativeMetadataProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>image.psd.PsdReadNativeMetadataProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.PsdWithIptc)) {

@@ -19,7 +19,7 @@ The code sample below demonstrates how to extract image resource blocks (buildin
 3.  Extract the [ImageResourcePackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/ImageResourcePackage) instance and obtain a list of [ImageResourceBlock](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/ImageResourceBlock) objects
 4.  Iterate trough the collection of resource blocks
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.image.jpeg.JpegReadImageResourceBlocks**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>image.jpeg.JpegReadImageResourceBlocks**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.JpegWithIrb)) {
@@ -40,7 +40,7 @@ try (Metadata metadata = new Metadata(Constants.JpegWithIrb)) {
 
 GroupDocs.Metadata for Java also supports removing Photoshop metadata blocks from a JPEG image. Please see the code sample below that demonstrates how to remove the whole Photoshop metadata package from a JPEG image.
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.image.jpeg.JpegRemoveImageResourceBlocks**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>image.jpeg.JpegRemoveImageResourceBlocks**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.JpegWithIrb)) {

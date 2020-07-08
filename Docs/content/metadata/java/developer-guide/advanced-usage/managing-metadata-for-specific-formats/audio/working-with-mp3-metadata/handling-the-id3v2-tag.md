@@ -21,7 +21,7 @@ The following steps show how to read the ID3v1 tag in an MP3 file.
 3.  Get the ID3v1 tag by using the [Mp3RootPackage.getID3V1](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/MP3RootPackage#getID3V1()) method
 4.  If the ID3v1 tag is not null then check for all of its metadata properties
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.audio.mp3.MP3ReadID3V1Tag**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>audio.mp3.MP3ReadID3V1Tag**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.MP3WithID3V1)) {
@@ -51,7 +51,7 @@ The following are the steps to update the ID3v1 tag in an MP3 file.
 
 The following code snippet shows how to update the ID3v1 tag in an MP3 file.
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.audio.mp3.MP3UpdateID3V1Tag**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>audio.mp3.MP3UpdateID3V1Tag**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.MP3WithID3V1)) {
@@ -76,7 +76,7 @@ try (Metadata metadata = new Metadata(Constants.MP3WithID3V1)) {
 
 To remove the ID3v1 tag from an MP3 audio just pass null to the [Mp3RootPackage.setID3V1](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/MP3RootPackage#setID3V1(com.groupdocs.metadata.core.ID3V1Tag)) method as a parameter. The code sample below shows how to remove the ID3v1 tag from an MP3 file.
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.audio.mp3.MP3RemoveID3V1Tag**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>audio.mp3.MP3RemoveID3V1Tag**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.MP3WithID3V1)) {

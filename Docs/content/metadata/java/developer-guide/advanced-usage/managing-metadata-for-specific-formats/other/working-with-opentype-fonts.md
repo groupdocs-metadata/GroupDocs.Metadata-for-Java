@@ -23,7 +23,7 @@ The following are the steps to read the header of an OpenType file.
 3.  Extract  the native metadata package using the [OpenTypeRootPackage.getOpenTypePackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/OpenTypeRootPackage#getOpenTypePackage()) method
 4.  Read the OpenType font properties
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.font.OpenTypeReadNativeMetadataProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>font.OpenTypeReadNativeMetadataProperties**
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputTtf)) {
@@ -84,7 +84,7 @@ The code snippet bellow demonstrates how to extract information about digital si
 2.  Get the root metadata package
 3.  Use the [getDigitalSignaturePackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/OpenTypeRootPackage#getDigitalSignaturePackage()) method to get access to all digital signatures associated with the file
 
-**advanced\_usage.managing\_metadata\_for\_specific\_formats.font.OpenTypeReadDigitalSignatureProperties**
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>font.OpenTypeReadDigitalSignatureProperties**
 
 ```csharp
 public static void run() {
