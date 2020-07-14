@@ -18,7 +18,7 @@ The Extensible Metadata Platform (XMP) is an XML-based ISO metadata standard, or
 
 To access XMP metadata in a file of any supported format, GroupDocs.Metadata provides the [IXmp.getXmpPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/IXmp#getXmpPackage()) method. The following are the steps to read XMP metadata:
 
-1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/working-with-metadata-standards/working-with-xmp-metadata.md" >}}) a file that contains XMP metadata
+1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/loading-files/_index.md" >}}) a file that contains XMP metadata
 2.  Extract the XMP metadata package using the [IXmp.getXmpPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/IXmp#getXmpPackage()) method
 
 The following code snippet gets XMP properties of a PNG image and displays them on the screen. 
@@ -86,10 +86,10 @@ Here is a full list of supported XMP schemes:
 
 The GroupDocs.Metadata API facilitates the user to update XMP metadata in a convenient way - using the [XmpPacketWrapper](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/XmpPacketWrapper) class methods. Follow the below steps to update XMP metadata in a file of any supported format.
 
-1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/working-with-metadata-standards/working-with-xmp-metadata.md" >}}) a file that contains XMP metadata
+1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/loading-files/_index.md" >}}) a file that contains XMP metadata
 2.  Extract the XMP metadata package using the [IXmp.getXmpPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/IXmp#getXmpPackage()) method
 3.  Assign values to desired XMP properties
-4.  [Save]({{< ref "metadata/java/developer-guide/advanced-usage/working-with-metadata-standards/working-with-xmp-metadata.md" >}}) the changes
+4.  [Save]({{< ref "metadata/java/developer-guide/advanced-usage/saving-files/_index.md" >}}) the changes
 
 **advanced\_usage.working\_with\_metadata\_standards.xmp.UpdateXmpProperties**
 

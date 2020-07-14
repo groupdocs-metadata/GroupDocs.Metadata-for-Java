@@ -18,7 +18,7 @@ According to the [specification](https://www.exif.org/Exif2-2.PDF), EXIF (Excha
 
 To access EXIF metadata in a file of any supported format, GroupDocs.Metadata provides the [IExif.getExifPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/IExif#getExifPackage()) method. The following are the steps to read EXIF metadata:
 
-1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/working-with-metadata-standards/working-with-exif-metadata.md" >}}) a file that contains EXIF metadata
+1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/loading-files/_index.md" >}}) a file that contains EXIF metadata
 2.  Extract the EXIF metadata package using the [IExif.getExifPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/IExif#getExifPackage()) method
 
 The following code snippet gets EXIF properties of a TIFF image and displays them on the screen. 
@@ -59,7 +59,7 @@ try (Metadata metadata = new Metadata(Constants.TiffWithExif)) {
 
 In some cases, it's necessary to read all EXIF properties from a file, including custom ones. To achieve this the GroupDocs.Metadata API provides direct access to the EXIF tags extracted from a file.
 
-1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/working-with-metadata-standards/working-with-exif-metadata.md" >}}) a file that contains EXIF metadata
+1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/loading-files/_index.md" >}}) a file that contains EXIF metadata
 2.  Extract the EXIF metadata package using the [IExif.getExifPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/IExif#getExifPackage()) method
 3.  Iterate through all EXIF tags on different levels
 
@@ -90,7 +90,7 @@ try (Metadata metadata = new Metadata(Constants.JpegWithExif)) {
 
 The GroupDocs.Metadata API also supports reading specific EXIF tags using a method that accepts the tag id as a parameter. Follow below-mentioned steps to read a specific EXIF tag.
 
-1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/working-with-metadata-standards/working-with-exif-metadata.md" >}}) a file that contains EXIF metadata
+1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/loading-files/_index.md" >}}) a file that contains EXIF metadata
 2.  Extract the EXIF metadata package using the [IExif.getExifPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/IExif#getExifPackage()) method
 3.  Get a specific tag using the [getByTiffTagID](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/ExifDictionaryBasePackage#getByTiffTagID(int)) method
 
@@ -112,10 +112,10 @@ try (Metadata metadata = new Metadata(Constants.TiffWithExif)) {
 
 The GroupDocs.Metadata API facilitates the user to update EXIF metadata in a convenient way - using the [ExifPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/ExifPackage) class methods. Follow the below steps to update EXIF metadata in a file of any supported format.
 
-1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/working-with-metadata-standards/working-with-exif-metadata.md" >}}) a file that contains EXIF metadata
+1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/loading-files/_index.md" >}}) a file that contains EXIF metadata
 2.  Extract the EXIF metadata package using the [IExif.getExifPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/IExif#getExifPackage()) method
 3.  Assign values to desired EXIF properties
-4.  [Save]({{< ref "metadata/java/developer-guide/advanced-usage/working-with-metadata-standards/working-with-exif-metadata.md" >}}) the changes
+4.  [Save]({{< ref "metadata/java/developer-guide/advanced-usage/saving-files/_index.md" >}}) the changes
 
 **advanced\_usage.working\_with\_metadata\_standards.exif.UpdateExifProperties**
 
@@ -147,11 +147,11 @@ try (Metadata metadata = new Metadata(Constants.InputJpeg)) {
 
 The GroupDocs.Metadata API allows adding or updating custom tags in an EXIF package.
 
-1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/working-with-metadata-standards/working-with-exif-metadata.md" >}}) a file that contains EXIF metadata
+1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/loading-files/_index.md" >}}) a file that contains EXIF metadata
 2.  Extract the EXIF metadata package using the [IExif.getExifPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/IExif#getExifPackage()) method
 3.  Set the EXIF package if it's missing
 4.  Add any number of custom tags to the package
-5.  [Save]({{< ref "metadata/java/developer-guide/advanced-usage/working-with-metadata-standards/working-with-exif-metadata.md" >}}) the changes
+5.  [Save]({{< ref "metadata/java/developer-guide/advanced-usage/saving-files/_index.md" >}}) the changes
 
 **advanced\_usage.working\_with\_metadata\_standards.exif.SetCustomExifTag**
 

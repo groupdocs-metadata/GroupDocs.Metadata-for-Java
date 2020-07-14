@@ -49,7 +49,7 @@ try (Metadata metadata = new Metadata(Constants.InputZip)) {
 
 GroupDocs.Metadata for Java allows you to update the user comment in a ZIP archive. The following steps are needed to be followed:
 
-*   [Load]({{< ref "metadata/java/developer-guide/advanced-usage/managing-metadata-for-specific-formats/other/working-with-zip-archives.md" >}}) a ZIP archive
+*   [Load]({{< ref "metadata/java/developer-guide/advanced-usage/loading-files/_index.md" >}}) a ZIP archive
 *   Get the root metadata package
 *   Update the comment using the [ZipPackage.setComment](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/ZipPackage#setComment(java.lang.String)) method
 *   Save the changes

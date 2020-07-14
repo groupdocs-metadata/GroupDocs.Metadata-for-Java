@@ -10,7 +10,7 @@ hideChildren: False
 ---
 Using the GroupDocs.Metadata search engine you can extract desired metadata properties from files of different types. You don't need to worry about the exact file format and metadata standards it can deal with. The same code will work for all supported formats in the same way. Most commonly used metadata properties are marked with tags that allow searching them across all supported files in various metadata packages. All tags defined in GroupDocs.Metadata are divided into categories that make it easier to find a required tag. The code sample below demonstrates some advanced usage of tags, categories and other attributes of metadata properties.
 
-1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/extracting-metadata.md" >}}) a file to be searched for metadata properties
+1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/loading-files/_index.md" >}}) a file to be searched for metadata properties
 2.  Make up a predicate to examine all extracted metadata properties
 3.  Pass the predicate to the [findProperties](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata/Metadata#findProperties(com.groupdocs.metadata.search.Specification)) method
 4.  Iterate through the found properties

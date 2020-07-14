@@ -18,7 +18,7 @@ Lyrics3 Tag is a chunk of data which begins with "LYRICSBEGIN", ends with "LYRI
 
 The GroupDocs.Metadata API allows reading the Lyrics3 tag in an MP3 file.
 
-1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/managing-metadata-for-specific-formats/audio/working-with-mp3-metadata/handling-the-lyrics-tag.md" >}}) an MP3 file
+1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/loading-files/_index.md" >}}) an MP3 file
 2.  Extract the root metadata package
 3.  Get the Lyrics tag by using the [MP3RootPackage.getLyrics3V2](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/MP3RootPackage#getLyrics3V2())method
 4.  If the Lyrics tag is not null then check for all of its properties

@@ -10,12 +10,12 @@ hideChildren: False
 ---
 The example below demonstrates how to update existing metadata properties using a combination of criteria. Please note that the [updateProperties](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata/Metadata#updateProperties(com.groupdocs.metadata.search.Specification,%20com.groupdocs.metadata.core.PropertyValue)) method checks the type of all properties before applying any changes. If a property satisfies the predicate but has a type different from the passed value it won't be updated. The explicit type check in the example is performed since we use the existing value to filter metadata properties.
 
-1.  [Open]({{< ref "metadata/java/developer-guide/advanced-usage/updating-metadata.md" >}}) a file to be updated
+1.  [Open]({{< ref "metadata/java/developer-guide/advanced-usage/loading-files/_index.md" >}}) a file to be updated
 2.  Specify a predicate that will be used to filter desired metadata properties
 3.  Specify a value which you want to be assigned to the selected properties
 4.  Pass the predicate and the new value to the [updateProperties](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata/Metadata#updateProperties(com.groupdocs.metadata.search.Specification,%20com.groupdocs.metadata.core.PropertyValue)) method
 5.  Check the actual number of updated properties
-6.  [Save]({{< ref "metadata/java/developer-guide/advanced-usage/updating-metadata.md" >}}) the changes
+6.  [Save]({{< ref "metadata/java/developer-guide/advanced-usage/saving-files/_index.md" >}}) the changes
 
 **advanced\_usage.UpdatingMetadata**
 
