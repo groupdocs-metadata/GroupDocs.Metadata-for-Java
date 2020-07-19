@@ -32,7 +32,9 @@ try (Metadata metadata = new Metadata(Constants.InputDoc)) {
 }
 ```
 
-{{< alert style="info" >}}Not all possible properties are presented in the getKnowPropertyDescriptors collection. The library provides information on the most frequently used properties only. If there is no descriptor for some property it is still accessible through the GroupDocs.Metadata search engine in read-only mode.{{< /alert >}}
+{{< alert style="info" >}}
+Not all possible properties are presented in the [getKnowPropertyDescriptors](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/MetadataPackage#getKnowPropertyDescriptors()) collection. The library provides information on the most frequently used properties only. If there is no descriptor for some property it is still accessible through the GroupDocs.Metadata search engine in read-only mode.
+{{< /alert >}}
 
 ## More resources
 
