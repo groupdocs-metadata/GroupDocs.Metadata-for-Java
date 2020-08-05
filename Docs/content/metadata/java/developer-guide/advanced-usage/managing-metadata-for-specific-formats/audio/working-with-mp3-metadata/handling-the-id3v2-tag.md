@@ -10,7 +10,7 @@ hideChildren: False
 ---
 ## What is ID3v2?
 
-ID3v2 is a metadata standard that is primarily used with mp3 files. Although it bears the name ID3, its structure is very different from [ID3v1]({{< ref "metadata/java/handling-the-id3v1-tag.md" >}}). ID3v2 tags consist of a number of frames, each of which contains a piece of metadata.
+ID3v2 is a metadata standard that is primarily used with mp3 files. Although it bears the name ID3, its structure is very different from [ID3v1]({{< ref "metadata/java/developer-guide/advanced-usage/managing-metadata-for-specific-formats/audio/working-with-mp3-metadata/handling-the-id3v1-tag.md" >}}). ID3v2 tags consist of a number of frames, each of which contains a piece of metadata.
 {{< alert style="info" >}}For more information on the ID3v2 standard visit http://id3.org/id3v2.3.0. Please note there are three versions of ID3v2: ID3v2.2, ID3v2.3, ID3v2.4.{{< /alert >}}
 
 ## Reading an ID3v2 tag
