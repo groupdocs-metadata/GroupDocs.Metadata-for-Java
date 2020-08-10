@@ -2,7 +2,7 @@
 id: groupdocs-metadata-for-java-20-5-release-notes
 url: metadata/java/groupdocs-metadata-for-java-20-5-release-notes
 title: GroupDocs.Metadata for Java 20.5 Release Notes
-weight: 2
+weight: 9
 description: ""
 keywords: 
 productName: GroupDocs.Metadata for Java
