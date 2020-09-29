@@ -63,17 +63,25 @@ In some cases, it's necessary to read all IPTC datasets (metadata properties) fr
 
 **advanced\_usage.working\_with\_metadata\_standards.iptc.ReadIptcDataSets**
 
-```csharp
+```java
 try (Metadata metadata = new Metadata(Constants.PsdWithIptc)) {
-	IIptc root = (IIptc) metadata.getRootPackage();
-	if (root.getIptcPackage() != null) {
-		for (IptcDataSet dataSet : root.getIptcPackage().toDataSetList()) {
-			System.out.println(dataSet.getRecordNumber());
-			System.out.println(dataSet.getDataSetNumber());
-			System.out.println(dataSet.getAlternativeName());
-			System.out.println(dataSet.getValue().getRawValue());
-		}
-	}
+    IIptc root = (IIptc) metadata.getRootPackage();
+    if (root.getIptcPackage() != null) {
+        for (IptcDataSet dataSet : root.getIptcPackage().toDataSetList()) {
+            System.out.println(dataSet.getRecordNumber());
+            System.out.println(dataSet.getDataSetNumber());
+            System.out.println(dataSet.getAlternativeName());
+            if (dataSet.getValue().getType() == MetadataPropertyType.PropertyValueArray) {
+                for (PropertyValue value : dataSet.getValue().toArray(PropertyValue.class)) {
+                    System.out.print(String.format("%s, ", value.getRawValue()));
+                }
+                System.out.println();
+            }
+            else {
+                System.out.println(dataSet.getValue().getRawValue());
+            }
+        }
+    }
 }
 ```
 
@@ -88,7 +96,7 @@ The GroupDocs.Metadata API facilitates the user to update IPTC metadata in a con
 
 **advanced\_usage.working\_with\_metadata\_standards.iptc.UpdateIptcProperties**
 
-```csharp
+```java
 try (Metadata metadata = new Metadata(Constants.InputJpeg)) {
 	IIptc root = (IIptc) metadata.getRootPackage();
 
@@ -133,7 +141,7 @@ The GroupDocs.Metadata API allows adding or updating custom datasets in an IPTC 
 
 **advanced\_usage.working\_with\_metadata\_standards.iptc.SetCustomIptcDataSet**
 
-```csharp
+```java
 try (Metadata metadata = new Metadata(Constants.PsdWithIptc)) {
 	IIptc root = (IIptc) metadata.getRootPackage();
 
@@ -152,13 +160,45 @@ try (Metadata metadata = new Metadata(Constants.PsdWithIptc)) {
 }
 ```
 
+## Adding repeatable IPTC IIM datasets
+
+According to the [IPTC IIM specification](https://www.iptc.org/std/IIM/4.2/specification/IIMV4.2.pdf) some datasets can be added to a record multiple times. The code snippet below demonstrates how to add a repeatable dataset to a record.
+
+**advanced\_usage.working\_with\_metadata\_standards.iptc.AddRepeatableIptcDataSet**
+
+```java
+try (Metadata metadata = new Metadata(Constants.PsdWithIptc)) {
+    IIptc root = (IIptc)metadata.getRootPackage();
+     
+    // Set the IPTC package if it's missing
+    if (root.getIptcPackage() == null) {
+        root.setIptcPackage(new IptcRecordSet());
+    }
+	
+    root.getIptcPackage().add(new IptcDataSet((byte)IptcRecordType.ApplicationRecord, (byte)IptcApplicationRecordDataSet.Keywords, "keyword 1"));
+    root.getIptcPackage().add(new IptcDataSet((byte)IptcRecordType.ApplicationRecord, (byte)IptcApplicationRecordDataSet.Keywords, "keyword 2"));
+    root.getIptcPackage().add(new IptcDataSet((byte)IptcRecordType.ApplicationRecord, (byte)IptcApplicationRecordDataSet.Keywords, "keyword 3"));
+	
+    metadata.save(Constants.OutputPsd);
+}
+ 
+// Check the output file
+try (Metadata metadata = new Metadata(Constants.OutputPsd)) {
+    IIptc root = (IIptc)metadata.getRootPackage();
+    MetadataProperty keywordsProperty = root.getIptcPackage().getApplicationRecord().get_Item((byte)IptcApplicationRecordDataSet.Keywords);
+    for (PropertyValue value : keywordsProperty.getValue().toArray(PropertyValue.class)) {
+        System.out.println(value);
+    }
+}
+```
+
 ## Removing IPTC IIM metadata
 
 To remove the IPTC package from a file just pass null to the [IIptc.setIptcPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/IIptc#setIptcPackage(com.groupdocs.metadata.core.IptcRecordSet)) method as a parameter. The code sample below shows how to remove IPTC metadata from a file.
 
 **advanced\_usage.working\_with\_metadata\_standards.iptc.RemoveIptcMetadata**
 
-```csharp
+```java
 try (Metadata metadata = new Metadata(Constants.JpegWithIptc)) {
 	IIptc root = (IIptc) metadata.getRootPackage();
 	root.setIptcPackage(null);
