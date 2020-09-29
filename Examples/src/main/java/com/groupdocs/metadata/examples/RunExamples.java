@@ -279,6 +279,7 @@ public class RunExamples {
 //        ReadIptcDataSets.run();
 //        RemoveIptcMetadata.run();
 //        SetCustomIptcDataSet.run();
+//        AddRepeatableIptcDataSet.run();
 //        UpdateIptcProperties.run();
 
         // Xmp

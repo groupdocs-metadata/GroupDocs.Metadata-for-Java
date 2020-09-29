@@ -7,6 +7,8 @@ package com.groupdocs.metadata.examples.advanced_usage.working_with_metadata_sta
 import com.groupdocs.metadata.Metadata;
 import com.groupdocs.metadata.core.IIptc;
 import com.groupdocs.metadata.core.IptcDataSet;
+import com.groupdocs.metadata.core.MetadataPropertyType;
+import com.groupdocs.metadata.core.PropertyValue;
 import com.groupdocs.metadata.examples.Constants;
 
 /**
@@ -21,7 +23,15 @@ public class ReadIptcDataSets {
                     System.out.println(dataSet.getRecordNumber());
                     System.out.println(dataSet.getDataSetNumber());
                     System.out.println(dataSet.getAlternativeName());
-                    System.out.println(dataSet.getValue().getRawValue());
+                    if (dataSet.getValue().getType() == MetadataPropertyType.PropertyValueArray) {
+                        for (PropertyValue value : dataSet.getValue().toArray(PropertyValue.class)) {
+                            System.out.print(String.format("%s, ", value.getRawValue()));
+                        }
+                        System.out.println();
+                    }
+                    else {
+                        System.out.println(dataSet.getValue().getRawValue());
+                    }
                 }
             }
         }
