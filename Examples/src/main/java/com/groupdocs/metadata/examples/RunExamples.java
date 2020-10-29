@@ -30,6 +30,7 @@ import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_spec
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.jpeg.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.jpeg.maker_note.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.jpeg2000.*;
+import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.png.PngReadTextChunks;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.psd.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.tiff.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.peer2peer.*;
@@ -237,6 +238,8 @@ public class RunExamples {
 //        MakerNoteReadSonyProperties.run();
 
 //        Jpeg2000ReadComments.run();
+
+//        PngReadTextChunks.run();
 
 //        PsdReadBasicExifProperties.run();
 //        PsdReadImageResourceBlocks.run();
