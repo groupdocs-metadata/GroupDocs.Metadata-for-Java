@@ -16,7 +16,7 @@ The following are the steps to read the native PNG metadata.
 
 1.  [Load]({{< ref "metadata/java/developer-guide/advanced-usage/loading-files/_index.md" >}}) a PNG image
 2.  Get the root metadata package
-3.  Extract  the native metadata package using [PngRootPackage.PngPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/PngRootPackage#getPngPackage())
+3.  Extract  the native metadata package using [PngRootPackage.getPngPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/PngRootPackage#getPngPackage())
 4.  Read the PNG metadata properties
 
 **advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>image.png.PngReadTextChunks**
