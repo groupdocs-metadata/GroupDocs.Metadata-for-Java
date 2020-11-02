@@ -5,7 +5,7 @@
 
     <groupId>GroupDocs.Metadata-for-Java</groupId>
     <artifactId>GroupDocs.Metadata-for-Java</artifactId>
-    <version>20.10</version>
+    <version>20.11</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -16,7 +16,7 @@
         <dependency>
             <groupId>com.groupdocs</groupId>
             <artifactId>groupdocs-metadata</artifactId>
-            <version>20.10</version>
+            <version>20.11</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
