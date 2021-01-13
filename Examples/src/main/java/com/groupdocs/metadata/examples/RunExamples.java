@@ -123,6 +123,7 @@ public class RunExamples {
         // Wav
 
 //        WavReadNativeMetadataProperties.run();
+//        WavReadInfoMetadata.run();
 
         // Business card
 
@@ -148,6 +149,7 @@ public class RunExamples {
         // Note
 
 //        NoteReadInspectionProperties.run();
+//        NoteReadDocumentStatistics.run();
 
         // Pdf
 
@@ -257,6 +259,7 @@ public class RunExamples {
 //        AsfReadNativeMetadataProperties.run();
 
 //        AviReadHeaderProperties.run();
+//        AviReadInfoMetadata.run();
 
 //        FlvReadHeaderProperties.run();
 
