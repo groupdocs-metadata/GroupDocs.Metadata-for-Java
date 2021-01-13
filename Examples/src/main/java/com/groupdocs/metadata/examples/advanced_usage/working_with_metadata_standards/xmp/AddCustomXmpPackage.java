@@ -1,5 +1,5 @@
 // <copyright company="Aspose Pty Ltd">
-//   Copyright (C) 2011-2020 GroupDocs. All Rights Reserved.
+//   Copyright (C) 2011-2021 GroupDocs. All Rights Reserved.
 // </copyright>
 
 package com.groupdocs.metadata.examples.advanced_usage.working_with_metadata_standards.xmp;
@@ -20,7 +20,7 @@ public class AddCustomXmpPackage {
             XmpPacketWrapper packet = new XmpPacketWrapper();
 
             XmpPackage custom = new XmpPackage("gd", "https://groupdocs.com");
-            custom.set("gd:Copyright", "Copyright (C) 2011-2020 GroupDocs. All Rights Reserved.");
+            custom.set("gd:Copyright", "Copyright (C) 2011-2021 GroupDocs. All Rights Reserved.");
             custom.set("gd:CreationDate", new Date());
             custom.set("gd:Company", XmpArray.from(new String[]{"Aspose", "GroupDocs"}, XmpArrayType.Ordered));
 

@@ -1,5 +1,5 @@
 // <copyright company="Aspose Pty Ltd">
-//   Copyright (C) 2011-2020 GroupDocs. All Rights Reserved.
+//   Copyright (C) 2011-2021 GroupDocs. All Rights Reserved.
 // </copyright>
 
 package com.groupdocs.metadata.examples.advanced_usage;
@@ -32,7 +32,7 @@ public class SettingMetadata {
 
                     // Set the copyright notice
                     int affected = metadata.setProperties(new ContainsTagSpecification(Tags.getLegal().getCopyright()),
-                            new PropertyValue("Copyright (C) 2011-2020 GroupDocs. All Rights Reserved."));
+                            new PropertyValue("Copyright (C) 2011-2021 GroupDocs. All Rights Reserved."));
 
                     System.out.println(String.format("Affected properties: %s", affected));
 

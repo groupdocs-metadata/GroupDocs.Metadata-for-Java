@@ -1,5 +1,5 @@
 // <copyright company="Aspose Pty Ltd">
-//   Copyright (C) 2011-2020 GroupDocs. All Rights Reserved.
+//   Copyright (C) 2011-2021 GroupDocs. All Rights Reserved.
 // </copyright>
 
 package com.groupdocs.metadata.examples.advanced_usage.working_with_metadata_standards.xmp;
@@ -23,7 +23,7 @@ public class UpdateXmpProperties {
                     root.getXmpPackage().getSchemes().setDublinCore(new XmpDublinCorePackage());
                 }
                 root.getXmpPackage().getSchemes().getDublinCore().setFormat("image/gif");
-                root.getXmpPackage().getSchemes().getDublinCore().setRights("Copyright (C) 2011-2020 GroupDocs. All Rights Reserved");
+                root.getXmpPackage().getSchemes().getDublinCore().setRights("Copyright (C) 2011-2021 GroupDocs. All Rights Reserved");
                 root.getXmpPackage().getSchemes().getDublinCore().setSubject("test");
 
                 if (root.getXmpPackage().getSchemes().getCameraRaw() == null) {
