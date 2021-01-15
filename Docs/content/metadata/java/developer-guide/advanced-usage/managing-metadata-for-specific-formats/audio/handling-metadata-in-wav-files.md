@@ -35,6 +35,29 @@ try (Metadata metadata = new Metadata(Constants.InputWav)) {
 }
 ```
 
+## Extract RIFF INFO chunk metadata
+
+The WAV format is derived from the RIFF container which acts as a wrapper for various audio and video coding formats. As a derivative of RIFF, WAV files can be tagged with metadata in the INFO chunk. The chunk may include information such as the title of the work, the author, the creation date, and copyright information. Here is an example of how the RIFF INFO metadata can be extracted:
+
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>audio.wav.WavReadInfoMetadata**
+
+```csharp
+try (Metadata metadata = new Metadata(Constants.InputWav)) {
+    WavRootPackage root = metadata.getRootPackageGeneric();
+    if (root.getRiffInfoPackage() != null) {
+        System.out.println(root.getRiffInfoPackage().getArtist());
+        System.out.println(root.getRiffInfoPackage().getComment());
+        System.out.println(root.getRiffInfoPackage().getCopyright());
+        System.out.println(root.getRiffInfoPackage().getCreationDate());
+        System.out.println(root.getRiffInfoPackage().getSoftware());
+        System.out.println(root.getRiffInfoPackage().getEngineer());
+        System.out.println(root.getRiffInfoPackage().getGenre());
+ 
+        // ...
+    }
+} 
+```
+
 ## Working with XMP metadata
 
 GroupDocs.Metadata for Java also allows managing XMP metadata in WAV files. For more details please refer to the following guide: [Working with XMP Metadata]({{< ref "metadata/java/developer-guide/advanced-usage/managing-metadata-for-specific-formats/audio/handling-metadata-in-wav-files.md" >}})

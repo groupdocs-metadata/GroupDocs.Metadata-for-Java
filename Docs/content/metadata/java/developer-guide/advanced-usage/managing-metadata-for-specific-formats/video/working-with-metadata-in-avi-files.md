@@ -38,6 +38,29 @@ try (Metadata metadata = new Metadata(Constants.InputAvi)) {
 }
 ```
 
+## Extract RIFF INFO chunk metadata
+
+The AVI format is derived from the RIFF container which acts as a wrapper for various audio and video coding formats. As a derivative of RIFF, AVI files can be tagged with metadata in the INFO chunk. The chunk may include information such as the title of the work, the author, the creation date, and copyright information. Here is an example of how the RIFF INFO metadata can be extracted:
+
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>video.avi.AviReadInfoMetadata**
+
+```csharp
+try (Metadata metadata = new Metadata(Constants.InputAvi)) {
+    AviRootPackage root = metadata.getRootPackageGeneric();
+    if (root.getRiffInfoPackage() != null) {
+        System.out.println(root.getRiffInfoPackage().getArtist());
+        System.out.println(root.getRiffInfoPackage().getComment());
+        System.out.println(root.getRiffInfoPackage().getCopyright());
+        System.out.println(root.getRiffInfoPackage().getCreationDate());
+        System.out.println(root.getRiffInfoPackage().getSoftware());
+        System.out.println(root.getRiffInfoPackage().getEngineer());
+        System.out.println(root.getRiffInfoPackage().getGenre());
+ 
+        // ...
+    }
+}
+```
+
 ## Working with XMP metadata
 
 GroupDocs.Metadata for Java allows managing XMP metadata in AVI files. For more details please refer to the following guide: [Working with XMP Metadata]({{< ref "metadata/java/developer-guide/advanced-usage/working-with-metadata-standards/working-with-xmp-metadata.md" >}}).

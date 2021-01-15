@@ -34,6 +34,21 @@ try (Metadata metadata = new Metadata(Constants.InputOne)) {
 }
 ```
 
+## Reading document statistics
+
+Most office applications are able to display simple text statistics for loaded documents. It can be an estimated word count, page count, character count, etc. The GroupDocs.Metadata API provides similar functionality for some document formats. The following code sample demonstrates how to obtain the text statistics for a Note document.
+
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>document.note.<WBR>NoteReadDocumentStatistics**
+
+```csharp
+try (Metadata metadata = new Metadata(Constants.InputOne)) {
+    NoteRootPackage root = metadata.getRootPackageGeneric();
+    System.out.println(root.getDocumentStatistics().getCharacterCount());
+    System.out.println(root.getDocumentStatistics().getPageCount());
+    System.out.println(root.getDocumentStatistics().getWordCount());
+}
+```
+
 ## More resources
 
 ### GitHub examples
