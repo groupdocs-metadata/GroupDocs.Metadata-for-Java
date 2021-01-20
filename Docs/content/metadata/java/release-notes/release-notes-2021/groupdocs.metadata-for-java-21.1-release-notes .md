@@ -65,7 +65,7 @@ The [RiffInfoPackage](https://apireference.groupdocs.com/metadata/java/com.group
 
 The [getRiffInfoPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/WavRootPackage#getRiffInfoPackage()) method has been added to the [WavRootPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/WavRootPackage) class
 
-The [getRiffInfoPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/AviRootPackage#getRiffInfoPackage()) property has been added to the [AviRootPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/AviRootPackage) class
+The [getRiffInfoPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/AviRootPackage#getRiffInfoPackage()) method has been added to the [AviRootPackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/AviRootPackage) class
 
 
 ##### Use cases 
