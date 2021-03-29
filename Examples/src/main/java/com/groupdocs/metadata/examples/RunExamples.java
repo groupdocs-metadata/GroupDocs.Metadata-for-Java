@@ -84,6 +84,7 @@ public class RunExamples {
 //        TraverseWholeMetadataTree.run();
 //        UpdatingMetadata.run();
 //        ExportingMetadataProperties.run();
+//        WorkingWithInterpretedValues.run();
 
         // Loading files
 
@@ -213,6 +214,7 @@ public class RunExamples {
 //        EmailRemoveAttachments.run();
 //        EmlReadNativeMetadataProperties.run();
 //        MsgReadNativeMetadataProperties.run();
+//        EmailUpdateEmailFields.run();
 
         // Font
 
