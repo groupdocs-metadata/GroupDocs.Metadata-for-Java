@@ -83,6 +83,22 @@ try (Metadata metadata = new Metadata(Constants.InputEml)) {
 }
 ```
 
+## Updating email fields
+
+GroupDocs.Metadata for Java also allows the user to update some common email fields. The code sample below demonstrates how to alter the email subject and recipients.
+
+**advanced_usage.managing_metadata_for_specific_formats.email.EmailUpdateEmailFields**
+
+```csharp
+try (Metadata metadata = new Metadata(Constants.InputEml)) {
+    EmailRootPackage root = metadata.getRootPackageGeneric();
+    root.getEmailPackage().setRecipients(new String[] { "sample@aspose.com" });
+    root.getEmailPackage().setCarbonCopyRecipients(new String[] { "sample@groupdocs.com" });
+    root.getEmailPackage().setSubject("RE: test subject");
+    metadata.save(Constants.OutputEml);
+}
+```
+
 ## More resources
 
 ### GitHub examples

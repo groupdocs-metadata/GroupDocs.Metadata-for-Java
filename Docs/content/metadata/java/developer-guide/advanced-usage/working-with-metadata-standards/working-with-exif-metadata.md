@@ -100,13 +100,18 @@ The GroupDocs.Metadata API also supports reading specific EXIF tags using a meth
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.TiffWithExif)) {
-	IExif root = (IExif) metadata.getRootPackage();
-	if (root.getExifPackage() != null) {
-		TiffAsciiTag software = (TiffAsciiTag) root.getExifPackage().getByTiffTagID(TiffTagID.Software);
-		if (software != null) {
-			System.out.println(String.format("Software: %s", software.getValue()));
-		}
-	}
+    IExif root = (IExif) metadata.getRootPackage();
+    if (root.getExifPackage() != null) {
+        TiffAsciiTag software = (TiffAsciiTag) root.getExifPackage().getByTiffTagID(TiffTagID.Software);
+        if (software != null) {
+            System.out.println(String.format("Software: %s", software.getValue()));
+        }
+         
+        TiffUndefinedTag comment = (TiffUndefinedTag)root.getExifPackage().getExifIfdPackage().getByTiffTagID(TiffTagID.UserComment);
+        if (comment != null) {
+            System.out.println(String.format("Comment: %s", comment.getInterpretedValue()));
+        }
+    }
 }
 ```
 
