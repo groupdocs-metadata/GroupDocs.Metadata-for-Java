@@ -16,16 +16,14 @@ public class EpubReadDublinCoreProperties {
         try (Metadata metadata = new Metadata(Constants.InputEpub)) {
             EpubRootPackage root = metadata.getRootPackageGeneric();
 
-            if (root.getDublinCorePackage() != null) {
-                System.out.println(root.getDublinCorePackage().getRights());
-                System.out.println(root.getDublinCorePackage().getPublisher());
-                System.out.println(root.getDublinCorePackage().getTitle());
-                System.out.println(root.getDublinCorePackage().getCreator());
-                System.out.println(root.getDublinCorePackage().getLanguage());
-                System.out.println(root.getDublinCorePackage().getDate());
+            System.out.println(root.getDublinCorePackage().getRights());
+            System.out.println(root.getDublinCorePackage().getPublisher());
+            System.out.println(root.getDublinCorePackage().getTitle());
+            System.out.println(root.getDublinCorePackage().getCreator());
+            System.out.println(root.getDublinCorePackage().getLanguage());
+            System.out.println(root.getDublinCorePackage().getDate());
 
-                // ...
-            }
+            // ...
         }
     }
 }

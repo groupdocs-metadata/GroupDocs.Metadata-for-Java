@@ -91,6 +91,8 @@ public class Constants {
     public static final String OutputEml = CombinePath(OutputPath, "output.eml");
     public static final String OutputTorrent = CombinePath(OutputPath, "output.torrent");
     public static final String OutputCsv = CombinePath(OutputPath, "output.csv");
+    public static final String OutputEpub = CombinePath(OutputPath, "output.epub");
+    public static final String OutputDxf = CombinePath(OutputPath, "output.dxf");
 
     private static String CombinePath(String path1, String path2) {
         return path1 + path2;

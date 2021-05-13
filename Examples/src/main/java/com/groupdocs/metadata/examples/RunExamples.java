@@ -135,6 +135,7 @@ public class RunExamples {
         // Cad
 
 //        CadReadNativeMetadataProperties.run();
+//        DxfUpdateNativeMetadataProperties.run();
 
         // Document formats
 
@@ -208,6 +209,8 @@ public class RunExamples {
 
 //        EpubReadDublinCoreProperties.run();
 //        EpubReadNativeMetadataProperties.run();
+//        EpubUpdateNativeMetadataProperties.run();
+//        EpubUpdateDublinCoreProperties.run();
 
         // Email
 

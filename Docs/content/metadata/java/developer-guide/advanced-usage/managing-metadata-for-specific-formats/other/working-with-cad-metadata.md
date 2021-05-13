@@ -38,6 +38,32 @@ try (Metadata metadata = new Metadata(Constants.InputDxf)) {
 }
 ```
 
+## Updating DXF metadata
+
+The GroupDocs.Metadata API also allows updating metadata properties in a DXF drawing. Please check the code sample below.
+
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>cad.DxfUpdateNativeMetadataProperties**
+
+```csharp
+try (Metadata metadata = new Metadata(Constants.InputDxf)) {
+ 
+    CadRootPackage root = metadata.getRootPackageGeneric();
+ 
+    root.getCadPackage().setProperties(new WithNameSpecification("Author"), new PropertyValue("GroupDocs"));
+    root.getCadPackage().setProperties(new WithNameSpecification("Comments"), new PropertyValue("test comment"));
+    root.getCadPackage().setProperties(new WithNameSpecification("HyperlinkBase"), new PropertyValue("test hyperlink base"));
+    root.getCadPackage().setProperties(new WithNameSpecification("Keywords"), new PropertyValue("test keywords"));
+    root.getCadPackage().setProperties(new WithNameSpecification("LastSavedBy"), new PropertyValue("test editor"));
+    root.getCadPackage().setProperties(new WithNameSpecification("RevisionNumber"), new PropertyValue("test revision number"));
+    root.getCadPackage().setProperties(new WithNameSpecification("Subject"), new PropertyValue("test subject"));
+    root.getCadPackage().setProperties(new WithNameSpecification("Title"), new PropertyValue("test title"));
+    root.getCadPackage().setProperties(new WithNameSpecification("CreatedDateTime"), new PropertyValue(new Date()));
+    root.getCadPackage().setProperties(new WithNameSpecification("ModifiedDateTime"), new PropertyValue(new Date()));
+ 
+    metadata.save(Constants.OutputDxf);
+}
+```
+
 ## More resources
 
 ### GitHub examples

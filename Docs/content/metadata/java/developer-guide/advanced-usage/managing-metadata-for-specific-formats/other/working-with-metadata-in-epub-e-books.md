@@ -37,6 +37,27 @@ try (Metadata metadata = new Metadata(Constants.InputEpub)) {
 }
 ```
 
+## Updating EPUB format-specific properties
+
+The GroupDocs.Metadata API also supports updating some metadata properties of an EPUB file. Please see the code snippet below to learn how to do that.
+
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>ebook.EpubUpdateNativeMetadataProperties**
+
+```csharp
+try (Metadata metadata = new Metadata(Constants.InputEpub)) {
+    EpubRootPackage root = metadata.getRootPackageGeneric();
+ 
+    root.getEpubPackage().setCreator("GroupDocs");
+    root.getEpubPackage().setDescription("test e-book");
+    root.getEpubPackage().setFormat("EPUB");
+    root.getEpubPackage().setDate(new Date().toString());
+ 
+    // ...
+ 
+    metadata.save(Constants.OutputEpub);
+}
+```
+
 ## Reading Dublin Core Metadata
 
 Dublin Core metadata is a set of certain metadata properties that are intended to describe various digital resources. Please find more information on the Dublin Core standard at [https://en.wikipedia.org/wiki/Dublin\_Core](https://en.wikipedia.org/wiki/Dublin_Core). The code sample below shows how to extract Dublin Core metadata from a EPUB e-book using the GroupDocs.Metadata API.
@@ -45,22 +66,42 @@ Dublin Core metadata is a set of certain metadata properties that are intended t
 
 ```csharp
 try (Metadata metadata = new Metadata(Constants.InputEpub)) {
-	EpubRootPackage root = metadata.getRootPackageGeneric();
-
-	if (root.getDublinCorePackage() != null) {
-		System.out.println(root.getDublinCorePackage().getRights());
-		System.out.println(root.getDublinCorePackage().getPublisher());
-		System.out.println(root.getDublinCorePackage().getTitle());
-		System.out.println(root.getDublinCorePackage().getCreator());
-		System.out.println(root.getDublinCorePackage().getLanguage());
-		System.out.println(root.getDublinCorePackage().getDate());
-
-		// ...
-	}
+    EpubRootPackage root = metadata.getRootPackageGeneric();
+ 
+    System.out.println(root.getDublinCorePackage().getRights());
+    System.out.println(root.getDublinCorePackage().getPublisher());
+    System.out.println(root.getDublinCorePackage().getTitle());
+    System.out.println(root.getDublinCorePackage().getCreator());
+    System.out.println(root.getDublinCorePackage().getLanguage());
+    System.out.println(root.getDublinCorePackage().getDate());
+ 
+    // ...
 }
 ```
 
 Please see the the [DublinCorePackage](https://apireference.groupdocs.com/metadata/java/com.groupdocs.metadata.core/DublinCorePackage) class to get more information on supported Dublin Core metadata properties.
+
+## Updating Dublin Core Metadata
+
+The GroupDocs.Metadata API also allows updating DublinCore metadata properties in an EPUB file. Please check the code sample below.
+
+**advanced\_usage.managing\_metadata\_for\_specific\_formats.<WBR>ebook.EpubUpdateDublinCoreProperties**
+
+```csharp
+try (Metadata metadata = new Metadata(Constants.InputEpub)) {
+ 
+    EpubRootPackage root = metadata.getRootPackageGeneric();
+ 
+    root.getDublinCorePackage().setProperties(new WithNameSpecification("dc:creator"), new PropertyValue("GroupDocs"));
+    root.getDublinCorePackage().setProperties(new WithNameSpecification("dc:description"), new PropertyValue("test e-book"));
+    root.getDublinCorePackage().setProperties(new WithNameSpecification("dc:title"), new PropertyValue("test EPUB"));
+    root.getDublinCorePackage().setProperties(new WithNameSpecification("dc:date"), new PropertyValue(new Date().toString()));
+ 
+    // ...
+ 
+    metadata.save(Constants.OutputEpub);
+}
+```
 
 ## More resources
 

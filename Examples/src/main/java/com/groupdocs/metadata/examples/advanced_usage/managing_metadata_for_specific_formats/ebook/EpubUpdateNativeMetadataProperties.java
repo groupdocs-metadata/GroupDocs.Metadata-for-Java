@@ -7,20 +7,24 @@ package com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_spe
 import com.groupdocs.metadata.Metadata;
 import com.groupdocs.metadata.core.EpubRootPackage;
 import com.groupdocs.metadata.examples.Constants;
+import java.util.Date;
 
 /**
- * This code sample shows how to read EPUB format-specific metadata properties.
+ * This code sample shows how to update EPUB format-specific metadata properties.
  */
-public class EpubReadNativeMetadataProperties {
+public class EpubUpdateNativeMetadataProperties {
     public static void run() {
         try (Metadata metadata = new Metadata(Constants.InputEpub)) {
             EpubRootPackage root = metadata.getRootPackageGeneric();
 
-            System.out.println(root.getEpubPackage().getVersion());
-            System.out.println(root.getEpubPackage().getUniqueIdentifier());
-            System.out.println(root.getEpubPackage().getImageCover() != null ? root.getEpubPackage().getImageCover().length : 0);
-            
+            root.getEpubPackage().setCreator("GroupDocs");
+            root.getEpubPackage().setDescription("test e-book");
+            root.getEpubPackage().setFormat("EPUB");
+            root.getEpubPackage().setDate(new Date().toString());
+ 
             // ...
+ 
+            metadata.save(Constants.OutputEpub);
         }
     }
 }
