@@ -11,7 +11,6 @@ GroupDocs.Metadata for Java provides easy ways to [Manage Document Metadata via 
 
 Directory | Description
 --------- | -----------
-[Docs](https://github.com/groupdocs-metadata/GroupDocs.Metadata-for-Java/tree/master/Docs)  | Product documentation containing the Developer's Guide, Release Notes and more.
 [Examples](https://github.com/groupdocs-metadata/GroupDocs.Metadata-for-Java/tree/master/Examples)  | Java examples and sample documents for you to get started quickly. 
 
 ## Read, Write, Update & Remove Document Metadata
