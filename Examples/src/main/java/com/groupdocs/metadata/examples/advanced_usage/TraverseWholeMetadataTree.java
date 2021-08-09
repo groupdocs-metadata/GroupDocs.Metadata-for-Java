@@ -29,10 +29,10 @@ public class TraverseWholeMetadataTree {
                 System.out.printf("%" + (stringPropertyRepresentation.length() + indent + 1) + "s%n", stringPropertyRepresentation);
                 if (property.getValue() != null) {
                     switch (property.getValue().getType()) {
-                        case MetadataPropertyType.Metadata:
+                        case Metadata:
                             displayMetadataTree(property.getValue().toClass(MetadataPackage.class), indent + 2);
                             break;
-                        case MetadataPropertyType.MetadataArray:
+                        case MetadataArray:
                             displayMetadataTree(property.getValue().toArray(MetadataPackage.class), indent + 2);
                             break;
                     }

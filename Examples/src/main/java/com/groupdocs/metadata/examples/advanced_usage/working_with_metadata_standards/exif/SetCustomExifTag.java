@@ -29,7 +29,7 @@ public class SetCustomExifTag {
 
             // Add a fully custom property (which is not described in the EXIF specification).
             // Please note that the chosen ID may intersect with the IDs used by some third party tools.
-            root.getExifPackage().set(new TiffAsciiTag(65523, "custom"));
+            root.getExifPackage().set(new TiffAsciiTag(TiffTagID.getByRawValue(65523), "custom"));
 
             metadata.save(Constants.OutputTiff);
         }

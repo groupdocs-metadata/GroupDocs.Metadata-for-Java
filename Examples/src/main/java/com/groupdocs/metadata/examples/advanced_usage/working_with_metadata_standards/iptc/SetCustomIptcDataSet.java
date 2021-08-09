@@ -22,7 +22,7 @@ public class SetCustomIptcDataSet {
             }
 
             // Add a know property using the DataSet API
-            root.getIptcPackage().set(new IptcDataSet((byte) IptcRecordType.ApplicationRecord, (byte) IptcApplicationRecordDataSet.BylineTitle, "test code sample"));
+            root.getIptcPackage().set(new IptcDataSet((byte)IptcRecordType.ApplicationRecord.getRawValue(), (byte)IptcApplicationRecordDataSet.BylineTitle.getRawValue(), "test code sample"));
 
             // Add a custom IPTC DataSet
             root.getIptcPackage().set(new IptcDataSet((byte) 100, (byte) 100, new byte[]{1, 2, 3}));

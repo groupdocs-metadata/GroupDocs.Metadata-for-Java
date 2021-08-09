@@ -27,9 +27,9 @@ public class AddRepeatableIptcDataSet {
                 root.setIptcPackage(new IptcRecordSet());
             }
 
-            root.getIptcPackage().add(new IptcDataSet((byte)IptcRecordType.ApplicationRecord, (byte)IptcApplicationRecordDataSet.Keywords, "keyword 1"));
-            root.getIptcPackage().add(new IptcDataSet((byte)IptcRecordType.ApplicationRecord, (byte)IptcApplicationRecordDataSet.Keywords, "keyword 2"));
-            root.getIptcPackage().add(new IptcDataSet((byte)IptcRecordType.ApplicationRecord, (byte)IptcApplicationRecordDataSet.Keywords, "keyword 3"));
+            root.getIptcPackage().add(new IptcDataSet((byte)IptcRecordType.ApplicationRecord.getRawValue(), (byte)IptcApplicationRecordDataSet.Keywords.getRawValue(), "keyword 1"));
+            root.getIptcPackage().add(new IptcDataSet((byte)IptcRecordType.ApplicationRecord.getRawValue(), (byte)IptcApplicationRecordDataSet.Keywords.getRawValue(), "keyword 2"));
+            root.getIptcPackage().add(new IptcDataSet((byte)IptcRecordType.ApplicationRecord.getRawValue(), (byte)IptcApplicationRecordDataSet.Keywords.getRawValue(), "keyword 3"));
 
             metadata.save(Constants.OutputPsd);
         }
@@ -37,7 +37,7 @@ public class AddRepeatableIptcDataSet {
         // Check the output file
         try (Metadata metadata = new Metadata(Constants.OutputPsd)) {
             IIptc root = (IIptc)metadata.getRootPackage();
-            MetadataProperty keywordsProperty = root.getIptcPackage().getApplicationRecord().get_Item((byte)IptcApplicationRecordDataSet.Keywords);
+            MetadataProperty keywordsProperty = root.getIptcPackage().getApplicationRecord().get_Item((byte)IptcApplicationRecordDataSet.Keywords.getRawValue());
 
             for (PropertyValue value : keywordsProperty.getValue().toArray(PropertyValue.class)) {
                 System.out.println(value);
