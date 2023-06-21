@@ -5,7 +5,7 @@
 
     <groupId>GroupDocs.Metadata-for-Java</groupId>
     <artifactId>GroupDocs.Metadata-for-Java</artifactId>
-    <version>22.11</version>
+    <version>23.6</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -16,7 +16,7 @@
         <dependency>
             <groupId>com.groupdocs</groupId>
             <artifactId>groupdocs-metadata</artifactId>
-            <version>22.11</version>
+            <version>23.6</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
@@ -28,7 +28,7 @@
         <repository>
             <id>GroupDocsJavaAPI</id>
             <name>GroupDocs Java API</name>
-            <url>http://repository.groupdocs.com/repo/</url>
+            <url>https://releases.groupdocs.com/java/repo/</url>
         </repository>
     </repositories>
     <build>
