@@ -7,6 +7,7 @@ package com.groupdocs.metadata.examples.basic_usage;
 import com.groupdocs.metadata.Metadata;
 import com.groupdocs.metadata.examples.Constants;
 import com.groupdocs.metadata.options.ICreatePageStream;
+import com.groupdocs.metadata.options.PreviewFormats;
 import com.groupdocs.metadata.options.PreviewOptions;
 
 import java.io.*;
@@ -18,7 +19,7 @@ public class GenerateFilePreview {
     public static void run() {
         try (Metadata metadata = new Metadata(Constants.InputDocx)) {
             PreviewOptions previewOptions = new PreviewOptions(new GenerateFilePreview().new CreatePageStream());
-            previewOptions.setPreviewFormat(PreviewOptions.PreviewFormats.PNG);
+            previewOptions.setPreviewFormat(PreviewFormats.PNG);
             previewOptions.setPageNumbers(new int[]{1});
             metadata.generatePreview(previewOptions);
         }

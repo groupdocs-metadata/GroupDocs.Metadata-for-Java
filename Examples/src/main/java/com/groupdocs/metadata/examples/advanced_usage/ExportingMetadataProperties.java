@@ -23,6 +23,8 @@ public class ExportingMetadataProperties {
                 ExportManager manager = new ExportManager(root);
 
                 manager.export(Constants.OutputXls, ExportFormat.Xls);
+                manager.export(Constants.OutputXml, ExportFormat.Xml);
+                manager.export(Constants.OutputCsv, ExportFormat.Csv);
             }
         }
     }

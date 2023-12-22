@@ -79,6 +79,7 @@ public class Constants {
     public static final String OutputDoc = CombinePath(OutputPath, "output.doc");
     public static final String OutputPpt = CombinePath(OutputPath, "output.ppt");
     public static final String OutputXls = CombinePath(OutputPath, "output.xls");
+    public static final String OutputXml = CombinePath(OutputPath, "output.xml");
     public static final String OutputMpp = CombinePath(OutputPath, "output.mpp");
     public static final String OutputJpeg = CombinePath(OutputPath, "output.jpg");
     public static final String OutputPng = CombinePath(OutputPath, "output.png");
