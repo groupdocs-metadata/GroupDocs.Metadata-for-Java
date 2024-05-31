@@ -7,7 +7,7 @@ package com.groupdocs.metadata.examples;
 public class Constants {
     public static final String ResourcesPath = ".\\Resources\\";
 
-    public static final String LicenseFilePath = CombinePath(ResourcesPath, "GroupDocs.Metadata.lic");
+    public static final String LicenseFilePath = "E:\\GroupDocs.Metadata.Java.lic";
 
     public static final String InputPath = CombinePath(ResourcesPath, "SampleFiles\\Input\\");
     public static final String OutputPath = CombinePath(ResourcesPath, "SampleFiles\\Output\\");
@@ -26,6 +26,7 @@ public class Constants {
     public static final String InputJpeg = CombinePath(InputPath, "input.jpg");
     public static final String InputPng = CombinePath(InputPath, "input.png");
     public static final String InputGif = CombinePath(InputPath, "input.gif");
+    public static final String InputDng = CombinePath(InputPath, "sample1.dng");
     public static final String InputMpp = CombinePath(InputPath, "input.mpp");
     public static final String InputBmp = CombinePath(InputPath, "input.bmp");
     public static final String InputJpeg2000 = CombinePath(InputPath, "input.jp2");
@@ -37,6 +38,9 @@ public class Constants {
     public static final String InputMov = CombinePath(InputPath, "input.mov");
     public static final String InputWav = CombinePath(InputPath, "input.wav");
     public static final String InputZip = CombinePath(InputPath, "input.zip");
+    public static final String InputRar = CombinePath(InputPath, "input.rar");
+    public static final String InputTar = CombinePath(InputPath, "input.tar");
+    public static final String InputSevenZip = CombinePath(InputPath, "input.7z");
     public static final String InputVcf = CombinePath(InputPath, "input.vcf");
     public static final String InputDxf = CombinePath(InputPath, "input.dxf");
     public static final String InputEpub = CombinePath(InputPath, "input.epub");
@@ -67,7 +71,7 @@ public class Constants {
     public static final String NikonJpeg = CombinePath(InputPath, "nikon_raw.jpg");
     public static final String PanasonicJpeg = CombinePath(InputPath, "panasonic_raw.jpg");
     public static final String SonyJpeg = CombinePath(InputPath, "sony_raw.jpg");
-
+    public static final String InputCr2 = CombinePath(InputPath, "input.CR2");
 
     public static final String OutputDocx = CombinePath(OutputPath, "output.docx");
     public static final String OutputPptx = CombinePath(OutputPath, "output.pptx");
@@ -95,6 +99,7 @@ public class Constants {
     public static final String OutputEpub = CombinePath(OutputPath, "output.epub");
     public static final String OutputDxf = CombinePath(OutputPath, "output.dxf");
 
+    public static final String ImportPdf = CombinePath(InputPath, "pdf.json");
     private static String CombinePath(String path1, String path2) {
         return path1 + path2;
     }

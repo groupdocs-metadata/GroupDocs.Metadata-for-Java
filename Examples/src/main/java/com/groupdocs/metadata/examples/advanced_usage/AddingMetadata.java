@@ -15,13 +15,15 @@ import org.apache.commons.io.FilenameUtils;
 import java.io.File;
 import java.util.Date;
 
+import static com.groupdocs.metadata.core.XmpColorantColorMode.Cmyk;
+
 /**
  * This example demonstrates how to add some missing metadata properties to a file regardless of its format.
  */
 public class AddingMetadata {
     public static void run() {
         File folder = new File(Constants.InputPath);
-        for (File file : folder.listFiles()) {
+        for (File file : folder.listFiles((dir, name) -> !name.toLowerCase().endsWith(".json"))) {
             try (Metadata metadata = new Metadata(file.getAbsolutePath())) {
                 if (metadata.getFileFormat() != FileFormat.Unknown && !metadata.getDocumentInfo().isEncrypted()) {
                     System.out.println();

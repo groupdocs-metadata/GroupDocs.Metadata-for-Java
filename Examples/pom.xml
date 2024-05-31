@@ -16,7 +16,7 @@
         <dependency>
             <groupId>com.groupdocs</groupId>
             <artifactId>groupdocs-metadata</artifactId>
-            <version>23.12</version>
+            <version>24.5</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>

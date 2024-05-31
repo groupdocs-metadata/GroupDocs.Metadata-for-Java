@@ -26,12 +26,14 @@ import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_spec
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.ImageReadFileFormatProperties;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.bmp.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.dicom.*;
+import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.dng.DngReadFileFormatProperties;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.gif.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.jpeg.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.jpeg.maker_note.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.jpeg2000.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.png.PngReadTextChunks;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.psd.*;
+import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.raw.Cr2ReadFileFormatProperties;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.tiff.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.peer2peer.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.video.asf.*;
@@ -76,15 +78,13 @@ public class RunExamples {
 
         // Advanced usage
 
-        //AddingMetadata.run();
-        //ExtractingMetadata.run();
-        //GettingKnownPropertyDescriptors.run();
-        //RemovingMetadata.run();
-        //SettingMetadata.run();
-        //TraverseWholeMetadataTree.run();
-        //UpdatingMetadata.run();
-        //ExportingMetadataProperties.run();
-        //WorkingWithInterpretedValues.run();
+        // Extracting property values
+
+        //ExtractUsingAcceptor.run();
+        //ExtractUsingType.run();
+
+
+        //end
 
         // Loading files
 
@@ -93,67 +93,73 @@ public class RunExamples {
 //        LoadingFileOfSpecificFormat.run();
 //        LoadPasswordProtectedDocument.run();
 
-        // Extracting property values
+        //end
 
-        //ExtractUsingAcceptor.run();
-        //ExtractUsingType.run();
+        // Saving Files
+
+        //SaveFileToOriginalSource.run();
+        //SaveFileToSpecifiedLocation.run();
+        //SaveFileToSpecifiedStream.run();
+
+        //end
+
+        //ExtractingMetadata.run();
+        //UpdatingMetadata.run();
+        //RemovingMetadata.run();
+        //AddingMetadata.run();
+        //SettingMetadata.run();
+        //TraverseWholeMetadataTree.run();
+        //GettingKnownPropertyDescriptors.run();
+        //ExportingMetadataProperties.run();
+        //WorkingWithInterpretedValues.run();
+        //FindMetadataPropertiesByGroupTag.run();
+        //ImportMetadata.run();
+
 
         // Managing metadata for specific formats
 
-        //ZipReadNativeMetadataProperties.run();
-        //ZipRemoveArchiveComment.run();
-        //ZipUpdateArchiveComment.run();
+        // Document
 
-        // Audio
+            // WordProcessing
 
-        // MP3
+        //WordProcessingReadBuiltInProperties.run();
+        //WordProcessingUpdateBuiltInProperties.run();
+        //WordProcessingReadCustomProperties.run();
+        //WordProcessingUpdateCustomProperties.run();
+        //WordProcessingReadInspectionProperties.run();
+        //WordProcessingUpdateInspectionProperties.run();
+        //WordProcessingReadDublinCoreProperties.run();
+        //WordProcessingReadDocumentStatistics.run();
+        //WordProcessingUpdateDocumentStatistics.run();
+        //WordProcessingReadFileFormatProperties.run();
 
-        //MP3ReadApeTag.run();
-        //MP3ReadID3V1Tag.run();
-        //MP3ReadID3V2Tag.run();
-        //MP3ReadLyricsTag.run();
-        //MP3ReadMpegAudioMetadata.run();
-        //MP3RemoveApeTag.run();
-        //MP3RemoveID3V1Tag.run();
-        //MP3RemoveID3V2Tag.run();
-        //MP3RemoveLyricsTag.run();
-        //MP3UpdateID3V1Tag.run();
-        //MP3UpdateID3V2Tag.run();
-        //MP3UpdateLyricsTag.run();
+            //end
 
-        // Wav
+            // Spreadsheet
 
-        //WavReadNativeMetadataProperties.run();
-        //WavReadInfoMetadata.run();
+        //SpreadsheetReadBuiltInProperties.run();
+        //SpreadsheetReadCustomProperties.run();
+        //SpreadsheetReadFileFormatProperties.run();
+        //SpreadsheetReadInspectionProperties.run();
+        //SpreadsheetUpdateBuiltInProperties.run();
+        //SpreadsheetUpdateCustomProperties.run();
+        //SpreadsheetUpdateInspectionProperties.run();
 
-        // Business card
+            //end
 
-        //VCardFilterCardProperties.run();
-        //VCardReadCardProperties.run();
-        //VCardReadCardPropertiesWithParameters.run();
+            // Presentation
+        //PresentationReadBuiltInProperties.run();
+        //PresentationReadCustomProperties.run();
+        //PresentationReadDocumentStatistics.run();
+        //PresentationReadFileFormatProperties.run();
+        //PresentationReadInspectionProperties.run();
+        //PresentationUpdateBuiltInProperties.run();
+        //PresentationUpdateCustomProperties.run();
+        //PresentationUpdateInspectionProperties.run();
 
-        // Cad
+            //end
 
-        //CadReadNativeMetadataProperties.run();
-        //DxfUpdateNativeMetadataProperties.run();
-
-        // Document formats
-
-        // Diagram
-
-        //DiagramReadBuiltInProperties.run();
-        //DiagramReadCustomProperties.run();
-        //DiagramReadDocumentStatistics.run();
-        //DiagramReadFileFormatProperties.run();
-        //DiagramUpdateBuiltInProperties.run();
-        //DiagramUpdateCustomProperties.run();
-
-        // Note
-
-        //NoteReadInspectionProperties.run();
-        //NoteReadDocumentStatistics.run();
-
-        // Pdf
+            // Pdf
 
         //PdfReadBuiltInProperties.run();
         //PdfReadCustomProperties.run();
@@ -164,78 +170,46 @@ public class RunExamples {
         //PdfUpdateCustomProperties.run();
         //PdfUpdateInspectionProperties.run();
 
-        // Presentation
+            //end
 
-        //PresentationReadBuiltInProperties.run();
-        //PresentationReadCustomProperties.run();
-        //PresentationReadDocumentStatistics.run();
-        //PresentationReadFileFormatProperties.run();
-        //PresentationReadInspectionProperties.run();
-        //PresentationUpdateBuiltInProperties.run();
-        //PresentationUpdateCustomProperties.run();
-        //PresentationUpdateInspectionProperties.run();
+            // Diagram
 
-        // Project management
+        //DiagramReadBuiltInProperties.run();
+        //DiagramReadCustomProperties.run();
+        //DiagramReadDocumentStatistics.run();
+        //DiagramReadFileFormatProperties.run();
+        //DiagramUpdateBuiltInProperties.run();
+        //DiagramUpdateCustomProperties.run();
+
+            //end
+
+            // Note
+
+        //NoteReadInspectionProperties.run();
+        //NoteReadDocumentStatistics.run();
+
+            //end
+
+            // ProjectManagement
 
         //ProjectManagementReadBuiltInProperties.run();
         //ProjectManagementReadCustomProperties.run();
         //ProjectManagementUpdateBuiltInProperties.run();
         //ProjectManagementUpdateCustomProperties.run();
 
-        // Spreadsheet
+            //end
 
-        //SpreadsheetReadBuiltInProperties.run();
-        //SpreadsheetReadCustomProperties.run();
-        //SpreadsheetReadFileFormatProperties.run();
-        //SpreadsheetReadInspectionProperties.run();
-        //SpreadsheetUpdateBuiltInProperties.run();
-        //SpreadsheetUpdateCustomProperties.run();
-        //SpreadsheetUpdateInspectionProperties.run();
+            //end
 
-        // Word Processing
-
-        //WordProcessingReadBuiltInProperties.run();
-        //WordProcessingReadCustomProperties.run();
-        //WordProcessingReadDocumentStatistics.run();
-        //WordProcessingReadDublinCoreProperties.run();
-        //WordProcessingReadFileFormatProperties.run();
-        //WordProcessingReadInspectionProperties.run();
-        //WordProcessingUpdateBuiltInProperties.run();
-        //WordProcessingUpdateCustomProperties.run();
-        //WordProcessingUpdateDocumentStatistics.run();
-        //WordProcessingUpdateInspectionProperties.run();
-
-        // Ebook
-
-        //EpubReadDublinCoreProperties.run();
-        //EpubReadNativeMetadataProperties.run();
-        //EpubUpdateNativeMetadataProperties.run();
-        //EpubUpdateDublinCoreProperties.run();
-
-        // Email
-
-        //EmailRemoveAttachments.run();
-        //EmlReadNativeMetadataProperties.run();
-        //MsgReadNativeMetadataProperties.run();
-        //EmailUpdateEmailFields.run();
-
-        // Font
-
-        //OpenTypeReadDigitalSignatureProperties.run();
-        //OpenTypeReadNativeMetadataProperties.run();
-
-        // Image
+            // Image
 
         //ImageReadFileFormatProperties.run();
-
         //BmpReadHeaderProperties.run();
-
         //DicomReadNativeMetadataProperties.run();
-
         //GifReadFileFormatProperties.run();
 
-        //JpegDetectBarcodes.run();
         //JpegReadImageResourceBlocks.run();
+        //JpegDetectBarcodes.run();
         //JpegRemoveImageResourceBlocks.run();
 
         //MakerNoteReadAllTags.run();
@@ -248,18 +222,19 @@ public class RunExamples {
 
         //PngReadTextChunks.run();
 
-        //PsdReadBasicExifProperties.run();
-        //PsdReadImageResourceBlocks.run();
         //PsdReadNativeMetadataProperties.run();
+        //PsdReadImageResourceBlocks.run();
+        //PsdReadBasicExifProperties.run();
 
         //TiffReadBasicIptcProperties.run();
 
-        // Peer2Peer
+        //Cr2ReadFileFormatProperties.run();
 
-        //TorrentReadNativeMetadataProperties.run();
-        //TorrentUpdateNativeMetadataProperties.run();
+        //DngReadFileFormatProperties.run();
 
-        // Video
+            //end
+
+            // Video
 
         //AsfReadNativeMetadataProperties.run();
 
@@ -273,38 +248,103 @@ public class RunExamples {
 
         //MovReadQuickTimeAtoms.run();
 
-        // Working with metadata standards
+            //end
 
-        // Exif
+            // Audio
+
+        //MP3ReadID3V1Tag.run();
+        //MP3UpdateID3V1Tag.run();
+        //MP3RemoveID3V1Tag.run();
+        //MP3ReadID3V2Tag.run();
+        //MP3UpdateID3V2Tag.run();
+        //MP3RemoveID3V2Tag.run();
+        //MP3ReadLyricsTag.run();
+        //MP3UpdateLyricsTag.run();
+        //MP3RemoveLyricsTag.run();
+        //MP3ReadApeTag.run();
+        //MP3RemoveApeTag.run();
+        //MP3ReadMpegAudioMetadata.run();
+
+        //WavReadNativeMetadataProperties.run();
+        //WavReadInfoMetadata.run();
+
+            //end
+
+            // Other formats
+
+        //ZipReadNativeMetadataProperties.run();
+        //ZipUpdateArchiveComment.run();
+        //ZipRemoveArchiveComment.run();
+
+        //VCardReadCardProperties.run();
+        //VCardReadCardPropertiesWithParameters.run();
+        //VCardFilterCardProperties.run();
+
+        //CadReadNativeMetadataProperties.run();
+        //DxfUpdateNativeMetadataProperties.run();
+
+        //EpubReadNativeMetadataProperties.run();
+        //EpubUpdateNativeMetadataProperties.run();
+        //EpubReadDublinCoreProperties.run();
+        //EpubUpdateDublinCoreProperties.run();
+
+        //EmlReadNativeMetadataProperties.run();
+        //MsgReadNativeMetadataProperties.run();
+        //EmailRemoveAttachments.run();
+        //EmailUpdateEmailFields.run();
+
+        //OpenTypeReadNativeMetadataProperties.run();
+        //OpenTypeReadDigitalSignatureProperties.run();
+
+        //TorrentReadNativeMetadataProperties.run();
+        //TorrentUpdateNativeMetadataProperties.run();
+
+        //SevenZipReadNativeMetadataProperties.run();
+        //RarReadNativeMetadataProperties.run();
+        //TarReadNativeMetadataProperties.run();
+
+            //end
+
+            //end
+
+            // Working with metadata standards
+
+            // Xmp
+
+        //ReadXmpProperties.run();
+        //UpdateXmpProperties.run();
+        //AddCustomXmpPackage.run();
+        //RemoveXmpMetadata.run();
+
+            //end
+
+            // Exif
 
         //ReadBasicExifProperties.run();
         //ReadExifTags.run();
-        //ReadSpecificExifTag.run();
-        //RemoveExifMetadata.run();
-        //SetCustomExifTag.run();
         //UpdateExifProperties.run();
+        //SetCustomExifTag.run();
+        //RemoveExifMetadata.run();
+        //ReadSpecificExifTag.run();
 
-        // Iptc
+            //end
+
+            // Iptc
 
         //ReadBasicIptcProperties.run();
         //ReadIptcDataSets.run();
-        //RemoveIptcMetadata.run();
+        //UpdateIptcProperties.run();
         //SetCustomIptcDataSet.run();
         //AddRepeatableIptcDataSet.run();
-        //UpdateIptcProperties.run();
+        //RemoveIptcMetadata.run();
 
-        // Xmp
+            //end
 
-        //AddCustomXmpPackage.run();
-        //ReadXmpProperties.run();
-        //RemoveXmpMetadata.run();
-        //UpdateXmpProperties.run();
+            //end
 
-        // Saving Files
+            //end
 
-        //SaveFileToOriginalSource.run();
-        //SaveFileToSpecifiedLocation.run();
-        //SaveFileToSpecifiedStream.run();
+
 
         // Migration
 

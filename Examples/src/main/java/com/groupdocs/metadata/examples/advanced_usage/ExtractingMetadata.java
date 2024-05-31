@@ -28,7 +28,8 @@ import java.util.regex.Pattern;
 public class ExtractingMetadata {
     public static void run() {
         File folder = new File(Constants.InputPath);
-        for (File file : folder.listFiles()) {
+        for (File file : folder.listFiles((dir, name) -> !name.toLowerCase().endsWith(".json"))) {
+
             try (Metadata metadata = new Metadata(file.getAbsolutePath())) {
                 if (metadata.getFileFormat() != FileFormat.Unknown && !metadata.getDocumentInfo().isEncrypted()) {
                     System.out.println();

@@ -28,7 +28,7 @@ public class UpdatingMetadata {
         Date threeDaysAgo = new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(3));
 
         File folder = new File(Constants.InputPath);
-        for (File file : folder.listFiles()) {
+        for (File file : folder.listFiles((dir, name) -> !name.toLowerCase().endsWith(".json"))) {
             try (Metadata metadata = new Metadata(file.getAbsolutePath())) {
                 if (metadata.getFileFormat() != FileFormat.Unknown && !metadata.getDocumentInfo().isEncrypted()) {
                     System.out.println();
