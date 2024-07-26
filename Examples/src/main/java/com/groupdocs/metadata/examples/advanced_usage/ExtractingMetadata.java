@@ -5,10 +5,7 @@
 package com.groupdocs.metadata.examples.advanced_usage;
 
 import com.groupdocs.metadata.Metadata;
-import com.groupdocs.metadata.core.FileFormat;
-import com.groupdocs.metadata.core.IReadOnlyList;
-import com.groupdocs.metadata.core.MetadataProperty;
-import com.groupdocs.metadata.core.MetadataPropertyType;
+import com.groupdocs.metadata.core.*;
 import com.groupdocs.metadata.examples.Constants;
 import com.groupdocs.metadata.examples.migration.working_with_regular_expressions.FindPropertiesByRegex;
 import com.groupdocs.metadata.search.FallsIntoCategorySpecification;
@@ -27,10 +24,11 @@ import java.util.regex.Pattern;
  */
 public class ExtractingMetadata {
     public static void run() {
+
         File folder = new File(Constants.InputPath);
         for (File file : folder.listFiles((dir, name) -> !name.toLowerCase().endsWith(".json"))) {
 
-            try (Metadata metadata = new Metadata(file.getAbsolutePath())) {
+            try (Metadata metadata = new Metadata(file.getPath())) {
                 if (metadata.getFileFormat() != FileFormat.Unknown && !metadata.getDocumentInfo().isEncrypted()) {
                     System.out.println();
                     System.out.println(file.getName());

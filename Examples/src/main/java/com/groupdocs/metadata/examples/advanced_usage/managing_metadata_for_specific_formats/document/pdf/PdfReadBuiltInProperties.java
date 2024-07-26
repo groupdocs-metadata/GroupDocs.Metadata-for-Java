@@ -7,12 +7,17 @@ package com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_spe
 import com.groupdocs.metadata.Metadata;
 import com.groupdocs.metadata.core.PdfRootPackage;
 import com.groupdocs.metadata.examples.Constants;
+import com.groupdocs.metadata.tagging.PropertyTag;
+import com.groupdocs.metadata.tagging.Tags;
+
+import java.util.ArrayList;
 
 /**
  * This code sample shows how to extract built-in metadata properties from a PDF document.
  */
 public class PdfReadBuiltInProperties {
     public static void run() {
+
         try (Metadata metadata = new Metadata(Constants.InputPdf)) {
             PdfRootPackage root = metadata.getRootPackageGeneric();
 

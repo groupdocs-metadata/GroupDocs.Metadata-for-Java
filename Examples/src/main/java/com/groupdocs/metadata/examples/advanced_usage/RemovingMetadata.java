@@ -20,7 +20,7 @@ import java.io.File;
 public class RemovingMetadata {
     public static void run() {
         File folder = new File(Constants.InputPath);
-        for (File file : folder.listFiles((dir, name) -> !name.toLowerCase().endsWith(".json"))) {
+        for (File file : folder.listFiles((dir, name) -> !name.toLowerCase().endsWith(".json") && !name.toLowerCase().endsWith(".dae"))) {
             try (Metadata metadata = new Metadata(file.getAbsolutePath())) {
                 if (metadata.getFileFormat() != FileFormat.Unknown && !metadata.getDocumentInfo().isEncrypted()) {
                     System.out.println();
