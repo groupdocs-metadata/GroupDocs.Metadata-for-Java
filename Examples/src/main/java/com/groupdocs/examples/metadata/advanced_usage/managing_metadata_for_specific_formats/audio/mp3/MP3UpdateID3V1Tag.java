@@ -1,0 +1,41 @@
+// <copyright company="Aspose Pty Ltd">
+//   Copyright (C) 2011-2021 GroupDocs. All Rights Reserved.
+// </copyright>
+
+package com.groupdocs.examples.metadata.advanced_usage.managing_metadata_for_specific_formats.audio.mp3;
+
+import com.groupdocs.examples.metadata.utils.FailureRegister;
+import com.groupdocs.metadata.Metadata;
+import com.groupdocs.metadata.core.ID3V1Tag;
+import com.groupdocs.metadata.core.MP3RootPackage;
+
+import java.nio.file.Path;
+
+import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
+
+/**
+ * This code sample shows how to update the ID3v1 tag in an MP3 file.
+ */
+public class MP3UpdateID3V1Tag {
+    public static Path run(Path inputFile) {
+        final Path outputPath = makeOutputPath("MP3WithID3V1.mp3");
+        try (Metadata metadata = new Metadata(inputFile.toString())) {
+            MP3RootPackage root = metadata.getRootPackageGeneric();
+            if (root.getID3V1() == null) {
+                root.setID3V1(new ID3V1Tag());
+            }
+            root.getID3V1().setAlbum("test album");
+            root.getID3V1().setArtist("test artist");
+            root.getID3V1().setTitle("test title");
+            root.getID3V1().setComment("test comment");
+            root.getID3V1().setYear("2019");
+
+            metadata.save(outputPath.toString());
+
+            System.out.println("..sample finished successfully.");
+        } catch (Exception e) {
+            FailureRegister.getInstance().registerFailedSample(e);
+        }
+        return outputPath;
+    }
+}
