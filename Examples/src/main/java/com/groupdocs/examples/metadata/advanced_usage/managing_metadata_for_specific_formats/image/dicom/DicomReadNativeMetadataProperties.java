@@ -27,6 +27,8 @@ public class DicomReadNativeMetadataProperties {
             } else {
                 System.out.println("\tDicom package data not found.");
             }
+            System.out.println("..sample finished successfully.");
+            return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

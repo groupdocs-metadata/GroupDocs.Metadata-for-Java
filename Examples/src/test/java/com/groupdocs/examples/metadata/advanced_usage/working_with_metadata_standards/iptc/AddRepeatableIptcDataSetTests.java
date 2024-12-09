@@ -1,0 +1,18 @@
+package com.groupdocs.examples.metadata.advanced_usage.working_with_metadata_standards.iptc;
+
+import com.groupdocs.examples.metadata.SampleFiles;
+import com.groupdocs.examples.metadata.TestsSetUp;
+import org.assertj.core.api.Assertions;
+import org.testng.annotations.Test;
+
+import java.nio.file.Path;
+
+class AddRepeatableIptcDataSetTests extends TestsSetUp {
+
+
+    @Test
+    void testRun() {
+        Path result = AddRepeatableIptcDataSet.run(SampleFiles.IPTC_PSD);
+        Assertions.assertThat(result).isNotNull().exists();
+    }
+}

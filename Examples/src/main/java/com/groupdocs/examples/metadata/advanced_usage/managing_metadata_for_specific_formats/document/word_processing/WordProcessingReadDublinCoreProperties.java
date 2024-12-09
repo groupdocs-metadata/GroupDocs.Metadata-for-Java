@@ -27,10 +27,11 @@ public class WordProcessingReadDublinCoreProperties {
             } else {
                 System.out.println("\tDublin Core Package not found.");
             }
+            System.out.println("..sample finished successfully.");
+            return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }
-        System.out.println("..sample finished successfully.");
         return null;
     }
 }

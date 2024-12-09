@@ -10,14 +10,11 @@ import com.groupdocs.metadata.core.NoteRootPackage;
 
 import java.nio.file.Path;
 
-import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
-
 /**
  * This code sample shows how to obtain simple text statistics for a Note document.
  */
 public class NoteReadDocumentStatistics {
-    public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("NoteDocumentStats.docx");
+    public static NoteRootPackage run(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             NoteRootPackage root = metadata.getRootPackageGeneric();
             System.out.printf("\tCharacter Count: %d%n", root.getDocumentStatistics().getCharacterCount());
@@ -25,9 +22,10 @@ public class NoteReadDocumentStatistics {
             System.out.printf("\tWord Count: %d%n", root.getDocumentStatistics().getWordCount());
 
             System.out.println("..sample finished successfully.");
+            return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }
-        return outputPath;
+        return null;
     }
 }

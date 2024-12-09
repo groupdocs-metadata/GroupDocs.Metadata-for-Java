@@ -22,7 +22,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  * This example demonstrates how to use interpreted property values.
  */
 public class ProcessInterpretedValues {
-    public static void run(Path inputDirectory) {
+    public static Path run(Path inputDirectory) {
         final Path outputFolderPath = makeOutputPath("ProcessInterpretedValues");
         try {
             Files.createDirectories(outputFolderPath);
@@ -51,6 +51,7 @@ public class ProcessInterpretedValues {
         } catch (IOException e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }
+        return outputFolderPath;
     }
 
 

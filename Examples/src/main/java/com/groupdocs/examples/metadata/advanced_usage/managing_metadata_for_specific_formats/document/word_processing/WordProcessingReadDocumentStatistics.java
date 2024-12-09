@@ -20,10 +20,12 @@ public class WordProcessingReadDocumentStatistics {
             System.out.printf("\tCharacter Count: %s%n", root.getDocumentStatistics().getCharacterCount());
             System.out.printf("\tPage Count: %s%n", root.getDocumentStatistics().getPageCount());
             System.out.printf("\tWord Count: %s%n", root.getDocumentStatistics().getWordCount());
+
+            System.out.println("..sample finished successfully.");
+            return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }
-        System.out.println("..sample finished successfully.");
         return null;
     }
 }

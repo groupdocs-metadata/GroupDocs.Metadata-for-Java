@@ -10,8 +10,6 @@ import com.groupdocs.metadata.tagging.Tags;
 
 import java.nio.file.Path;
 
-import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
-
 /**
  * This class demonstrates a basic usage of the GroupDocs.Editor API
  * to edit a word processing document by modifying its HTML content.
@@ -24,9 +22,7 @@ public class HelloWorld {
      * @param inputFile The path to the input document file.
      * @return The path to the edited document file.
      */
-    public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("HelloWorld.docx");
-
+    public static IReadOnlyList<MetadataProperty> run(Path inputFile) {
         try {
             // Initialize a Metadata instance with the provided input file.
             try (final Metadata metadata = new Metadata(inputFile.toString())) {
@@ -38,6 +34,7 @@ public class HelloWorld {
                     for (MetadataProperty property : properties) {
                         System.out.printf("\tProperty name: %s, Property value: %s%n", property.getName(), property.getValue());
                     }
+                    return properties;
                 }
             }
             System.out.println("..sample finished successfully.");
@@ -45,6 +42,6 @@ public class HelloWorld {
             FailureRegister.getInstance().registerFailedSample(e);
         }
 
-        return outputPath;
+        return null;
     }
 }
