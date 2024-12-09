@@ -26,7 +26,7 @@ public class TorrentReadNativeMetadataProperties {
                 System.out.printf("\t\tName: %s%n", file.getName());
                 System.out.printf("\t\tLength: %d%n", file.getLength());
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

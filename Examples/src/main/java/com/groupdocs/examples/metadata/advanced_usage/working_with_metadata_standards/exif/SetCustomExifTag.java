@@ -20,7 +20,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class SetCustomExifTag {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("outputTiff");
+        final Path outputPath = makeOutputPath("SetCustomExifTag.tiff");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             IExif root = (IExif) metadata.getRootPackage();
             // Set the EXIF package if it's missing
@@ -35,7 +35,7 @@ public class SetCustomExifTag {
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

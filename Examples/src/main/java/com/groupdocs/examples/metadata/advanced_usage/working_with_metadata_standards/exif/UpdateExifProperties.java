@@ -18,7 +18,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class UpdateExifProperties {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("outputJpeg");
+        final Path outputPath = makeOutputPath("UpdateExifProperties.jpg");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             IExif root = (IExif) metadata.getRootPackage();
             // Set the EXIF package if it's missing
@@ -36,7 +36,7 @@ public class UpdateExifProperties {
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

@@ -19,6 +19,7 @@ public class ExtractingPropertyValues {
      * @return A list of read-only metadata properties found in the file.
      */
     public static IReadOnlyList<MetadataProperty> usingType(Path inputFile) {
+        System.out.println("Running sample: ExtractingPropertyValues usingType..");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             // Fetch all metadata properties from the file
             IReadOnlyList<MetadataProperty> properties = metadata.findProperties(new AnySpecification());
@@ -34,7 +35,7 @@ public class ExtractingPropertyValues {
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }
-        System.out.println("..sample finished successfully.");
+        System.out.println("..sample finished successfully.\n");
         return null;
     }
 
@@ -44,6 +45,7 @@ public class ExtractingPropertyValues {
      * @param inputFile The path to the input file from which to extract metadata properties.
      */
     public static void usingAcceptor(Path inputFile) {
+        System.out.println("Running sample: ExtractingPropertyValues usingAcceptor..");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             // Fetch all metadata properties
             IReadOnlyList<MetadataProperty> properties = metadata.findProperties(new AnySpecification());
@@ -55,7 +57,7 @@ public class ExtractingPropertyValues {
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }
-        System.out.println("..sample finished successfully.");
+        System.out.println("..sample finished successfully.\n");
     }
 
     static class CustomValueAcceptor extends ValueAcceptor {

@@ -17,7 +17,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class EmailUpdateEmailFields {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("EmailModifyRecipientsSubject.eml");
+        final Path outputPath = makeOutputPath("EmailUpdateEmailFields.eml");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             EmailRootPackage root = metadata.getRootPackageGeneric();
             root.getEmailPackage().setRecipients(new String[]{"sample@aspose.com"});
@@ -26,7 +26,7 @@ public class EmailUpdateEmailFields {
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

@@ -22,7 +22,7 @@ public class WordProcessingReadFileFormatProperties {
             System.out.printf("\tMime Type: %s%n", root.getWordProcessingType().getMimeType());
             System.out.printf("\tExtension: %s%n", root.getWordProcessingType().getExtension());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

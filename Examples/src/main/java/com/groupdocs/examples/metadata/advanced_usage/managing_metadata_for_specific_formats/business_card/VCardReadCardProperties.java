@@ -35,7 +35,7 @@ public class VCardReadCardProperties {
                 System.out.printf("\tAddresses: %s%n", Arrays.toString(vCard.getDeliveryAddressingRecordset().getAddresses()));
             }
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

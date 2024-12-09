@@ -20,7 +20,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class EpubUpdateDublinCoreProperties {
     public static EpubRootPackage run(Path inputFile) {
-        final Path outputPath = makeOutputPath("UpdatedEpubSample.epub");
+        final Path outputPath = makeOutputPath("EpubUpdateDublinCoreProperties.epub");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             EpubRootPackage root = metadata.getRootPackageGeneric();
             root.getDublinCorePackage().setProperties(new WithNameSpecification("dc:creator"), new PropertyValue("GroupDocs"));
@@ -32,7 +32,7 @@ public class EpubUpdateDublinCoreProperties {
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

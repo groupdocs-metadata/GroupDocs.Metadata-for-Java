@@ -22,7 +22,7 @@ public class DiagramReadFileFormatProperties {
             System.out.printf("\tMime type: %s%n", root.getDiagramType().getMimeType());
             System.out.printf("\tExtension: %s%n", root.getDiagramType().getExtension());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

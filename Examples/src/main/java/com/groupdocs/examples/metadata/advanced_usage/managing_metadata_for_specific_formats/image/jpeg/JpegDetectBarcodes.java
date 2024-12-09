@@ -22,7 +22,7 @@ public class JpegDetectBarcodes {
             for (String barcodeType : barcodeTypes) {
                 System.out.printf("\t\t%s%n", barcodeType);
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

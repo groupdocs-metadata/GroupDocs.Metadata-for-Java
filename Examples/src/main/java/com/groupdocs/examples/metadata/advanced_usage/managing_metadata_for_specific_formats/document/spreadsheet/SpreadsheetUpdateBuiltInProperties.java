@@ -18,7 +18,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class SpreadsheetUpdateBuiltInProperties {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("UpdatedSpreadsheetMetadata.xlsx");
+        final Path outputPath = makeOutputPath("SpreadsheetUpdateBuiltInProperties.xlsx");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             SpreadsheetRootPackage root = metadata.getRootPackageGeneric();
             root.getDocumentProperties().setAuthor("test author");
@@ -30,7 +30,7 @@ public class SpreadsheetUpdateBuiltInProperties {
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

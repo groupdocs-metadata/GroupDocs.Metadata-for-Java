@@ -35,6 +35,7 @@ public class UpdateMetadata {
      * @return The path to the output directory where processed files are saved.
      */
     public static Path run(Path inputDirectory) {
+        System.out.println("Running sample: UpdateMetadata..");
         final Path outputFolderPath = makeOutputPath("UpdateMetadata");
         try {
             Files.createDirectories(outputFolderPath);

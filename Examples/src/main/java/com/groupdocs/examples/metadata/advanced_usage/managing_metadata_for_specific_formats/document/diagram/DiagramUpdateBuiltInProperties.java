@@ -18,7 +18,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class DiagramUpdateBuiltInProperties {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("VDXUpdateMetadata.vdx");
+        final Path outputPath = makeOutputPath("DiagramUpdateBuiltInProperties.vdx");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             DiagramRootPackage root = metadata.getRootPackageGeneric();
             root.getDocumentProperties().setCreator("test author");
@@ -28,7 +28,8 @@ public class DiagramUpdateBuiltInProperties {
             root.getDocumentProperties().setKeywords("metadata, built-in, update");
 
             metadata.save(outputPath.toString());
-            System.out.println("..sample finished successfully.");
+
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

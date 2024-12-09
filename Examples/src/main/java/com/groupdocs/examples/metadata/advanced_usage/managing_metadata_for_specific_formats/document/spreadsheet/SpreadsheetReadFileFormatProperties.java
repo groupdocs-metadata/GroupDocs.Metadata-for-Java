@@ -21,7 +21,7 @@ public class SpreadsheetReadFileFormatProperties {
             System.out.printf("\tSpreadsheet Format: %s%n", root.getSpreadsheetType().getSpreadsheetFormat());
             System.out.printf("\tMIME Type: %s%n", root.getSpreadsheetType().getMimeType());
             System.out.printf("\tExtension: %s%n", root.getSpreadsheetType().getExtension());
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

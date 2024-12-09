@@ -26,7 +26,7 @@ public class AviReadInfoMetadata {
                 System.out.printf("\tEngineer: %s%n", root.getRiffInfoPackage().getEngineer());
                 System.out.printf("\tGenre: %s%n", root.getRiffInfoPackage().getGenre());
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

@@ -25,6 +25,7 @@ public class FindMetadataProperties {
      * @return A list of metadata properties that match the specified criteria.
      */
     public static IReadOnlyList<MetadataProperty> byTag(Path inputFile) {
+        System.out.println("Running sample: FindMetadataProperties byTag..");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             // Fetch all the properties satisfying the predicate:
             // property contains the name of the last document editor OR the date/time the document was last modified
@@ -47,6 +48,7 @@ public class FindMetadataProperties {
      * @return A list of metadata properties that match the specified criteria.
      */
     public static IReadOnlyList<MetadataProperty> byTagGroup(Path inputFile) {
+        System.out.println("Running sample: FindMetadataProperties byTagGroup..");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             IReadOnlyList<MetadataProperty> properties = metadata.findProperties(new FallsIntoCategorySpecification(Tags.getPerson()));
             for (MetadataProperty property : properties) {

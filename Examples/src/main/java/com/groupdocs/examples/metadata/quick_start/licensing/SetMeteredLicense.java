@@ -12,6 +12,7 @@ import com.groupdocs.metadata.licensing.Metered;
 public class SetMeteredLicense {
 
     public static void run() {
+        System.out.println("Running sample: SetMeteredLicense..");
         String publicKey = "*****";
         String privateKey = "*****";
         try {

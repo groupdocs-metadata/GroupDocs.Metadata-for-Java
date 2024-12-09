@@ -17,14 +17,14 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class RemoveXmpMetadata {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("JpegWithoutXmp.jpg");
+        final Path outputPath = makeOutputPath("RemoveXmpMetadata.jpg");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             IXmp root = (IXmp) metadata.getRootPackage();
             root.setXmpPackage(null);
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

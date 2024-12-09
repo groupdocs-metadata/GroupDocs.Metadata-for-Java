@@ -50,7 +50,7 @@ public class WordProcessingReadInspectionProperties {
                     System.out.printf("\tRevision Type: %s%n", revision.getRevisionType());
                 }
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

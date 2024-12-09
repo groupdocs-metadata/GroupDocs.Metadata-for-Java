@@ -18,7 +18,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class UpdateXmpProperties {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("JpegWithXmp.jpg");
+        final Path outputPath = makeOutputPath("UpdateXmpProperties.gif");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             IXmp root = (IXmp) metadata.getRootPackage();
             if (root.getXmpPackage() != null) {
@@ -52,7 +52,7 @@ public class UpdateXmpProperties {
 
                 metadata.save(outputPath.toString());
 
-                System.out.println("..sample finished successfully.");
+                System.out.println("..sample finished successfully.\n");
             }
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

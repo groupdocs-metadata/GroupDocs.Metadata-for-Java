@@ -18,7 +18,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class EpubUpdateNativeMetadataProperties {
     public static EpubRootPackage run(Path inputFile) {
-        final Path outputPath = makeOutputPath("UpdatedEpubSample.epub");
+        final Path outputPath = makeOutputPath("EpubUpdateNativeMetadataProperties.epub");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             EpubRootPackage root = metadata.getRootPackageGeneric();
             root.getEpubPackage().setCreator("GroupDocs");
@@ -27,7 +27,8 @@ public class EpubUpdateNativeMetadataProperties {
             root.getEpubPackage().setDate(new Date().toString());
 
             metadata.save(outputPath.toString());
-            System.out.println("..sample finished successfully.");
+
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

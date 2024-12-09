@@ -22,6 +22,7 @@ public class TraverseWholeMetadataTree {
      * @param inputFile The path to the input file whose metadata will be traversed.
      */
     public static void run(Path inputFile) {
+        System.out.println("Running sample: TraverseWholeMetadataTree..");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             displayMetadataTree(metadata.getRootPackage(), 0);
         } catch (Exception e) {

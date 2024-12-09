@@ -76,7 +76,7 @@ public class AsfReadNativeMetadataProperties {
                     System.out.printf("\tImage width: %s%n", videoStreamProperty.getImageWidth());
                 }
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

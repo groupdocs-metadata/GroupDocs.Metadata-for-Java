@@ -49,7 +49,7 @@ public class SpreadsheetReadInspectionProperties {
             } else {
                 System.out.println("\tNo hidden sheets found.");
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

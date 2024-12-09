@@ -17,14 +17,14 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class WordProcessingUpdateDocumentStatistics {
     public static WordProcessingRootPackage run(Path inputFile) {
-        final Path outputPath = makeOutputPath("UpdatedDocx");
+        final Path outputPath = makeOutputPath("WordProcessingUpdateDocumentStatistics.doc");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             WordProcessingRootPackage root = metadata.getRootPackageGeneric();
             root.updateDocumentStatistics();
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

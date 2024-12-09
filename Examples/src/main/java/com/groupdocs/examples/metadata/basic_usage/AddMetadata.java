@@ -30,6 +30,7 @@ public class AddMetadata {
      * @return The path to the output folder where the modified files are saved.
      */
     public static Path run(Path inputDirectory) {
+        System.out.println("Running sample: AddMetadata..");
         final Path outputFolderPath = makeOutputPath("AddMetadata");
         try {
             Files.createDirectories(outputFolderPath);
@@ -58,7 +59,7 @@ public class AddMetadata {
                         }
                     }
                 }
-                System.out.println("..sample finished successfully.");
+                System.out.println("..sample finished successfully.\n");
             }
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

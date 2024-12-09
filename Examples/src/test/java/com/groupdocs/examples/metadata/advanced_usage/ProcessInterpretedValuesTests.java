@@ -9,10 +9,8 @@ import java.nio.file.Path;
 
 class ProcessInterpretedValuesTests extends TestsSetUp {
 
-
     @Test
     void testRun() {
-        final Path result = ProcessInterpretedValues.run(SampleFiles.INPUT_FILES_DIRECTORY);
-        Assertions.assertThat(result).isNotNull().exists();
+        ProcessInterpretedValues.run(SampleFiles.INPUT_FILES_DIRECTORY);
     }
 }

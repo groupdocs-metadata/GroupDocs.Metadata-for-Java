@@ -27,7 +27,7 @@ public class PsdReadImageResourceBlocks {
                     System.out.printf("\tData: %s%n", Arrays.toString(block.getData()).substring(0, Math.min(20, block.getData().length)));
                 }
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

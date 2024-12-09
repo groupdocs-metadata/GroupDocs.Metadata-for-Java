@@ -29,6 +29,7 @@ public class RemoveMetadataProperties {
      * @return The path to the output file where the modified metadata is saved.
      */
     public static Path run(Path inputFile) {
+        System.out.println("Running sample: RemoveMetadataProperties..");
         final Path outputPath = makeOutputPath("RemoveMetadataProperties.docx");
 
         try (Metadata metadata = new Metadata(inputFile.toString())) {
@@ -41,7 +42,10 @@ public class RemoveMetadataProperties {
                             .or(new ContainsTagSpecification(Tags.getPerson().getEditor()))
                             .or(new OfTypeSpecification(MetadataPropertyType.String).and(new WithValueSpecification("John"))));
             System.out.printf("\tProperties removed: %s%n", affected);
+
             metadata.save(outputPath.toString());
+
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

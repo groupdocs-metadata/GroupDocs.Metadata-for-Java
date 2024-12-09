@@ -52,7 +52,7 @@ public class PdfReadInspectionProperties {
                     System.out.printf("\tValue: %s%n", field.getValue());
                 }
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

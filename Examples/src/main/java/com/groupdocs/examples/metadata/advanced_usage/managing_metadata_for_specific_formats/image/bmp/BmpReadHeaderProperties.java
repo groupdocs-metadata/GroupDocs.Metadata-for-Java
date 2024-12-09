@@ -22,7 +22,7 @@ public class BmpReadHeaderProperties {
             System.out.printf("\tHeader size: %d%n", root.getBmpHeader().getHeaderSize());
             System.out.printf("\tImage size: %d%n", root.getBmpHeader().getImageSize());
             System.out.printf("\tPlanes: %d%n", root.getBmpHeader().getPlanes());
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

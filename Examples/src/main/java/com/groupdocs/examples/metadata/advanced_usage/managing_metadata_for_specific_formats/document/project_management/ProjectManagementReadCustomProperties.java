@@ -27,7 +27,7 @@ public class ProjectManagementReadCustomProperties {
                 System.out.printf("\t%s = %s%n", property.getName(), property.getValue());
             }
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

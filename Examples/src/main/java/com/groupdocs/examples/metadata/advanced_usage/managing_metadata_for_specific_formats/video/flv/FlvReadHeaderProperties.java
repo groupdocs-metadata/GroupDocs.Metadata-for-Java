@@ -22,7 +22,7 @@ public class FlvReadHeaderProperties {
             System.out.printf("\tHas Video Tags: %s%n", root.getHeader().hasVideoTags());
             System.out.printf("\tType Flags: %s%n", root.getHeader().getTypeFlags());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

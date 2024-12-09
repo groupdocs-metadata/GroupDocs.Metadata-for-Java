@@ -27,7 +27,7 @@ public class PresentationReadCustomProperties {
                 System.out.printf("\t%s = %s%n", property.getName(), property.getValue());
             }
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return customProperties;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

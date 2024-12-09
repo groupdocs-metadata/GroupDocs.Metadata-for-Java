@@ -27,6 +27,7 @@ public class ExportMetadataProperties {
      * @return A list of paths to the output files containing the exported metadata.
      */
     public static List<Path> run(Path inputFile) {
+        System.out.println("Running sample: ExportMetadataProperties..");
         final List<Path> outputPaths = new ArrayList<>();
         final Path outputXlsPath = makeOutputPath("ExportMetadataProperties.xls");
         final Path outputXmlPath = makeOutputPath("ExportMetadataProperties.xml");
@@ -45,7 +46,7 @@ public class ExportMetadataProperties {
                 outputPaths.add(outputXlsPath);
                 outputPaths.add(outputXmlPath);
                 outputPaths.add(outputCsvPath);
-                System.out.println("..sample finished successfully.");
+                System.out.println("..sample finished successfully.\n");
             }
 
         } catch (Exception e) {

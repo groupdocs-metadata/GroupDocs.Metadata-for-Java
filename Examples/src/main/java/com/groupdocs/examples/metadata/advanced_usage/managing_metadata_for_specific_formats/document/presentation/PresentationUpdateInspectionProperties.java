@@ -17,7 +17,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class PresentationUpdateInspectionProperties {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("CleanPresentation.pptx");
+        final Path outputPath = makeOutputPath("PresentationUpdateInspectionProperties.pptx");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             PresentationRootPackage root = metadata.getRootPackageGeneric();
             root.getInspectionPackage().clearComments();
@@ -25,7 +25,7 @@ public class PresentationUpdateInspectionProperties {
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

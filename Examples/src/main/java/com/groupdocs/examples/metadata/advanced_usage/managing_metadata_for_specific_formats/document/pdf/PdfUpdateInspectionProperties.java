@@ -17,7 +17,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class PdfUpdateInspectionProperties {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("CleanedPdf.pdf");
+        final Path outputPath = makeOutputPath("PdfUpdateInspectionProperties.pdf");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             PdfRootPackage root = metadata.getRootPackageGeneric();
             root.getInspectionPackage().clearAnnotations();
@@ -27,7 +27,8 @@ public class PdfUpdateInspectionProperties {
             root.getInspectionPackage().clearDigitalSignatures();
 
             metadata.save(outputPath.toString());
-            System.out.println("..sample finished successfully.");
+
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

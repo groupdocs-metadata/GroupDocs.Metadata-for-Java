@@ -21,15 +21,16 @@ public class SaveFile {
      * @return The path to the output file where the modified metadata is saved.
      */
     public static Path toOriginalSource(Path inputFile) {
+        System.out.println("Running sample: SaveFile toOriginalSource..");
         // inputFile is an absolute or relative path to your document. Ex: @"C:\Docs\test.jpg"
-        final Path outputPath = makeOutputPath("Original_Source.pptx");
+        final Path outputPath = makeOutputPath("SaveFile-toOriginalSource.pptx");
         try {
             Files.copy(inputFile, outputPath);
             try (Metadata metadata = new Metadata(outputPath.toString())) {
                 // Edit or remove metadata here
                 metadata.save();
 
-                System.out.println("..sample finished successfully.");
+                System.out.println("..sample finished successfully.\n");
             }
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
@@ -44,14 +45,15 @@ public class SaveFile {
      * @return The path to the output file where the modified metadata is saved.
      */
     public static Path toSpecifiedLocation(Path inputFile) {
+        System.out.println("Running sample: SaveFile toSpecifiedLocation..");
         // inputFile is an absolute or relative path to your document. Ex: @"C:\Docs\test.jpg"
-        final Path outputPath = makeOutputPath("specified_location.jpg");
+        final Path outputPath = makeOutputPath("SaveFile-toSpecifiedLocation.jpg");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             // Edit or remove metadata here
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }
@@ -65,15 +67,16 @@ public class SaveFile {
      * @return The path to the output file where the modified metadata is saved.
      */
     public static Path toSpecifiedStream(Path inputFile) {
+        System.out.println("Running sample: SaveFile toSpecifiedStream..");
         // inputFile is an absolute or relative path to your document. Ex: @"C:\Docs\test.jpg"
-        final Path outputPath = makeOutputPath("specified_stream.png");
+        final Path outputPath = makeOutputPath("SaveFile-toSpecifiedStream.png");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
 
             try (OutputStream stream = Files.newOutputStream(outputPath)) {
                 // Edit or remove metadata here
                 metadata.save(stream);
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

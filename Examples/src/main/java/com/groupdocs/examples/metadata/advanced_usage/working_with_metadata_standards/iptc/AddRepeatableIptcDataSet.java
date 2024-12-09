@@ -17,7 +17,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class AddRepeatableIptcDataSet {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("outputPsd");
+        final Path outputPath = makeOutputPath("AddRepeatableIptcDataSet.psd");
         try {
             try (Metadata metadata = new Metadata(inputFile.toString())) {
                 IIptc root = (IIptc) metadata.getRootPackage();
@@ -28,6 +28,7 @@ public class AddRepeatableIptcDataSet {
                 root.getIptcPackage().add(new IptcDataSet((byte) IptcRecordType.ApplicationRecord.getRawValue(), (byte) IptcApplicationRecordDataSet.Keywords.getRawValue(), "keyword 1"));
                 root.getIptcPackage().add(new IptcDataSet((byte) IptcRecordType.ApplicationRecord.getRawValue(), (byte) IptcApplicationRecordDataSet.Keywords.getRawValue(), "keyword 2"));
                 root.getIptcPackage().add(new IptcDataSet((byte) IptcRecordType.ApplicationRecord.getRawValue(), (byte) IptcApplicationRecordDataSet.Keywords.getRawValue(), "keyword 3"));
+
                 metadata.save(outputPath.toString());
             }
 

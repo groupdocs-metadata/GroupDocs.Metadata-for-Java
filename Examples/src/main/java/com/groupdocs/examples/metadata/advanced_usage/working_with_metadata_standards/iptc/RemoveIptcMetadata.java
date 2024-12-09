@@ -17,12 +17,14 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class RemoveIptcMetadata {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("OutputJpegWithNoIptc");
+        final Path outputPath = makeOutputPath("RemoveIptcMetadata.jpeg");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             IIptc root = (IIptc) metadata.getRootPackage();
             root.setIptcPackage(null);
+
             metadata.save(outputPath.toString());
-            System.out.println("..sample finished successfully.");
+
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

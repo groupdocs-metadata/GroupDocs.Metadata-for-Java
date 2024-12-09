@@ -17,7 +17,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class PresentationUpdateCustomProperties {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("UpdatedPresentation.pptx");
+        final Path outputPath = makeOutputPath("PresentationUpdateCustomProperties.pptx");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             PresentationRootPackage root = metadata.getRootPackageGeneric();
             root.getDocumentProperties().set("customProperty1", "some value");
@@ -25,7 +25,7 @@ public class PresentationUpdateCustomProperties {
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

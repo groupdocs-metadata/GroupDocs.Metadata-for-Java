@@ -27,7 +27,7 @@ public class AviReadHeaderProperties {
             System.out.printf("\tPaddingGranularity: %s%n", root.getHeader().getPaddingGranularity());
             System.out.printf("\tStreams: %s%n", root.getHeader().getStreams());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

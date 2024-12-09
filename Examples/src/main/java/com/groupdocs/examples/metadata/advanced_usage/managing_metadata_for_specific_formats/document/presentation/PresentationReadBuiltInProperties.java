@@ -25,7 +25,7 @@ public class PresentationReadBuiltInProperties {
             System.out.printf("\tLast Printed Date: %s%n", root.getDocumentProperties().getLastPrintedDate());
             System.out.printf("\tName Of Application: %s%n", root.getDocumentProperties().getNameOfApplication());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

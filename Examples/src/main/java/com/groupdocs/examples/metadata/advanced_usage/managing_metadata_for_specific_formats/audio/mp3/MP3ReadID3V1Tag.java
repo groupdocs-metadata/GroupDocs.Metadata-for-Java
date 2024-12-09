@@ -33,7 +33,7 @@ public class MP3ReadID3V1Tag {
             } else {
                 System.out.println("\tID3V1 tag not found.");
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

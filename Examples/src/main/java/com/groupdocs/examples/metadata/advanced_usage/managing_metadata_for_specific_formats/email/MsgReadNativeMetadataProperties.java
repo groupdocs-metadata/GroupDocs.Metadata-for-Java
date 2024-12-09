@@ -32,7 +32,7 @@ public class MsgReadNativeMetadataProperties {
             System.out.printf("\tBody: %s%n", root.getMsgPackage().getBody());
             System.out.printf("\tDelivery Time: %s%n", root.getMsgPackage().getDeliveryTime());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

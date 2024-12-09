@@ -24,7 +24,7 @@ public class EpubReadDublinCoreProperties {
             System.out.printf("\tLanguage: %s%n", root.getDublinCorePackage().getLanguage());
             System.out.printf("\tDate: %s%n", root.getDublinCorePackage().getDate());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

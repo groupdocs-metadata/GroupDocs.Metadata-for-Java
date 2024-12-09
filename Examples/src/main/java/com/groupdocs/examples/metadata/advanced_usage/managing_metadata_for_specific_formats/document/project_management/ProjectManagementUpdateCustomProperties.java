@@ -17,7 +17,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class ProjectManagementUpdateCustomProperties {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("updated_mpp.mpp");
+        final Path outputPath = makeOutputPath("ProjectManagementUpdateCustomProperties.mpp");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             ProjectManagementRootPackage root = metadata.getRootPackageGeneric();
             root.getDocumentProperties().set("customProperty1", "some value");
@@ -25,7 +25,8 @@ public class ProjectManagementUpdateCustomProperties {
             root.getDocumentProperties().set("customProperty3", true);
 
             metadata.save(outputPath.toString());
-            System.out.println("..sample finished successfully.");
+
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

@@ -24,6 +24,7 @@ public class GetDocumentInfo {
      * @return An IDocumentInfo object containing the extracted document information.
      */
     public static IDocumentInfo run(Path inputFile) {
+        System.out.println("Running sample: GetDocumentInfo..");
         try {
             try (Metadata metadata = new Metadata(inputFile.toString())) {
                 if (metadata.getFileFormat() != FileFormat.Unknown) {
@@ -35,7 +36,7 @@ public class GetDocumentInfo {
                     System.out.printf("\tDocument size: %s bytes%n", info.getSize());
                     System.out.printf("\tIs document encrypted: %s%n", info.isEncrypted());
 
-                    System.out.println("..sample finished successfully.");
+                    System.out.println("..sample finished successfully.\n");
                     return info;
                 }
             }

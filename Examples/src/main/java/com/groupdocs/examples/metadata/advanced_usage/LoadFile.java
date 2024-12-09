@@ -22,6 +22,7 @@ public class LoadFile {
      * @param inputFile The path to the document from which metadata will be loaded.
      */
     public static void fromLocalDisk(Path inputFile) {
+        System.out.println("Running sample: LoadFile fromLocalDisk..");
         // inputFile is an absolute or relative path to your document. Ex: @"C:\Docs\source.one"
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             System.out.printf("\tMetadata loaded successfully: %s%n", metadata);
@@ -29,7 +30,7 @@ public class LoadFile {
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }
-        System.out.println("..sample finished successfully.");
+        System.out.println("..sample finished successfully.\n");
     }
 
     /**
@@ -38,13 +39,14 @@ public class LoadFile {
      * @param inputFile The path to the document from which metadata will be loaded.
      */
     public static void fromStream(Path inputFile) {
+        System.out.println("Running sample: LoadFile fromStream..");
         // inputFile is an absolute or relative path to your document. Ex: @"C:\Docs\source.doc"
         try (InputStream stream = Files.newInputStream(inputFile)) {
             try (Metadata metadata = new Metadata(stream)) {
                 System.out.printf("\tMetadata loaded successfully: %s%n", metadata);
                 // Extract, edit or remove metadata here
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }
@@ -58,6 +60,7 @@ public class LoadFile {
      * @return A SpreadsheetRootPackage object representing the root package of the spreadsheet metadata.
      */
     public static SpreadsheetRootPackage fileOfSpecificFormat(Path inputFile, FileFormat fileFormat) {
+        System.out.println("Running sample: LoadFile fileOfSpecificFormat..");
         // Explicitly specifying the format of a file to load you can spare some time on detecting the format
         LoadOptions loadOptions = new LoadOptions(fileFormat);
 
@@ -70,7 +73,7 @@ public class LoadFile {
             System.out.printf("\tAuthor: %s%n", root.getDocumentProperties().getAuthor());
 
             // ...
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
@@ -85,6 +88,7 @@ public class LoadFile {
      * @param password The password required to access the document.
      */
     public static void protectedByPassword(Path inputFile, String password) {
+        System.out.println("Running sample: LoadFile protectedByPassword..");
         // Specify the password
         LoadOptions loadOptions = new LoadOptions();
         loadOptions.setPassword(password);
@@ -95,7 +99,7 @@ public class LoadFile {
 
             // Extract, edit or remove metadata here
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

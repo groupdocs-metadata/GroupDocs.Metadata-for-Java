@@ -33,7 +33,7 @@ public class ReadBasicExifProperties {
                 System.out.printf("\tLatitude Ref: %s%n", root.getExifPackage().getGpsPackage().getLatitudeRef());
                 System.out.printf("\tLongitude Ref: %s%n", root.getExifPackage().getGpsPackage().getLongitudeRef());
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

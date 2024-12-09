@@ -17,13 +17,14 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class PdfUpdateCustomProperties {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("MetadataUpdate.pdf");
+        final Path outputPath = makeOutputPath("PdfUpdateCustomProperties.pdf");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             PdfRootPackage root = metadata.getRootPackageGeneric();
             root.getDocumentProperties().set("customProperty1", "some value");
 
             metadata.save(outputPath.toString());
-            System.out.println("..sample finished successfully.");
+
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

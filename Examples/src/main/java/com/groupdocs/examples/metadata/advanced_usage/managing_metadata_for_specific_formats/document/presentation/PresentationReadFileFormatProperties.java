@@ -22,7 +22,7 @@ public class PresentationReadFileFormatProperties {
             System.out.printf("\tMimeType: %s%n", root.getPresentationType().getMimeType());
             System.out.printf("\tExtension: %s%n", root.getPresentationType().getExtension());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

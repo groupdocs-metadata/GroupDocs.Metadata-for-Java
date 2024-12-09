@@ -23,6 +23,7 @@ public class HelloWorld {
      * @return The path to the edited document file.
      */
     public static IReadOnlyList<MetadataProperty> run(Path inputFile) {
+        System.out.println("Running sample: HelloWorld..");
         try {
             // Initialize a Metadata instance with the provided input file.
             try (final Metadata metadata = new Metadata(inputFile.toString())) {
@@ -34,10 +35,10 @@ public class HelloWorld {
                     for (MetadataProperty property : properties) {
                         System.out.printf("\tProperty name: %s, Property value: %s%n", property.getName(), property.getValue());
                     }
+                    System.out.println("..sample finished successfully.\n");
                     return properties;
                 }
             }
-            System.out.println("..sample finished successfully.");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

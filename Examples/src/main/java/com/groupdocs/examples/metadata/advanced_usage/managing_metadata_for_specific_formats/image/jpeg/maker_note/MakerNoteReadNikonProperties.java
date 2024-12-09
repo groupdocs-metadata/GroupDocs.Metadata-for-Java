@@ -29,7 +29,7 @@ public class MakerNoteReadNikonProperties {
             } else {
                 System.out.println("\tMaker Note Package not found.");
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

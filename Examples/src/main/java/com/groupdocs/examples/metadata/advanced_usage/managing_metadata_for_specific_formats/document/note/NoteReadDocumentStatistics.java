@@ -21,7 +21,7 @@ public class NoteReadDocumentStatistics {
             System.out.printf("\tPage Count: %d%n", root.getDocumentStatistics().getPageCount());
             System.out.printf("\tWord Count: %d%n", root.getDocumentStatistics().getWordCount());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

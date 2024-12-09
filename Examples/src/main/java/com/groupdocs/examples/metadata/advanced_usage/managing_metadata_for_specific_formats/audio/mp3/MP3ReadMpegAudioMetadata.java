@@ -30,7 +30,7 @@ public class MP3ReadMpegAudioMetadata {
             System.out.printf("\tHeader Position: %s%n", root.getMpegAudioPackage().getHeaderPosition());
             System.out.printf("\tLayer: %s%n", root.getMpegAudioPackage().getLayer());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

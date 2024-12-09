@@ -25,7 +25,7 @@ public class SpreadsheetReadBuiltInProperties {
             System.out.printf("\tLanguage: %s%n", root.getDocumentProperties().getLanguage());
             System.out.printf("\tContentType: %s%n", root.getDocumentProperties().getContentType());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

@@ -35,7 +35,7 @@ public class PngReadTextChunks {
                     System.out.printf("\t\tTranslated Keyword: %s%n", internationalChunk.getTranslatedKeyword());
                 }
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

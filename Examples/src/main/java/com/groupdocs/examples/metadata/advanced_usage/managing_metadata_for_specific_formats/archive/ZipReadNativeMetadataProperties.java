@@ -40,7 +40,7 @@ public class ZipReadNativeMetadataProperties {
                 System.out.printf("\tRaw name: %s%n", new String(file.getRawName(), charset));
             }
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

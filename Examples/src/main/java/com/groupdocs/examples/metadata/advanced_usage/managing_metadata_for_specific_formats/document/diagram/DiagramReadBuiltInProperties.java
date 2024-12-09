@@ -17,7 +17,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class DiagramReadBuiltInProperties {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("UpdatedVsdx.vsdx");
+        final Path outputPath = makeOutputPath("DiagramReadBuiltInProperties.vsdx");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             DiagramRootPackage root = metadata.getRootPackageGeneric();
             System.out.printf("\tCreator: %s%n", root.getDocumentProperties().getCreator());
@@ -29,7 +29,7 @@ public class DiagramReadBuiltInProperties {
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

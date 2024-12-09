@@ -29,6 +29,7 @@ public class RemoveMetadata {
      * @return The path to the output directory where processed files are saved.
      */
     public static Path run(Path inputDirectory) {
+        System.out.println("Running sample: RemoveMetadata..");
         final Path outputFolderPath = makeOutputPath("RemoveMetadata");
         try {
             Files.createDirectories(outputFolderPath);
@@ -54,7 +55,7 @@ public class RemoveMetadata {
                         }
                     }
                 }
-                System.out.println("..sample finished successfully.");
+                System.out.println("..sample finished successfully.\n");
             }
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

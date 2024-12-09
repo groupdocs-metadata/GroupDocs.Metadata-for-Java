@@ -26,7 +26,7 @@ public class Cr2ReadFileFormatProperties {
             RawShortTag propertyMacroMode = (RawShortTag) cr2MakerNotePackage.getCr2CameraSettingsPackage().get_Item(Cr2CameraSettingsIndex.MacroMode);
             System.out.printf("\tInterpreted Macro Mode: %s%n", propertyMacroMode.getInterpretedValue());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

@@ -21,7 +21,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class UpdateIptcProperties {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("OutputJpegWithIptc");
+        final Path outputPath = makeOutputPath("UpdateIptcProperties.jpg");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             IIptc root = (IIptc) metadata.getRootPackage();
             // Set the IPTC package if it's missing
@@ -44,7 +44,7 @@ public class UpdateIptcProperties {
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

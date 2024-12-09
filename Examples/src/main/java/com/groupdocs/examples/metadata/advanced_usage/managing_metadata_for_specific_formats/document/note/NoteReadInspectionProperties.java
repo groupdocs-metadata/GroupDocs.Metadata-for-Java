@@ -29,7 +29,7 @@ public class NoteReadInspectionProperties {
                 System.out.println("\tInspection Package Pages not found.");
             }
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

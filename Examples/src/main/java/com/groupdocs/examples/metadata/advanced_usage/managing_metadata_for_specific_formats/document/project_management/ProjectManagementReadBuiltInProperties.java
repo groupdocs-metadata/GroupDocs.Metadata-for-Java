@@ -25,7 +25,7 @@ public class ProjectManagementReadBuiltInProperties {
             System.out.printf("\tRevision: %s%n", root.getDocumentProperties().getRevision());
             System.out.printf("\tSubject: %s%n", root.getDocumentProperties().getSubject());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

@@ -53,7 +53,7 @@ public class OpenTypeReadDigitalSignatureProperties {
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }
-        System.out.println("..sample finished successfully.");
+        System.out.println("..sample finished successfully.\n");
         return null;
     }
 

@@ -22,7 +22,7 @@ public class PdfReadFileFormatProperties {
             System.out.printf("\tMIME Type: %s%n", root.getPdfType().getMimeType());
             System.out.printf("\tExtension: %s%n", root.getPdfType().getExtension());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

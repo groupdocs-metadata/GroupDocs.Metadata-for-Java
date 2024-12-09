@@ -18,6 +18,7 @@ import com.groupdocs.metadata.licensing.License;
 public class SetLicenseFromFile {
 
     public static void run() {
+        System.out.println("Running sample: SetLicenseFromFile..");
         try {
             final String licensePath = LicenseUtils.obtainLicensePath();
             if (!LicenseUtils.isUrl(licensePath)) {

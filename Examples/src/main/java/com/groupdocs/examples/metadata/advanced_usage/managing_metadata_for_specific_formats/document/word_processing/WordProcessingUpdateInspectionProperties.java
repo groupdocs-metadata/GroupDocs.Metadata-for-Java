@@ -17,7 +17,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class WordProcessingUpdateInspectionProperties {
     public static WordProcessingRootPackage run(Path inputFile) {
-        final Path outputPath = makeOutputPath("CleanedDocx");
+        final Path outputPath = makeOutputPath("WordProcessingUpdateInspectionProperties.doc");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             WordProcessingRootPackage root = metadata.getRootPackageGeneric();
             root.getInspectionPackage().clearComments();
@@ -27,7 +27,7 @@ public class WordProcessingUpdateInspectionProperties {
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

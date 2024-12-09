@@ -28,7 +28,7 @@ public class TarReadNativeMetadataProperties {
                 System.out.printf("\tFile size: %s%n", file.getSize());
             }
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

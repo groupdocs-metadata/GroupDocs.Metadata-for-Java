@@ -12,7 +12,6 @@ class ExtractMetadataTests extends TestsSetUp {
 
     @Test
     void testRun() {
-        Path result = ExtractMetadata.run(SampleFiles.INPUT_FILES_DIRECTORY);
-        Assertions.assertThat(result).isNotNull().exists();
+        ExtractMetadata.run(SampleFiles.INPUT_FILES_DIRECTORY);
     }
 }

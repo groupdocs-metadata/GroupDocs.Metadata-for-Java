@@ -27,6 +27,7 @@ public class SetMetadataProperties {
      * @return The path to the output file where the modified metadata is saved.
      */
     public static Path run(Path inputFile) {
+        System.out.println("Running sample: SetMetadataProperties..");
         final Path outputPath = makeOutputPath("SetMetadataProperties.docx");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             // Set the value of each property that satisfies the predicate:
@@ -36,7 +37,10 @@ public class SetMetadataProperties {
                             .or(new ContainsTagSpecification(Tags.getTime().getModified())),
                     new PropertyValue(new Date()));
             System.out.printf("\tProperties set: %s%n", affected);
+
             metadata.save(outputPath.toString());
+
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

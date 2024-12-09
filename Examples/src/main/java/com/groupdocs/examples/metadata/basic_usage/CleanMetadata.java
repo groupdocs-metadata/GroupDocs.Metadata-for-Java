@@ -19,6 +19,7 @@ public class CleanMetadata {
      * @return The path to the output file where the cleaned content is saved.
      */
     public static Path run(Path sampleFile) {
+        System.out.println("Running sample: CleanMetadata..");
         final Path outputPath = makeOutputPath("CleanMetadata.docx");
 
         try {
@@ -30,7 +31,7 @@ public class CleanMetadata {
 
                 metadata.save(outputPath.toString());
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

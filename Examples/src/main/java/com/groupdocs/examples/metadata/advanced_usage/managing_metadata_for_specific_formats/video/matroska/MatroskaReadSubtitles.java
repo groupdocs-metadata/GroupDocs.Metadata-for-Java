@@ -28,7 +28,7 @@ public class MatroskaReadSubtitles {
                     System.out.printf("\t\tText: %s%n", subtitleText.substring(0, Math.min(subtitleText.length(), 50)) + "...");
                 }
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

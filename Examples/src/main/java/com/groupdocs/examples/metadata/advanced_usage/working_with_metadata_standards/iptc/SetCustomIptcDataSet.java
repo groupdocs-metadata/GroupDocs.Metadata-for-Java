@@ -17,7 +17,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class SetCustomIptcDataSet {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("OutputPsdWithIptc");
+        final Path outputPath = makeOutputPath("SetCustomIptcDataSet.jpeg");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             IIptc root = (IIptc) metadata.getRootPackage();
             // Set the IPTC package if it's missing
@@ -32,7 +32,7 @@ public class SetCustomIptcDataSet {
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

@@ -24,6 +24,7 @@ public class GetKnownPropertyDescriptors {
      * @return The WordProcessingPackage containing the document properties.
      */
     public static WordProcessingPackage run(Path inputFile) {
+        System.out.println("Running sample: GetKnownPropertyDescriptors..");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             WordProcessingRootPackage root = metadata.getRootPackageGeneric();
             final WordProcessingPackage documentProperties = root.getDocumentProperties();

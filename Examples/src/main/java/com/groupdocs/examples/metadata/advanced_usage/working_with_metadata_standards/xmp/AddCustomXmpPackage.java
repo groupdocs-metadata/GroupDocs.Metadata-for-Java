@@ -18,7 +18,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class AddCustomXmpPackage {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("UpdatedJpegWithXmp");
+        final Path outputPath = makeOutputPath("AddCustomXmpPackage.jpg");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             IXmp root = (IXmp) metadata.getRootPackage();
             XmpPacketWrapper packet = new XmpPacketWrapper();
@@ -28,8 +28,10 @@ public class AddCustomXmpPackage {
             custom.set("gd:Company", XmpArray.from(new String[]{"Aspose", "GroupDocs"}, XmpArrayType.Ordered));
             packet.addPackage(custom);
             root.setXmpPackage(packet);
+
             metadata.save(outputPath.toString());
-            System.out.println("..sample finished successfully.");
+
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

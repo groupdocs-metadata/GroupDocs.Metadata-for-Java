@@ -18,7 +18,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class ProjectManagementUpdateBuiltInProperties {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("updated_mpp.mpp");
+        final Path outputPath = makeOutputPath("ProjectManagementUpdateBuiltInProperties.mpp");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             ProjectManagementRootPackage root = metadata.getRootPackageGeneric();
             root.getDocumentProperties().setAuthor("test author");
@@ -28,7 +28,8 @@ public class ProjectManagementUpdateBuiltInProperties {
             root.getDocumentProperties().setKeywords("metadata, built-in, update");
 
             metadata.save(outputPath.toString());
-            System.out.println("..sample finished successfully.");
+
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

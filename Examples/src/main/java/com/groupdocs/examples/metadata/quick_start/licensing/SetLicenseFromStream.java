@@ -14,6 +14,7 @@ import java.io.InputStream;
 public class SetLicenseFromStream {
 
     public static void run() {
+        System.out.println("Running sample: SetLicenseFromStream..");
         try (final InputStream licenseStream = LicenseUtils.createLicenseStream()) {
             if (licenseStream != null) {
 

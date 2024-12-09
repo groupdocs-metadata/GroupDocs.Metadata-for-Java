@@ -18,7 +18,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class PresentationUpdateBuiltInProperties {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("UpdatedPresentation.pptx");
+        final Path outputPath = makeOutputPath("PresentationUpdateBuiltInProperties.pptx");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             PresentationRootPackage root = metadata.getRootPackageGeneric();
             root.getDocumentProperties().setAuthor("test author");
@@ -29,7 +29,7 @@ public class PresentationUpdateBuiltInProperties {
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

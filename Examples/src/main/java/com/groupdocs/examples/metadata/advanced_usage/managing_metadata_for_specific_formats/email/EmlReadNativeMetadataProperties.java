@@ -18,7 +18,7 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class EmlReadNativeMetadataProperties {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("EmailModifyRecipientsSubject.eml");
+        final Path outputPath = makeOutputPath("EmlReadNativeMetadataProperties.eml");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             EmlRootPackage root = metadata.getRootPackageGeneric();
             System.out.printf("\tSender: %s%n", root.getEmailPackage().getSender());
@@ -36,7 +36,7 @@ public class EmlReadNativeMetadataProperties {
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }
-        System.out.println("..sample finished successfully.");
+        System.out.println("..sample finished successfully.\n");
         return outputPath;
     }
 }

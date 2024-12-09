@@ -30,7 +30,7 @@ public class SpreadsheetReadCustomProperties {
             for (SpreadsheetContentTypeProperty contentTypeProperty : root.getDocumentProperties().getContentTypeProperties().toList()) {
                 System.out.printf("\t\t%s, %s = %s%n", contentTypeProperty.getSpreadsheetPropertyType(), contentTypeProperty.getName(), contentTypeProperty.getSpreadsheetPropertyValue());
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

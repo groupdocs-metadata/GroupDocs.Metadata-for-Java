@@ -23,7 +23,7 @@ public class WordProcessingReadBuiltInProperties {
             System.out.printf("\tCategory: %s%n", root.getDocumentProperties().getCategory());
             System.out.printf("\tKeywords: %s%n", root.getDocumentProperties().getKeywords());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

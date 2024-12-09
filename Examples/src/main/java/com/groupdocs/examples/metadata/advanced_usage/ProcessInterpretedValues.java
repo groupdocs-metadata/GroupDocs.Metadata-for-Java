@@ -16,8 +16,6 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
-
 /**
  * This class demonstrates how to process interpreted property values from metadata files
  */
@@ -27,38 +25,32 @@ public class ProcessInterpretedValues {
      * Processes interpreted property values from all non-encrypted, non-JSON files in the specified input directory.
      *
      * @param inputDirectory The directory containing the files to be processed.
-     * @return The path to the output folder where processed data can be stored.
      */
-    public static Path run(Path inputDirectory) {
-        final Path outputFolderPath = makeOutputPath("ProcessInterpretedValues");
-        try {
-            Files.createDirectories(outputFolderPath);
-
-            try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(inputDirectory)) {
-                for (Path inputFile : directoryStream) {
-                    final String inputFileName = inputFile.getFileName().toString();
-                    if (!inputFile.toString().endsWith(".json") && !inputFileName.equals("subtitles.jpg")) {
-                        try (Metadata metadata = new Metadata(inputFile.toString())) {
-                            final boolean isEncrypted = metadata.getDocumentInfo().isEncrypted();
-                            if (metadata.getFileFormat() != FileFormat.Unknown && !isEncrypted) {
-                                IReadOnlyList<MetadataProperty> properties = metadata.findProperties(new InterpretedValueIsNotNullSpecification());
-                                for (MetadataProperty property : properties) {
-                                    System.out.printf("\tFile: '%s', Property: '%s', Raw Value: '%s', Interpreted Value: '%s'%n", inputFileName, property.getName(), property.getValue().getRawValue(), property.getInterpretedValue().getRawValue());
-                                }
-                            } else {
-                                System.out.printf("\tSkipping file: '%s', is it encrypted: %s, file format: %s%n", inputFileName, isEncrypted, metadata.getFileFormat());
+    public static void run(Path inputDirectory) {
+        System.out.println("Running sample: ProcessInterpretedValues..");
+        try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(inputDirectory)) {
+            for (Path inputFile : directoryStream) {
+                final String inputFileName = inputFile.getFileName().toString();
+                if (!inputFile.toString().endsWith(".json") && !inputFileName.equals("subtitles.jpg")) {
+                    try (Metadata metadata = new Metadata(inputFile.toString())) {
+                        final boolean isEncrypted = metadata.getDocumentInfo().isEncrypted();
+                        if (metadata.getFileFormat() != FileFormat.Unknown && !isEncrypted) {
+                            IReadOnlyList<MetadataProperty> properties = metadata.findProperties(new InterpretedValueIsNotNullSpecification());
+                            for (MetadataProperty property : properties) {
+                                System.out.printf("\tFile: '%s', Property: '%s', Raw Value: '%s', Interpreted Value: '%s'%n", inputFileName, property.getName(), property.getValue().getRawValue(), property.getInterpretedValue().getRawValue());
                             }
-                        } catch (UnsupportedOperationException e) {
-                            FailureRegister.getInstance().registerFailedSample(e); // Register the error but continue
+                        } else {
+                            System.out.printf("\tSkipping file: '%s', is it encrypted: %s, file format: %s%n", inputFileName, isEncrypted, metadata.getFileFormat());
                         }
+                    } catch (UnsupportedOperationException e) {
+                        FailureRegister.getInstance().registerFailedSample(e); // Register the error but continue
                     }
                 }
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (IOException e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }
-        return outputFolderPath;
     }
 
 

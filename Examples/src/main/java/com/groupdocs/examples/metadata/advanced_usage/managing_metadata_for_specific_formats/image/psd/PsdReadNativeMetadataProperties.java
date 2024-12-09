@@ -30,7 +30,7 @@ public class PsdReadNativeMetadataProperties {
                 System.out.printf("\t\tHeight: %d%n", layer.getHeight());
                 System.out.printf("\t\tWidth: %d%n", layer.getWidth());
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

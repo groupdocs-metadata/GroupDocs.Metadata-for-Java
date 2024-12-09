@@ -24,7 +24,7 @@ public class MP3UpdateID3V2Tag {
      * @return The path to the modified MP3 file saved in the output directory.
      */
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("MP3WithID3V2Tags.mp3");
+        final Path outputPath = makeOutputPath("MP3UpdateID3V2Tag.mp3");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             MP3RootPackage root = metadata.getRootPackageGeneric();
             if (root.getID3V2() == null) {
@@ -40,7 +40,7 @@ public class MP3UpdateID3V2Tag {
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

@@ -24,7 +24,7 @@ public class GifReadFileFormatProperties {
             System.out.printf("\tExtension: %s%n", root.getGifImageType().getExtension());
             System.out.printf("\tWidth: %d%n", root.getGifImageType().getWidth());
             System.out.printf("\tHeight: %d%n", root.getGifImageType().getHeight());
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

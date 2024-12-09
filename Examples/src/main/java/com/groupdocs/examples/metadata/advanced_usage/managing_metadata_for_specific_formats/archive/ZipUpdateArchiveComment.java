@@ -31,7 +31,7 @@ public class ZipUpdateArchiveComment {
             // Save the modified metadata back to the output path
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

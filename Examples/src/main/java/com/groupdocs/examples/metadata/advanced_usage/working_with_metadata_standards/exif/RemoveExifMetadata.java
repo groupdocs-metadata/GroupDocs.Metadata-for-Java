@@ -17,14 +17,14 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  */
 public class RemoveExifMetadata {
     public static Path run(Path inputFile) {
-        final Path outputPath = makeOutputPath("outputJpeg");
+        final Path outputPath = makeOutputPath("RemoveExifMetadata.jpeg");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             IExif root = (IExif) metadata.getRootPackage();
             root.setExifPackage(null);
 
             metadata.save(outputPath.toString());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

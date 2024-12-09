@@ -21,7 +21,7 @@ public class WordProcessingReadDocumentStatistics {
             System.out.printf("\tPage Count: %s%n", root.getDocumentStatistics().getPageCount());
             System.out.printf("\tWord Count: %s%n", root.getDocumentStatistics().getWordCount());
 
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
             return root;
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);

@@ -23,8 +23,6 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
-
 /**
  * This example demonstrates how to extract metadata properties by various criteria regardless of the file format.
  */
@@ -34,57 +32,52 @@ public class ExtractMetadata {
      * Runs the metadata extraction process on a given input directory.
      *
      * @param inputDirectory The path to the directory containing the files to be processed.
-     * @return The path to the output folder where results will be stored.
      */
-    public static Path run(Path inputDirectory) {
-        final Path outputFolderPath = makeOutputPath("ExtractMetadata");
-        try {
-            Files.createDirectories(outputFolderPath);
-            try (final DirectoryStream<Path> directoryStream = Files.newDirectoryStream(inputDirectory)) {
-                for (Path inputFile : directoryStream) {
-                    final String inputFileName = inputFile.getFileName().toString();
-                    if (!inputFileName.endsWith(".json") && !inputFileName.equals("subtitles.jpg")) {
-                        try (Metadata metadata = new Metadata(inputFile.toString())) {
-                            final boolean isEncrypted = metadata.getDocumentInfo().isEncrypted();
-                            if (metadata.getFileFormat() != FileFormat.Unknown && !isEncrypted) {
-                                // Fetch all metadata properties that fall into a particular category
-                                IReadOnlyList<MetadataProperty> properties = metadata.findProperties(new FallsIntoCategorySpecification(Tags.getContent()));
+    public static void run(Path inputDirectory) {
+        System.out.println("Running sample: ExtractMetadata..");
+        try (final DirectoryStream<Path> directoryStream = Files.newDirectoryStream(inputDirectory)) {
+            for (Path inputFile : directoryStream) {
+                final String inputFileName = inputFile.getFileName().toString();
+                if (!inputFileName.endsWith(".json") && !inputFileName.equals("subtitles.jpg")) {
+                    try (Metadata metadata = new Metadata(inputFile.toString())) {
+                        final boolean isEncrypted = metadata.getDocumentInfo().isEncrypted();
+                        if (metadata.getFileFormat() != FileFormat.Unknown && !isEncrypted) {
+                            // Fetch all metadata properties that fall into a particular category
+                            IReadOnlyList<MetadataProperty> properties = metadata.findProperties(new FallsIntoCategorySpecification(Tags.getContent()));
 
-                                System.out.println("\tThe metadata properties describing some characteristics of the file content: title, keywords, language, etc.");
-                                for (MetadataProperty property : properties) {
-                                    System.out.printf("\t\tProperty name: %s, Property value: %s%n", property.getName(), property.getValue());
-                                }
-
-                                // Fetch all properties having a specific type and value
-                                int year = Calendar.getInstance().get(Calendar.YEAR);
-                                properties = metadata.findProperties(new OfTypeSpecification(MetadataPropertyType.DateTime).and(new YearMatchSpecification(year)));
-                                System.out.println("\tAll datetime properties with the year value equal to the current year");
-                                for (MetadataProperty property : properties) {
-                                    System.out.printf("\t\tProperty name: %s, Property value: %s%n", property.getName(), property.getValue());
-                                }
-
-                                // Fetch all properties whose names match the specified regex
-                                Pattern pattern = Pattern.compile("^author|company|(.+date.*)$", Pattern.CASE_INSENSITIVE);
-                                properties = metadata.findProperties(new RegexSpecification(pattern));
-                                System.out.printf("\tAll properties whose names match the following regex: %s%n", pattern.pattern());
-                                for (MetadataProperty property : properties) {
-                                    System.out.printf("\t\tProperty name: %s, Property value: %s%n", property.getName(), property.getValue());
-                                }
-
-                            } else {
-                                System.out.printf("\tSkipping file: '%s', is it encrypted: %s, file format: %s%n", inputFileName, metadata.getDocumentInfo().isEncrypted(), metadata.getFileFormat());
+                            System.out.println("\tThe metadata properties describing some characteristics of the file content: title, keywords, language, etc.");
+                            for (MetadataProperty property : properties) {
+                                System.out.printf("\t\tProperty name: %s, Property value: %s%n", property.getName(), property.getValue());
                             }
-                        } catch (UnsupportedOperationException e) {
-                            FailureRegister.getInstance().registerFailedSample(e); // Register the error but continue
+
+                            // Fetch all properties having a specific type and value
+                            int year = Calendar.getInstance().get(Calendar.YEAR);
+                            properties = metadata.findProperties(new OfTypeSpecification(MetadataPropertyType.DateTime).and(new YearMatchSpecification(year)));
+                            System.out.println("\tAll datetime properties with the year value equal to the current year");
+                            for (MetadataProperty property : properties) {
+                                System.out.printf("\t\tProperty name: %s, Property value: %s%n", property.getName(), property.getValue());
+                            }
+
+                            // Fetch all properties whose names match the specified regex
+                            Pattern pattern = Pattern.compile("^author|company|(.+date.*)$", Pattern.CASE_INSENSITIVE);
+                            properties = metadata.findProperties(new RegexSpecification(pattern));
+                            System.out.printf("\tAll properties whose names match the following regex: %s%n", pattern.pattern());
+                            for (MetadataProperty property : properties) {
+                                System.out.printf("\t\tProperty name: %s, Property value: %s%n", property.getName(), property.getValue());
+                            }
+
+                        } else {
+                            System.out.printf("\tSkipping file: '%s', is it encrypted: %s, file format: %s%n", inputFileName, metadata.getDocumentInfo().isEncrypted(), metadata.getFileFormat());
                         }
+                    } catch (UnsupportedOperationException e) {
+                        FailureRegister.getInstance().registerFailedSample(e); // Register the error but continue
                     }
                 }
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }
-        return outputFolderPath;
     }
 
 

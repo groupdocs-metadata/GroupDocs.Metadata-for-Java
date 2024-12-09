@@ -23,6 +23,7 @@ public class ImportMetadata {
      * @return The path to the output PDF file with imported metadata.
      */
     public static Path run(Path inputFile, Path importFile) {
+        System.out.println("Running sample: ImportMetadata..");
         // How to import metadata from json.
         final Path outputPath = makeOutputPath("ImportMetadata.pdf");
 
@@ -45,7 +46,7 @@ public class ImportMetadata {
                 System.out.printf("created date: %s, ", afterImportRoot.getDocumentProperties().getCreatedDate());
                 System.out.printf("producer: %s%n", afterImportRoot.getDocumentProperties().getProducer());
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }

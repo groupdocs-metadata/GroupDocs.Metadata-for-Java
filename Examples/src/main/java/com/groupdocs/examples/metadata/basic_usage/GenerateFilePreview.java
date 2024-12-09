@@ -29,6 +29,7 @@ public class GenerateFilePreview {
      * @return A list of paths to the generated preview images.
      */
     public static List<Path> run(Path inputFile) {
+        System.out.println("Running sample: GenerateFilePreview..");
         final List<Path> outputPaths = new ArrayList<>();
         try {
             try (Metadata metadata = new Metadata(inputFile.toString())) {
@@ -46,7 +47,7 @@ public class GenerateFilePreview {
 
                 metadata.generatePreview(previewOptions);
             }
-            System.out.println("..sample finished successfully.");
+            System.out.println("..sample finished successfully.\n");
         } catch (Exception e) {
             FailureRegister.getInstance().registerFailedSample(e);
         }
