@@ -13,9 +13,15 @@ import java.nio.file.Path;
 import java.util.Arrays;
 
 /**
- * This example shows how to use vCard property filters.
+ * This class demonstrates how to use vCard property filters to extract specific information from vCard files.
  */
 public class VCardFilterCardProperties {
+    /**
+     * Filters and extracts work-related preferred properties from the specified vCard file.
+     *
+     * @param inputFile The path to the input vCard file from which to filter and extract properties.
+     * @return The root package containing the filtered vCard information.
+     */
     public static VCardRootPackage run(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             VCardRootPackage root = metadata.getRootPackageGeneric();

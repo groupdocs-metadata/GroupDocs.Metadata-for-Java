@@ -15,9 +15,15 @@ import java.nio.file.Path;
 import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
 
 /**
- * This example shows how to update the Lyrics tag in an MP3 file
+ * This class provides functionality to update the Lyrics tag in an MP3 file.
  */
 public class MP3UpdateLyricsTag {
+    /**
+     * Updates the Lyrics tag in the specified MP3 file and saves the modified MP3 file.
+     *
+     * @param inputFile The path to the input MP3 file in which to update the Lyrics tag.
+     * @return The path to the modified MP3 file saved in the output directory.
+     */
     public static Path run(Path inputFile) {
         final Path outputPath = makeOutputPath("MP3WithLyrics.mp3");
         try (Metadata metadata = new Metadata(inputFile.toString())) {

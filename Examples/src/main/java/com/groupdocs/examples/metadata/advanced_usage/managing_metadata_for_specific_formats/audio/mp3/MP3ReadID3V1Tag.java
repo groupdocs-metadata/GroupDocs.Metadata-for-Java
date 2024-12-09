@@ -11,9 +11,15 @@ import com.groupdocs.metadata.core.MP3RootPackage;
 import java.nio.file.Path;
 
 /**
- * This code sample shows how to read the getID3V1() tag in an MP3 file.
+ * This class provides a method to read the ID3V1 tag from an MP3 file.
  */
 public class MP3ReadID3V1Tag {
+    /**
+     * Executes the process of reading the ID3V1 tag from the specified MP3 file.
+     *
+     * @param inputFile The path to the input MP3 file containing the ID3V1 tag.
+     * @return A {@link MP3RootPackage} object representing the root package of the MP3 file, or null if an error occurs.
+     */
     public static MP3RootPackage run(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             MP3RootPackage root = metadata.getRootPackageGeneric();
@@ -23,11 +29,10 @@ public class MP3ReadID3V1Tag {
                 System.out.printf("\tTitle: %s%n", root.getID3V1().getTitle());
                 System.out.printf("\tVersion: %s%n", root.getID3V1().getVersion());
                 System.out.printf("\tComment: %s%n", root.getID3V1().getComment());
-                // ...
+                // ... additional fields can be added here as needed
             } else {
                 System.out.println("\tID3V1 tag not found.");
             }
-
             System.out.println("..sample finished successfully.");
             return root;
         } catch (Exception e) {

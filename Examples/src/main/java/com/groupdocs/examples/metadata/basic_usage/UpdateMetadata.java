@@ -24,9 +24,16 @@ import java.util.concurrent.TimeUnit;
 import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
 
 /**
- * This example demonstrates how to update existing metadata properties by various criteria regardless of the file format.
+ * This class demonstrates how to update existing metadata properties by various criteria.
  */
 public class UpdateMetadata {
+
+    /**
+     * Updates existing metadata properties for files in the specified directory based on certain criteria.
+     *
+     * @param inputDirectory The path to the input directory containing files to process.
+     * @return The path to the output directory where processed files are saved.
+     */
     public static Path run(Path inputDirectory) {
         final Path outputFolderPath = makeOutputPath("UpdateMetadata");
         try {

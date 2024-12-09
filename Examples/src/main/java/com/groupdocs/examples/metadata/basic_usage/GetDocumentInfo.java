@@ -12,9 +12,17 @@ import com.groupdocs.metadata.core.IDocumentInfo;
 import java.nio.file.Path;
 
 /**
- * This example demonstrates how to extract basic format information from a file.
+ * This class demonstrates how to extract basic format information from a file.
  */
 public class GetDocumentInfo {
+
+    /**
+     * Extracts basic document information such as file format, extension, MIME type,
+     * number of pages, document size, and encryption status from the specified file.
+     *
+     * @param inputFile The path to the input file.
+     * @return An IDocumentInfo object containing the extracted document information.
+     */
     public static IDocumentInfo run(Path inputFile) {
         try {
             try (Metadata metadata = new Metadata(inputFile.toString())) {

@@ -13,9 +13,15 @@ import java.nio.file.Path;
 import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
 
 /**
- * This code sample shows how to remove the ID3v1 tag from an MP3 file.
+ * This class provides functionality to remove the ID3v1 tag from an MP3 file.
  */
 public class MP3RemoveID3V1Tag {
+    /**
+     * Removes the ID3v1 tag from the specified MP3 file and saves the modified MP3 file.
+     *
+     * @param inputFile The path to the input MP3 file from which to remove the ID3v1 tag.
+     * @return The path to the modified MP3 file saved in the output directory.
+     */
     public static Path run(Path inputFile) {
         final Path outputPath = makeOutputPath("MP3WithoutID3V1.mp3");
         try (Metadata metadata = new Metadata(inputFile.toString())) {

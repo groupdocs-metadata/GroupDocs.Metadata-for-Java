@@ -14,9 +14,15 @@ import com.groupdocs.metadata.tagging.PropertyTag;
 import java.nio.file.Path;
 
 /**
- * This code snippet demonstrates how to extract information about known properties that can be encountered in a particular package.
+ * This class demonstrates how to extract information about known properties that can be encountered in a WordProcessingPackage.
  */
 public class GetKnownPropertyDescriptors {
+    /**
+     * Extracts and prints information about known properties from the document properties of a WordProcessingPackage.
+     *
+     * @param inputFile The path to the input file from which to extract metadata properties.
+     * @return The WordProcessingPackage containing the document properties.
+     */
     public static WordProcessingPackage run(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             WordProcessingRootPackage root = metadata.getRootPackageGeneric();

@@ -12,9 +12,16 @@ import java.nio.file.Path;
 import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
 
 /**
- * This example demonstrates how to import metadata properties from json.
+ * This class demonstrates how to import metadata properties from a JSON file into a PDF document.
  */
 public class ImportMetadata {
+    /**
+     * Imports metadata properties from a specified JSON file into a PDF document and saves the result to an output path.
+     *
+     * @param inputFile The path to the input PDF file.
+     * @param importFile The path to the JSON file containing the metadata to be imported.
+     * @return The path to the output PDF file with imported metadata.
+     */
     public static Path run(Path inputFile, Path importFile) {
         // How to import metadata from json.
         final Path outputPath = makeOutputPath("ImportMetadata.pdf");

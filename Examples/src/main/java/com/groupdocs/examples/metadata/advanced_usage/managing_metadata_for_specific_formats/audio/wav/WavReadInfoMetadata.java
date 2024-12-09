@@ -13,9 +13,15 @@ import java.nio.file.Path;
 import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
 
 /**
- * This code sample shows how to extract INFO chunk metadata from a WAV file.
+ * This class provides functionality to extract INFO chunk metadata from a WAV file.
  */
 public class WavReadInfoMetadata {
+    /**
+     * Extracts the INFO chunk metadata from the specified WAV file.
+     *
+     * @param inputFile The path to the input WAV file from which to extract the metadata.
+     * @return The root package containing the extracted metadata.
+     */
     public static WavRootPackage run(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             WavRootPackage root = metadata.getRootPackageGeneric();

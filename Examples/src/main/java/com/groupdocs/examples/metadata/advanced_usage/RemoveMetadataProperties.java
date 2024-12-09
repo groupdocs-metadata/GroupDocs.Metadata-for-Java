@@ -18,9 +18,16 @@ import java.nio.file.Path;
 import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
 
 /**
- * This example demonstrates how to remove specific metadata properties using various criteria.
+ * This class demonstrates how to remove specific metadata properties from a file using various criteria.
  */
 public class RemoveMetadataProperties {
+
+    /**
+     * Removes metadata properties from the specified input file that match certain conditions.
+     *
+     * @param inputFile The path to the file from which metadata properties will be removed.
+     * @return The path to the output file where the modified metadata is saved.
+     */
     public static Path run(Path inputFile) {
         final Path outputPath = makeOutputPath("RemoveMetadataProperties.docx");
 

@@ -16,9 +16,16 @@ import java.util.Date;
 import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
 
 /**
- * This example demonstrates how to set specific metadata properties using different criteria.
+ * This class demonstrates how to set specific metadata properties using different criteria.
  */
 public class SetMetadataProperties {
+
+    /**
+     * Sets the value of metadata properties that match certain conditions.
+     *
+     * @param inputFile The path to the input file for which metadata will be modified.
+     * @return The path to the output file where the modified metadata is saved.
+     */
     public static Path run(Path inputFile) {
         final Path outputPath = makeOutputPath("SetMetadataProperties.docx");
         try (Metadata metadata = new Metadata(inputFile.toString())) {

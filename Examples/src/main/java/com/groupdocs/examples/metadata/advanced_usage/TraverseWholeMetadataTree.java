@@ -12,9 +12,15 @@ import com.groupdocs.metadata.core.MetadataProperty;
 import java.nio.file.Path;
 
 /**
- * This example demonstrates how to traverse the whole metadata tree for a specific file regardless of the format.
+ * This class demonstrates how to traverse the entire metadata tree for a specific file regardless of its format.
  */
 public class TraverseWholeMetadataTree {
+
+    /**
+     * Traverses and displays the metadata tree for the specified input file.
+     *
+     * @param inputFile The path to the input file whose metadata will be traversed.
+     */
     public static void run(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             displayMetadataTree(metadata.getRootPackage(), 0);

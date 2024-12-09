@@ -12,9 +12,15 @@ import com.groupdocs.metadata.core.MP3RootPackage;
 import java.nio.file.Path;
 
 /**
- * This example demonstrates how to read the getApeV2() tag in an MP3 file.
+ * This class provides a method to read the APEv2 tag information from an MP3 file.
  */
 public class MP3ReadApeTag {
+    /**
+     * Reads and prints the APEv2 tag details from the specified MP3 file.
+     *
+     * @param inputFile The path to the input MP3 file containing the APEv2 tag.
+     * @return An instance of {@link MP3RootPackage} if the APEv2 tag is found, otherwise null.
+     */
     public static MP3RootPackage run(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             MP3RootPackage root = metadata.getRootPackageGeneric();
@@ -26,7 +32,7 @@ public class MP3ReadApeTag {
                 System.out.printf("\tCopyright: %s%n", root.getApeV2().getCopyright());
                 System.out.printf("\tGenre: %s%n", root.getApeV2().getGenre());
                 System.out.printf("\tLanguage: %s%n", root.getApeV2().getLanguage());
-                // ...
+                // Additional fields can be printed here as needed
             } else {
                 System.out.println("\tAPEv2 tag not found.");
             }

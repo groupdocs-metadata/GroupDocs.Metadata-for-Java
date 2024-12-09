@@ -13,9 +13,16 @@ import java.nio.file.Path;
 import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
 
 /**
- * This example shows how to remove the APEv2 tag from an MP3 file.
+ * This class provides a method to remove the APEv2 tag from an MP3 file.
  */
 public class MP3RemoveApeTag {
+
+    /**
+     * Removes the APEv2 tag from the specified MP3 file and saves the modified MP3 file in the output directory.
+     *
+     * @param inputFile The path to the input MP3 file from which to remove the APEv2 tag.
+     * @return The path to the modified MP3 file saved in the output directory.
+     */
     public static Path run(Path inputFile) {
         final Path outputPath = makeOutputPath("MP3WithoutApeTags.mp3");
         try (Metadata metadata = new Metadata(inputFile.toString())) {

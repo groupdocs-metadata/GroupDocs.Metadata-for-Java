@@ -13,9 +13,15 @@ import com.groupdocs.metadata.core.VCardTextRecord;
 import java.nio.file.Path;
 
 /**
- * This code sample demonstrates how to extract vCard fields along with descriptive parameters.
+ * This class demonstrates how to extract vCard fields along with their descriptive parameters from a vCard file.
  */
 public class VCardReadCardPropertiesWithParameters {
+    /**
+     * Extracts and displays vCard fields and their descriptive parameters from the specified vCard file.
+     *
+     * @param inputFile The path to the input vCard file from which to extract properties.
+     * @return The root package containing the extracted vCard information.
+     */
     public static VCardRootPackage run(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             VCardRootPackage root = metadata.getRootPackageGeneric();

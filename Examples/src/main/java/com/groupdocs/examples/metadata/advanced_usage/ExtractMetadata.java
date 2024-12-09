@@ -29,6 +29,13 @@ import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
  * This example demonstrates how to extract metadata properties by various criteria regardless of the file format.
  */
 public class ExtractMetadata {
+
+    /**
+     * Runs the metadata extraction process on a given input directory.
+     *
+     * @param inputDirectory The path to the directory containing the files to be processed.
+     * @return The path to the output folder where results will be stored.
+     */
     public static Path run(Path inputDirectory) {
         final Path outputFolderPath = makeOutputPath("ExtractMetadata");
         try {

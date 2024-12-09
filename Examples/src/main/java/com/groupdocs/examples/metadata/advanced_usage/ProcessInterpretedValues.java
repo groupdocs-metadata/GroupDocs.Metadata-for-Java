@@ -19,9 +19,16 @@ import java.nio.file.Path;
 import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
 
 /**
- * This example demonstrates how to use interpreted property values.
+ * This class demonstrates how to process interpreted property values from metadata files
  */
 public class ProcessInterpretedValues {
+
+    /**
+     * Processes interpreted property values from all non-encrypted, non-JSON files in the specified input directory.
+     *
+     * @param inputDirectory The directory containing the files to be processed.
+     * @return The path to the output folder where processed data can be stored.
+     */
     public static Path run(Path inputDirectory) {
         final Path outputFolderPath = makeOutputPath("ProcessInterpretedValues");
         try {

@@ -16,10 +16,16 @@ import java.util.List;
 import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
 
 /**
- * This example demonstrates how to export metadata properties to an Excel workbook.
+ * This class demonstrates how to export metadata properties from a file to an Excel workbook,
+ * XML document, and CSV file.
  */
 public class ExportMetadataProperties {
-
+    /**
+     * Exports metadata properties from the specified input file to various formats (Excel, XML, CSV).
+     *
+     * @param inputFile The path to the input file from which to extract metadata.
+     * @return A list of paths to the output files containing the exported metadata.
+     */
     public static List<Path> run(Path inputFile) {
         final List<Path> outputPaths = new ArrayList<>();
         final Path outputXlsPath = makeOutputPath("ExportMetadataProperties.xls");

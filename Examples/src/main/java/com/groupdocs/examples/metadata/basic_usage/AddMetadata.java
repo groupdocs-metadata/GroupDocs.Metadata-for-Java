@@ -19,9 +19,16 @@ import java.util.Date;
 import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
 
 /**
- * This example demonstrates how to add some missing metadata properties to a file regardless of its format.
+ * This class demonstrates how to add missing metadata properties to files.
  */
 public class AddMetadata {
+
+    /**
+     * Adds missing metadata properties to each file in the input directory.
+     *
+     * @param inputDirectory The path to the directory containing the files to be processed.
+     * @return The path to the output folder where the modified files are saved.
+     */
     public static Path run(Path inputDirectory) {
         final Path outputFolderPath = makeOutputPath("AddMetadata");
         try {

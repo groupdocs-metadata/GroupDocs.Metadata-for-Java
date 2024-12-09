@@ -13,16 +13,23 @@ import java.nio.charset.Charset;
 import java.nio.file.Path;
 
 /**
- * The following code snippet shows how to get metadata from a ZIP archive.
+ * Provides a method to read metadata from a ZIP archive.
  */
 public class ZipReadNativeMetadataProperties {
-    public static ZipRootPackage run(Path inputZip) {
-        final Charset charset = Charset.forName("cp866");
 
+    /**
+     * Extracts and prints metadata from a ZIP archive.
+     *
+     * @param inputZip The path to the ZIP archive file.
+     * @return The root package of the ZIP archive, or null if an error occurred.
+     */
+    public static ZipRootPackage run(Path inputZip) {
+        final Charset charset = Charset.forName("cp866"); // Specifies the character encoding for raw file names
         try (Metadata metadata = new Metadata(inputZip.toString())) {
             ZipRootPackage root = metadata.getRootPackageGeneric();
             System.out.printf("Zip comment: %s%n", root.getZipPackage().getComment());
             System.out.printf("Total entries: %d%n", root.getZipPackage().getTotalEntries());
+
             for (ZipFile file : root.getZipPackage().getFiles()) {
                 System.out.printf("\tFile name: %s%n", file.getName());
                 System.out.printf("\tCompressed size: %d%n", file.getCompressedSize());
@@ -32,6 +39,7 @@ public class ZipReadNativeMetadataProperties {
                 System.out.printf("\tUncompressed size: %d%n", file.getUncompressedSize());
                 System.out.printf("\tRaw name: %s%n", new String(file.getRawName(), charset));
             }
+
             System.out.println("..sample finished successfully.");
             return root;
         } catch (Exception e) {

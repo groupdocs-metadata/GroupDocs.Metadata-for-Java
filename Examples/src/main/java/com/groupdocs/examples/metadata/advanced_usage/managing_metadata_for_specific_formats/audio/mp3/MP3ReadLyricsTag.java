@@ -12,9 +12,20 @@ import com.groupdocs.metadata.core.MP3RootPackage;
 import java.nio.file.Path;
 
 /**
- * This code sample shows how to read the Lyrics tag from an MP3 file.
+ * Demonstrates how to read the Lyrics tag from an MP3 file using the GroupDocs.Metadata API.
+ * <p>
+ * This class provides a static method to extract and display Lyrics3V2 tag information,
+ * including lyrics, album, artist, and track details, from the specified MP3 file.
+ * </p>
  */
 public class MP3ReadLyricsTag {
+
+    /**
+     * Reads the Lyrics3V2 tag from the provided MP3 file and prints its contents.
+     *
+     * @param inputFile The path to the MP3 file from which to read the Lyrics3V2 tag.
+     * @return An {@link MP3RootPackage} object representing the root package of the MP3 file, or null if an error occurs.
+     */
     public static MP3RootPackage run(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             MP3RootPackage root = metadata.getRootPackageGeneric();

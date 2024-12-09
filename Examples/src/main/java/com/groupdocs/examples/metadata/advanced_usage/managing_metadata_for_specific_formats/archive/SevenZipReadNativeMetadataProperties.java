@@ -8,19 +8,28 @@ import com.groupdocs.metadata.core.SevenZipRootPackage;
 import java.nio.file.Path;
 
 /**
- * The following code snippet shows how to get metadata from a SevenZip archive.
+ * Provides a method to read metadata from a SevenZip archive.
  */
 public class SevenZipReadNativeMetadataProperties {
+
+    /**
+     * Extracts and prints metadata from a SevenZip archive.
+     *
+     * @param inputFile The path to the SevenZip archive file.
+     * @return The root package of the SevenZip archive, or null if an error occurred.
+     */
     public static SevenZipRootPackage run(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             SevenZipRootPackage root = metadata.getRootPackageGeneric();
             System.out.println("\tTotal entries in archive: " + root.getSevenZipPackage().getTotalEntries());
+
             for (SevenZipFile file : root.getSevenZipPackage().getFiles()) {
                 System.out.println("\tFile name: " + file.getName());
                 System.out.println("\tCompressed size: " + file.getCompressedSize());
                 System.out.println("\tModification date time: " + file.getModificationDateTime());
                 System.out.println("\tUncompressed size: " + file.getUncompressedSize());
             }
+
             System.out.println("..sample finished successfully.");
             return root;
         } catch (Exception e) {

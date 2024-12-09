@@ -13,10 +13,15 @@ import java.nio.file.Path;
 import java.util.Arrays;
 
 /**
- * This code sample demonstrates how to read metadata properties of a vCard file.
+ * This class demonstrates how to read metadata properties from a vCard file.
  */
 public class VCardReadCardProperties {
-
+    /**
+     * Reads and displays the metadata properties of a specified vCard file.
+     *
+     * @param inputFile The path to the input vCard file from which to read properties.
+     * @return The root package containing the vCard metadata.
+     */
     public static VCardRootPackage run(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             VCardRootPackage root = metadata.getRootPackageGeneric();
@@ -37,5 +42,4 @@ public class VCardReadCardProperties {
         }
         return null;
     }
-
 }

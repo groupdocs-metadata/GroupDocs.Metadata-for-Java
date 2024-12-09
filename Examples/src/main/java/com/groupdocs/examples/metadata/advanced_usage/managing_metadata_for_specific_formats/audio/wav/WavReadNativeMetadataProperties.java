@@ -13,11 +13,16 @@ import java.nio.file.Path;
 import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
 
 /**
- * This code sample shows how to extract technical audio information from a WAV file.
+ * This class provides functionality to extract technical audio information from a WAV file.
  */
 public class WavReadNativeMetadataProperties {
+    /**
+     * Extracts the technical audio information from the specified WAV file.
+     *
+     * @param inputFile The path to the input WAV file from which to extract the metadata.
+     * @return The root package containing the extracted audio information.
+     */
     public static WavRootPackage run(Path inputFile) {
-        final Path outputPath = makeOutputPath("UpdatedWavInfo.wav");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             WavRootPackage root = metadata.getRootPackageGeneric();
             if (root.getWavPackage() != null) {

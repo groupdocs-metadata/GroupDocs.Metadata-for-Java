@@ -18,6 +18,12 @@ import java.nio.file.Path;
  * This example demonstrates how to search for specific metadata properties using tags.
  */
 public class FindMetadataProperties {
+    /**
+     * Retrieves metadata properties that contain the name of the last document editor or the date/time the document was last modified.
+     *
+     * @param inputFile The path to the input file from which to retrieve metadata properties.
+     * @return A list of metadata properties that match the specified criteria.
+     */
     public static IReadOnlyList<MetadataProperty> byTag(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             // Fetch all the properties satisfying the predicate:
@@ -34,6 +40,12 @@ public class FindMetadataProperties {
         return null;
     }
 
+    /**
+     * Retrieves metadata properties that fall into the person category.
+     *
+     * @param inputFile The path to the input file from which to retrieve metadata properties.
+     * @return A list of metadata properties that match the specified criteria.
+     */
     public static IReadOnlyList<MetadataProperty> byTagGroup(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             IReadOnlyList<MetadataProperty> properties = metadata.findProperties(new FallsIntoCategorySpecification(Tags.getPerson()));

@@ -11,9 +11,15 @@ import com.groupdocs.metadata.core.MP3RootPackage;
 import java.nio.file.Path;
 
 /**
- * This example demonstrates how to read MPEG audio metadata from an MP3 file.
+ * This class demonstrates how to read MPEG audio metadata from an MP3 file.
  */
 public class MP3ReadMpegAudioMetadata {
+    /**
+     * This method reads MPEG audio metadata from the specified MP3 file.
+     *
+     * @param inputFile The path to the input MP3 file containing the MPEG audio metadata.
+     * @return The root package of the MP3 file, or null if an error occurred.
+     */
     public static MP3RootPackage run(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             MP3RootPackage root = metadata.getRootPackageGeneric();

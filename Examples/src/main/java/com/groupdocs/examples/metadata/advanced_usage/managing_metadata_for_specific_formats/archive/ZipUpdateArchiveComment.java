@@ -13,14 +13,22 @@ import java.nio.file.Path;
 import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
 
 /**
- * The following code snippet shows how to update the user comment in a ZIP archive.
+ * This class provides a method to update the user comment in a ZIP archive.
  */
 public class ZipUpdateArchiveComment {
+    /**
+     * Executes the process of updating the comment in the specified ZIP archive.
+     *
+     * @param inputFile The path to the input file from which metadata will be read and updated.
+     * @return The path to the output file where the updated metadata is saved.
+     */
     public static Path run(Path inputFile) {
         final Path outputPath = makeOutputPath("ZipUpdateArchiveComment.docx");
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             ZipRootPackage root = metadata.getRootPackageGeneric();
+            // Update the comment of the ZIP package to "updated comment"
             root.getZipPackage().setComment("updated comment");
+            // Save the modified metadata back to the output path
             metadata.save(outputPath.toString());
 
             System.out.println("..sample finished successfully.");

@@ -8,8 +8,16 @@ import com.groupdocs.metadata.search.AnySpecification;
 import java.nio.file.Path;
 import java.util.*;
 
+/**
+ * This class provides methods for extracting metadata property values from a file using different approaches.
+ */
 public class ExtractingPropertyValues {
-
+    /**
+     * Extracts and prints metadata properties of type String or DateTime from the specified input file.
+     *
+     * @param inputFile The path to the input file from which to extract metadata properties.
+     * @return A list of read-only metadata properties found in the file.
+     */
     public static IReadOnlyList<MetadataProperty> usingType(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             // Fetch all metadata properties from the file
@@ -30,6 +38,11 @@ public class ExtractingPropertyValues {
         return null;
     }
 
+    /**
+     * Extracts metadata properties using a custom value acceptor from the specified input file.
+     *
+     * @param inputFile The path to the input file from which to extract metadata properties.
+     */
     public static void usingAcceptor(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             // Fetch all metadata properties

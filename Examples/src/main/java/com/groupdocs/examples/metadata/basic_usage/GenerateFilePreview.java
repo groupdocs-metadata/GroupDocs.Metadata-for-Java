@@ -18,9 +18,16 @@ import java.util.List;
 import static com.groupdocs.examples.metadata.utils.FilesUtils.makeOutputPath;
 
 /**
- * This code snippet demonstrates how to create image previews for document pages.
+ * This class demonstrates how to create image previews for document pages.
  */
 public class GenerateFilePreview {
+
+    /**
+     * Generates image previews for the specified document file.
+     *
+     * @param inputFile The path to the input document file.
+     * @return A list of paths to the generated preview images.
+     */
     public static List<Path> run(Path inputFile) {
         final List<Path> outputPaths = new ArrayList<>();
         try {

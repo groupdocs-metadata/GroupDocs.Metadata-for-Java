@@ -12,9 +12,15 @@ import com.groupdocs.metadata.core.MP3RootPackage;
 import java.nio.file.Path;
 
 /**
- * This example shows how to read the ID3v2 tag in an MP3 file.
+ * This class provides a method to read the ID3v2 tag in an MP3 file.
  */
 public class MP3ReadID3V2Tag {
+    /**
+     * Executes the process of reading the ID3v2 tag from the specified MP3 file.
+     *
+     * @param inputFile The path to the input MP3 file containing the ID3v2 tag.
+     * @return A {@link MP3RootPackage} object representing the root package of the MP3 file, or null if an error occurs.
+     */
     public static MP3RootPackage run(Path inputFile) {
         try (Metadata metadata = new Metadata(inputFile.toString())) {
             MP3RootPackage root = metadata.getRootPackageGeneric();
