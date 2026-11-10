@@ -17,7 +17,7 @@ public class EmlReadNativeMetadataProperties {
         try (Metadata metadata = new Metadata(Constants.InputEml)) {
             EmlRootPackage root = metadata.getRootPackageGeneric();
 
-            System.out.println(root.getEmailPackage().getSender());
+            System.out.println(root.getEmailPackage().getSenderEmailAddress());
             System.out.println(root.getEmailPackage().getSubject());
             for (String recipient : root.getEmailPackage().getRecipients()) {
                 System.out.println(recipient);

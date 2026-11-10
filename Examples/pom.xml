@@ -5,7 +5,7 @@
 
     <groupId>GroupDocs.Metadata-for-Java</groupId>
     <artifactId>GroupDocs.Metadata-for-Java</artifactId>
-    <version>26.7</version>
+    <version>26.11</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -16,12 +16,18 @@
         <dependency>
             <groupId>com.groupdocs</groupId>
             <artifactId>groupdocs-metadata</artifactId>
-            <version>26.7</version>
+            <version>26.11</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.6</version>
+        </dependency>
+        <!-- Required by GroupDocs.Metadata 26.11 to render EMF previews (Metadata.generatePreview) -->
+        <dependency>
+            <groupId>org.freehep</groupId>
+            <artifactId>freehep-graphicsio-emf</artifactId>
+            <version>2.4</version>
         </dependency>
     </dependencies>
     <repositories>

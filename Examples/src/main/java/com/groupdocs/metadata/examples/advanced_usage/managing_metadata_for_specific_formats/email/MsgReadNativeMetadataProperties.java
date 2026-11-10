@@ -17,7 +17,7 @@ public class MsgReadNativeMetadataProperties {
         try (Metadata metadata = new Metadata(Constants.InputMsg)) {
             MsgRootPackage root = metadata.getRootPackageGeneric();
 
-            System.out.println(root.getMsgPackage().getSender());
+            System.out.println(root.getMsgPackage().getSenderEmailAddress());
             System.out.println(root.getMsgPackage().getSubject());
             for (String recipient : root.getMsgPackage().getRecipients()) {
                 System.out.println(recipient);
