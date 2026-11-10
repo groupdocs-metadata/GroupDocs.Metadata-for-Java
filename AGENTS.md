@@ -45,7 +45,7 @@ For IDE agents that support MCP, see [https://github.com/groupdocs-metadata/Grou
 Apply a GroupDocs license before processing files without evaluation limitations:
 
 ```java
-import com.groupdocs.metadata.License;
+import com.groupdocs.metadata.licensing.License;
 
 // Call once at application startup
 new License().setLicense("path/to/GroupDocs.Metadata.lic");
