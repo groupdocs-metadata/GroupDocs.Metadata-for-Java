@@ -10,6 +10,7 @@ import com.groupdocs.metadata.examples.advanced_usage.extracting_property_values
 import com.groupdocs.metadata.examples.advanced_usage.loading_files.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.archive.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.audio.mp3.*;
+import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.audio.ogg.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.audio.wav.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.business_card.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.cad.*;
@@ -24,6 +25,7 @@ import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_spec
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.email.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.font.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.ImageReadFileFormatProperties;
+import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.avif.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.bmp.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.dicom.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.dng.DngReadFileFormatProperties;
@@ -31,7 +33,7 @@ import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_spec
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.jpeg.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.jpeg.maker_note.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.jpeg2000.*;
-import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.png.PngReadTextChunks;
+import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.png.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.psd.*;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.raw.Cr2ReadFileFormatProperties;
 import com.groupdocs.metadata.examples.advanced_usage.managing_metadata_for_specific_formats.image.tiff.*;
@@ -47,6 +49,7 @@ import com.groupdocs.metadata.examples.advanced_usage.working_with_metadata_stan
 import com.groupdocs.metadata.examples.advanced_usage.working_with_metadata_standards.iptc.*;
 import com.groupdocs.metadata.examples.advanced_usage.working_with_metadata_standards.xmp.*;
 import com.groupdocs.metadata.examples.basic_usage.*;
+import com.groupdocs.metadata.examples.migration.comparing_metadata_properties.*;
 import com.groupdocs.metadata.examples.migration.exporting_metadata_properties.*;
 import com.groupdocs.metadata.examples.migration.extracting_specific_metadata_packages.*;
 import com.groupdocs.metadata.examples.migration.using_custom_replace_handler.*;
@@ -93,6 +96,7 @@ public class RunExamples {
 //        LoadFromStream.run();
 //        LoadingFileOfSpecificFormat.run();
 //        LoadPasswordProtectedDocument.run();
+//        LoadFromUri.run();
 
         //end
 
@@ -115,6 +119,8 @@ public class RunExamples {
         WorkingWithInterpretedValues.run();
         FindMetadataPropertiesByGroupTag.run();
         ImportMetadata.run();
+        CopyToMetadata.run();
+        GetSupportedFileTypeFeatures.run();
 
 
         // Managing metadata for specific formats
@@ -170,6 +176,7 @@ public class RunExamples {
         PdfUpdateBuiltInProperties.run();
         PdfUpdateCustomProperties.run();
         PdfUpdateInspectionProperties.run();
+        PdfDetectPdfA.run();
 
             //end
 
@@ -222,12 +229,17 @@ public class RunExamples {
         Jpeg2000ReadComments.run();
 
         PngReadTextChunks.run();
+        PngUpdateXmpProperties.run();
+
+        AvifReadProperties.run();
 
         PsdReadNativeMetadataProperties.run();
         PsdReadImageResourceBlocks.run();
         PsdReadBasicExifProperties.run();
 
         TiffReadBasicIptcProperties.run();
+        TiffUpdateExifProperties.run();
+        TiffUpdateIptcProperties.run();
 
         Cr2ReadFileFormatProperties.run();
 
@@ -248,6 +260,7 @@ public class RunExamples {
         MatroskaReadSubtitles.run();
 
         //MovReadQuickTimeAtoms.run();
+        MovUpdateXmpProperties.run();
 
             //end
 
@@ -269,6 +282,8 @@ public class RunExamples {
         WavReadNativeMetadataProperties.run();
         WavReadInfoMetadata.run();
 
+        OggReadNativeMetadataProperties.run();
+
             //end
 
             // Other formats
@@ -288,11 +303,13 @@ public class RunExamples {
         EpubUpdateNativeMetadataProperties.run();
         EpubReadDublinCoreProperties.run();
         EpubUpdateDublinCoreProperties.run();
+        MobiReadProperties.run();
 
         EmlReadNativeMetadataProperties.run();
         MsgReadNativeMetadataProperties.run();
         EmailRemoveAttachments.run();
         EmailUpdateEmailFields.run();
+        MsgUpdateEmailFields.run();
 
         OpenTypeReadNativeMetadataProperties.run();
         OpenTypeReadDigitalSignatureProperties.run();
@@ -303,6 +320,12 @@ public class RunExamples {
         SevenZipReadNativeMetadataProperties.run();
         RarReadNativeMetadataProperties.run();
         TarReadNativeMetadataProperties.run();
+        GzipReadNativeMetadataProperties.run();
+        Bz2ReadNativeMetadataProperties.run();
+        XzReadNativeMetadataProperties.run();
+        ZstdReadNativeMetadataProperties.run();
+        AarReadNativeMetadataProperties.run();
+
 
             //end
 
@@ -357,6 +380,9 @@ public class RunExamples {
 
         //FindPropertiesByRegex.run();
         //UpdatePropertiesByRegex.run();
+
+        //GetDifferenceOfDocumentProperties.run();
+        //GetIntersectionOfExifProperties.run();
 
 
         System.out.println();
